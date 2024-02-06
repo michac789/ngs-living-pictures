@@ -9,10 +9,13 @@ export const FooterContainer = styled.div`
   
   width: auto;
   height: 50px;
-  padding-left: 10%;
   gap: 8px;
 
   background-color: ${colors.Neutral800};
   border-top: 2px solid #acacad;
   color: white;
+
+  &[data-sidebar-open="true"] {
+    width: calc(100% - 300px);
+  }
 `;

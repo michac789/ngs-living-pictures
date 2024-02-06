@@ -11,6 +11,10 @@ export const NavbarContainer = styled.div`
   width: auto;
   background-color: ${colors.Neutral100};
   border-bottom: 2px solid ${colors.Neutral500};
+
+  &[data-sidebar-open="true"] {
+    width: calc(100% - 300px);
+  }
 `;
 
 export const NavbarCenterWrapper = styled.div`
