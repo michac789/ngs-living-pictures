@@ -7,10 +7,10 @@ const iconNames = [
   'hi-home',
   'hi-magnifying-glass',
   'hi-play',
-]
-export type IconName = typeof iconNames[number]
+] as const;
+export type IconName = (typeof iconNames)[number];
 
-export const icons: { [key: IconName]: JSX.Element } = {
+export const icons: Record<IconName, JSX.Element> = {
   'hi-bars-3': (
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
   ),
@@ -29,4 +29,4 @@ export const icons: { [key: IconName]: JSX.Element } = {
   'hi-play': (
     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
   )
-}
+};

@@ -2,25 +2,19 @@ import React from "react";
 import { colors } from "../../constants/colors";
 
 const ColorPalette = () => {
-  const SinglePalette = ({ label }: { label: object }) => (
+  return (
     <div>
-      {Object.keys(label).map((color) => (
+      {Object.keys(colors).map((color) => (
         <div
           key={color}
           style={{
-            backgroundColor: label[color as keyof typeof label],
+            backgroundColor: colors[color as keyof typeof colors],
             padding: "20px"
           }}
         >
           {color}
         </div>
       ))}
-    </div>
-  )
-
-  return (
-    <div>
-      <SinglePalette label={colors.Neutral} />
     </div>
   );
 };

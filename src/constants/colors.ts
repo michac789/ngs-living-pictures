@@ -1,14 +1,16 @@
 
 export const colors = {
-  Neutral: {
-    N100: '#ffffff',
-    N200: '#fafcfd',
-    N300: '#eeeef0',
-    N400: '#d4d6da',
-    N500: '#acacad',
-    N600: '#666666',
-    N700: '#4d4d4d',
-    N800: '#2d2d2d',
-    N900: '#000000',
-  },
+  Neutral100: '#ffffff',
+  Neutral200: '#fafcfd',
+  Neutral300: '#eeeef0',
+  Neutral400: '#d4d6da',
+  Neutral500: '#acacad',
+  Neutral600: '#666666',
+  Neutral700: '#4d4d4d',
+  Neutral800: '#2d2d2d',
+  Neutral900: '#000000',
+
+  Red500: '#eb4634',
+
+  Blue100: '#c4f1f9',
 }
