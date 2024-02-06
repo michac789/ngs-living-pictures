@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavbarCenterWrapper, NavbarContainer, StyledNavbarIcon } from "./NavbarStyle";
 
 export const Navbar = () => {
@@ -26,7 +26,6 @@ export const Navbar = () => {
         </NavbarCenterWrapper>
         <StyledNavbarIcon name="hi-bars-3" size="32px" />
       </NavbarContainer>
-      <Outlet />
     </>
   );
 };

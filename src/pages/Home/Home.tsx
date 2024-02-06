@@ -9,14 +9,12 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <h3>
-        Home - TODO
-      </h3>
+    <>
+      Home - TODO
       <button onClick={handleNext}>
         Enter
       </button>
-    </div>
+    </>
   );
 }
 export default Home;
