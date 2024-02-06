@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Text } from "../../components/Text/Text";
 import { colors } from "../../constants/colors";
 
 export const SidebarContainer = styled.div`
@@ -9,10 +10,26 @@ export const SidebarContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100vh;
+  width: 268px;
+  height: calc(100vh - 32px);
 
   background-color: ${colors.Neutral800};
   border-right: 2px solid ${colors.Neutral500};
-  /* padding: 16px; */
+  padding: 16px;
+
+  &[data-sidebar-closed="true"] {
+    right: -300px;
+  }
+  transition: right 0.3s ease;
+`;
+
+export const SidebarMenuItem = styled(Text)`
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: ${colors.Neutral200};
+
+  &:hover {
+    color: ${colors.Neutral100};
+    text-decoration: underline;
+  }
 `;

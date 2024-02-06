@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   height: calc(100vh - 58px);
+  width: 100vw;
   overflow-y: auto;
   
   &[data-sidebar-open="true"] {
-    width: calc(100% - 300px);
+    width: calc(100vw - 300px);
   }
+  transition: width 0.3s ease;
 `;
 
 export const OutletContainer = styled.div`

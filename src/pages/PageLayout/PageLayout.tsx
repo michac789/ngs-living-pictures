@@ -15,7 +15,7 @@ const PageLayout = () => {
   return (
     <>
       <Navbar isSidebarOpen={isSidebarOpen} onToggleSidebar={toggleSidebar} />
-      {isSidebarOpen && <Sidebar />}
+      <Sidebar isSidebarOpen={isSidebarOpen} />
       <MainContainer data-sidebar-open={isSidebarOpen}>
         <OutletContainer>
           <Outlet />

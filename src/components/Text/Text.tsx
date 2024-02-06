@@ -1,7 +1,7 @@
 import React, { CSSProperties, ElementType } from "react";
 import { textVariants, TextVariant, StyledText } from "./TextStyle";
 
-export interface TextProps {
+export interface TextProps extends React.HTMLAttributes<HTMLElement>{
   as?: ElementType;
   className?: string;
   children: React.ReactNode;

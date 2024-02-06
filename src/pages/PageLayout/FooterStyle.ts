@@ -15,7 +15,5 @@ export const FooterContainer = styled.div`
   border-top: 2px solid #acacad;
   color: white;
 
-  &[data-sidebar-open="true"] {
-    width: calc(100% - 300px);
-  }
+  transition: width 0.3s ease-in-out;
 `;

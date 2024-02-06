@@ -8,13 +8,15 @@ export const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   
-  width: auto;
+  width: 100vw;
   background-color: ${colors.Neutral100};
   border-bottom: 2px solid ${colors.Neutral500};
 
   &[data-sidebar-open="true"] {
-    width: calc(100% - 300px);
+    width: calc(100vw - 300px);
   }
+
+  transition: width 0.3s ease;
 `;
 
 export const NavbarCenterWrapper = styled.div`
