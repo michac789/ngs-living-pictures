@@ -1,17 +1,28 @@
-import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
+import { MainContainer, OutletContainer } from "./PageLayoutStyle";
+import { Sidebar } from "./Sidebar";
 
 const PageLayout = () => {
-  const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
 
   return (
-    <div>
-      <h1>Page Layout</h1>
-      <button onClick={() => navigate("/")}>
-        Back to Home
-      </button>
-      <Outlet />
-    </div>
+    <>
+      <Navbar isSidebarOpen={isSidebarOpen} onToggleSidebar={toggleSidebar} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <MainContainer data-sidebar-open={isSidebarOpen}>
+        <OutletContainer>
+          <Outlet />
+        </OutletContainer>
+        <Footer />
+      </MainContainer>
+    </>
   );
 }
 export default PageLayout;

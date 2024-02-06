@@ -6,6 +6,9 @@ import Content from "./pages/Content/Content";
 import Foreword from "./pages/Foreword/Foreword";
 import Home from "./pages/Home/Home";
 
+import ColorPalette from "./pages/_Internal/ColorPalette";
+import Typography from "./pages/_Internal/Typography";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "foreword",
         element: <Foreword />
+      },
+      {
+        path: "color",
+        element: <ColorPalette />
+      },
+      {
+        path: "typography",
+        element: <Typography />
       }
     ]
   }

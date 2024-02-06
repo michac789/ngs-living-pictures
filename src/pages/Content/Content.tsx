@@ -16,8 +16,8 @@ const Content = () => {
   ];
 
   return (
-    <div>
-      <h2>Contents - TODO</h2>
+    <>
+      Contents - TODO
       <ul>
         {links.map((link) => (
           <li key={link.path}>
@@ -27,7 +27,7 @@ const Content = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 export default Content;
