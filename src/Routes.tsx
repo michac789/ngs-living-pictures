@@ -7,6 +7,7 @@ import Foreword from "./pages/Foreword/Foreword";
 import Home from "./pages/Home/Home";
 
 import ColorPalette from "./pages/_Internal/ColorPalette";
+import Typography from "./pages/_Internal/Typography";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "color",
         element: <ColorPalette />
+      },
+      {
+        path: "typography",
+        element: <Typography />
       }
     ]
   }

@@ -18,5 +18,4 @@ const ColorPalette = () => {
     </div>
   );
 };
-
 export default ColorPalette;
