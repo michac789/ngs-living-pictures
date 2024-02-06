@@ -1,9 +1,10 @@
 import React from "react";
+import { forewordMainText } from "../../constants/foreword";
 
 const Foreword = () => {
   return (
     <div>
-      Foreword - TODO
+      {forewordMainText}
     </div>
   );
 }
