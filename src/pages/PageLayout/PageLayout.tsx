@@ -1,17 +1,13 @@
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 const PageLayout = () => {
-  const navigate = useNavigate();
-
   return (
-    <div>
-      <h1>Page Layout</h1>
-      <button onClick={() => navigate("/")}>
-        Back to Home
-      </button>
+    <>
+      <Navbar />
       <Outlet />
-    </div>
+    </>
   );
 }
 export default PageLayout;
