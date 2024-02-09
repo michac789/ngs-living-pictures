@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   CoverImage,
@@ -18,16 +18,21 @@ const coverImg = require(`../../assets/${homeConstants.coverImagePath}`);
 
 const Home = () => {
   const navigate = useNavigate();
+  const nextButtonRef = useRef<HTMLDivElement>(null);
 
   const handleNext = () => {
     navigate("/content");
+  }
+
+  const handleEnterClick = () => {
+    nextButtonRef.current?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
     <>
       <CoverImageContainer>
         <CoverImage src={coverImg} alt="test" />
-        <DownArrowWrapper>
+        <DownArrowWrapper onClick={handleEnterClick}>
           <Icon name="hi-chevron-down" size="40px" fill={colors.Neutral800} stroke={colors.Neutral200} />
         </DownArrowWrapper>
         <TitleOverlayWrapper>
@@ -40,7 +45,7 @@ const Home = () => {
           <Text variant="subtitle" color={colors.Neutral200}>
             {homeConstants.coverSubtitle2}
           </Text>
-          <EnterButtonWrapper variant="button">
+          <EnterButtonWrapper variant="button" onClick={handleEnterClick}>
             ENTER
           </EnterButtonWrapper>
         </TitleOverlayWrapper>
@@ -48,9 +53,11 @@ const Home = () => {
       <HomeContentContainer>
         <Markdown value={homeConstants.homeTextMd} />
       </HomeContentContainer>
-      <button onClick={handleNext}>
-        Enter
-      </button>
+      <div ref={nextButtonRef}>
+        <button onClick={handleNext}>
+          Enter
+        </button>
+      </div>
     </>
   );
 }
