@@ -6,8 +6,10 @@ import {
   DownArrowWrapper,
   EnterButtonWrapper,
   HomeContentContainer,
-  TitleOverlayWrapper
+  NextButtonContainer,
+  TitleOverlayWrapper,
 } from "./HomeStyle";
+import { Button } from "../../components/Button/Button";
 import { Icon } from "../../components/Icon/Icon";
 import { Markdown } from "../../components/Markdown/Markdown";
 import { Text } from "../../components/Text/Text";
@@ -53,11 +55,16 @@ const Home = () => {
       <HomeContentContainer>
         <Markdown value={homeConstants.homeTextMd} />
       </HomeContentContainer>
-      <div ref={nextButtonRef}>
-        <button onClick={handleNext}>
-          Enter
-        </button>
-      </div>
+      <NextButtonContainer>
+        <Button
+          icon={<Icon name="hi-chevron-right" />}
+          iconPosition="right"
+          ref={nextButtonRef}
+          onClick={handleNext}
+        >
+          Next
+        </Button>
+      </NextButtonContainer>
     </>
   );
 }

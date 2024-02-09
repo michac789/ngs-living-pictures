@@ -69,7 +69,15 @@ export const EnterButtonWrapper = styled(Text)`
 `;
 
 export const HomeContentContainer = styled.div`
-  padding: 64px;
+  padding: 64px 64px 32px;
   margin: 0 auto;
   max-width: 900px;
+`;
+
+export const NextButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding-bottom: 32px;
 `;

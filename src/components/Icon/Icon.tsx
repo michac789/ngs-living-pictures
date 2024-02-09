@@ -21,7 +21,7 @@ export const Icon = ({
       width={size}
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      fill={colors.Neutral200}
+      fill="transparent"
       stroke={colors.Neutral600}
       {...props}
     >
