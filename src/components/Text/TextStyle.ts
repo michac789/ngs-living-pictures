@@ -53,7 +53,7 @@ const body1 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 2;
   letter-spacing: 0.15px;
   color: ${colors.Neutral800};
 `;

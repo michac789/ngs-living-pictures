@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { variantMapping } from "../Text/TextStyle";
 
 export const MarkdownTextWrapper = styled.div`
-  background-color: red;
   ${variantMapping['body1']}
 
   h1 {
