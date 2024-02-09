@@ -2,6 +2,7 @@ import React from 'react';
 
 const iconNames = [
   'hi-bars-3',
+  'hi-chevron-down',
   'hi-chevron-left',
   'hi-chevron-right',
   'hi-home',
@@ -13,6 +14,9 @@ export type IconName = (typeof iconNames)[number];
 export const icons: Record<IconName, JSX.Element> = {
   'hi-bars-3': (
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+  ),
+  'hi-chevron-down': (
+    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
   ),
   'hi-chevron-left': (
     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />

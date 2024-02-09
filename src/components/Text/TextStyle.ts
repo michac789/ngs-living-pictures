@@ -5,11 +5,10 @@ export const textVariants = [
   'title1',
   'title2',
   'title3',
-  'subtitle1',
-  'subtitle2',
+  'subtitle',
   'body1',
   'body2',
-  'button1',
+  'button',
 ] as const;
 export type TextVariant = (typeof textVariants)[number];
 
@@ -40,22 +39,13 @@ export const title3 = css`
   color: ${colors.Neutral800};
 `;
 
-export const subtitle1 = css`
+export const subtitle = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 28px;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0px;
   font-style: italic;
-  color: ${colors.Neutral800};
-`;
-
-export const subtitle2 = css`
-  font-family: 'Noto Sans', 'sans-serif';
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.25px;
   color: ${colors.Neutral800};
 `;
 
@@ -77,10 +67,10 @@ export const body2 = css`
   color: ${colors.Neutral800};
 `;
 
-export const button1 = css`
+export const button = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.75px;
   color: ${colors.Neutral800};
@@ -92,11 +82,10 @@ const variantMapping: {
   'title1': title1,
   'title2': title2,
   'title3': title3,
-  'subtitle1': subtitle1,
-  'subtitle2': subtitle2,
+  'subtitle': subtitle,
   'body1': body1,
   'body2': body2,
-  'button1': button1,
+  'button': button,
 };
 
 interface StyledTextProps {
