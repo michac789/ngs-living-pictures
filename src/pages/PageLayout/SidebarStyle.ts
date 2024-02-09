@@ -33,3 +33,14 @@ export const SidebarMenuItem = styled(Text)`
     text-decoration: underline;
   }
 `;
+
+export const SidebarTitleText = styled(Text)`
+  margin-bottom: 8px;
+  color: ${colors.Neutral200};
+`;
+
+export const SidebarSubtitleText = styled(Text)`
+  margin-bottom: 24px;
+  color: ${colors.Neutral200};
+  font-style: italic;
+`;

@@ -18,4 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   *::-webkit-scrollbar-thumb:hover {
     background-color: ${colors.Neutral600};
   }
+  ::-webkit-scrollbar-track {
+    background-color: ${colors.Neutral200};
+  }
 `;
