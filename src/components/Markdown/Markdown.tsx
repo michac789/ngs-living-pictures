@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { MarkdownTextWrapper } from "./MarkdownStyle";
 
 interface MarkdownTextProps {
@@ -11,7 +12,7 @@ export const Markdown = ({
 }: MarkdownTextProps) => {
   return (
     <MarkdownTextWrapper>
-      <ReactMarkdown>
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {value}
       </ReactMarkdown>
     </MarkdownTextWrapper>
