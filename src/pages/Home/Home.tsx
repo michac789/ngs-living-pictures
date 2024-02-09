@@ -8,6 +8,7 @@ import {
   TitleOverlayWrapper
 } from "./HomeStyle";
 import { Icon } from "../../components/Icon/Icon";
+import { Markdown } from "../../components/Markdown/Markdown";
 import { Text } from "../../components/Text/Text";
 import { colors } from "../../constants/colors";
 import { homeConstants } from "../../constants/home";
@@ -43,6 +44,7 @@ const Home = () => {
           </EnterButtonWrapper>
         </TitleOverlayWrapper>
       </CoverImageContainer>
+      <Markdown value={homeConstants.homeTextMd} />
       <button onClick={handleNext}>
         Enter
       </button>

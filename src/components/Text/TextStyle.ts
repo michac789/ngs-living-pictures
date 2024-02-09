@@ -12,7 +12,7 @@ export const textVariants = [
 ] as const;
 export type TextVariant = (typeof textVariants)[number];
 
-export const title1 = css`
+const title1 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 54px;
   font-weight: 700;
@@ -21,16 +21,16 @@ export const title1 = css`
   color: ${colors.Neutral800};
 `;
 
-export const title2 = css`
+const title2 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0px;
   color: ${colors.Neutral800};
 `;
 
-export const title3 = css`
+const title3 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 24px;
   font-weight: 700;
@@ -39,7 +39,7 @@ export const title3 = css`
   color: ${colors.Neutral800};
 `;
 
-export const subtitle = css`
+const subtitle = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 28px;
   font-weight: 400;
@@ -49,7 +49,7 @@ export const subtitle = css`
   color: ${colors.Neutral800};
 `;
 
-export const body1 = css`
+const body1 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 18px;
   font-weight: 400;
@@ -58,7 +58,7 @@ export const body1 = css`
   color: ${colors.Neutral800};
 `;
 
-export const body2 = css`
+const body2 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 14px;
   font-weight: 400;
@@ -67,7 +67,7 @@ export const body2 = css`
   color: ${colors.Neutral800};
 `;
 
-export const button = css`
+const button = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 20px;
   font-weight: 500;
@@ -76,7 +76,7 @@ export const button = css`
   color: ${colors.Neutral800};
 `;
 
-const variantMapping: {
+export const variantMapping: {
   [key in TextVariant]: any
 } = {
   'title1': title1,
