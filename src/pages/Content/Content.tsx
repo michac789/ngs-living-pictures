@@ -22,7 +22,7 @@ const Content = () => {
           >
             {link.title}
             {link.author && (
-              <span>&mdash; {link.author}</span>
+              <span>&nbsp;&mdash;&nbsp;{link.author}</span>
             )}
             <Icon name="ri-arrow-right-line" />
           </ContentLinkText>

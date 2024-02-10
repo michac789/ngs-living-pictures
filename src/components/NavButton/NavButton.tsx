@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { NavButtonContainer } from "./NavButtonStyle";
 import { Button } from "../Button/Button";
 import { Icon } from "../Icon/Icon";
-import { orderedPages } from "../../Routes";
+import { orderedPages } from "../../constants/pages";
 
 export const NavButton = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ ...props }, ref) => {
@@ -24,7 +24,7 @@ export const NavButton = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
       } else {
         setNextLink(null);
       }
-    }, []);
+    }, [navigate]);
 
     const handleBackClick = () => {
       if (backLink) {

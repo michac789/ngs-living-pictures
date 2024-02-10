@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { NavbarButton, NavbarCenterWrapper, NavbarContainer, StyledNavbarIcon } from "./NavbarStyle";
 import { Icon } from "../../components/Icon/Icon";
 import { Text } from "../../components/Text/Text";
-import { orderedPages } from "../../Routes";
+import { orderedPages } from "../../constants/pages";
 
 interface NavbarProps {
   isSidebarOpen: boolean;

@@ -1,35 +1,9 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { orderedPages } from "./constants/pages";
 import PageLayout from "./pages/PageLayout/PageLayout";
-
-import Content from "./pages/Content/Content";
-import Foreword from "./pages/Foreword/Foreword";
-import Home from "./pages/Home/Home";
-
 import ColorPalette from "./pages/_Internal/ColorPalette";
 import Typography from "./pages/_Internal/Typography";
-
-export const orderedPages: {
-  link: string;
-  name: string;
-  element: React.ReactNode;
-}[] = [
-  {
-    link: "/",
-    name: "Cover",
-    element: <Home />
-  },
-  {
-    link: '/content',
-    name: 'Contents',
-    element: <Content />
-  },
-  {
-    link: '/foreword',
-    name: 'Foreword',
-    element: <Foreword />
-  },
-]
 
 const router = createBrowserRouter([
   {

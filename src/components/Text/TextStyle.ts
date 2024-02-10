@@ -7,6 +7,7 @@ export const textVariants = [
   'title3',
   'subtitle1',
   'subtitle2',
+  'subtitle3',
   'body1',
   'body2',
   'button',
@@ -60,6 +61,15 @@ const subtitle2 = css`
   color: ${colors.Neutral800};
 `;
 
+const subtitle3 = css`
+  font-family: 'Noto Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  color: ${colors.Neutral800};
+`;
+
 const body1 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 18px;
@@ -95,6 +105,7 @@ export const textVariantMapping: {
   'title3': title3,
   'subtitle1': subtitle1,
   'subtitle2': subtitle2,
+  'subtitle3': subtitle3,
   'body1': body1,
   'body2': body2,
   'button': button,
