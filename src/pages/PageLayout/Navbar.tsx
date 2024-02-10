@@ -26,6 +26,7 @@ export const Navbar = ({
 
   useEffect(() => {
     const currentIndex = orderedPages.findIndex(({ link }) => link === currentPath);
+    if (currentIndex === -1) return;
     setPrevLink(() => {
       if (currentIndex === 0) return null;
       return {
