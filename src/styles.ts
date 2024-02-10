@@ -19,6 +19,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${colors.Neutral600};
   }
   ::-webkit-scrollbar-track {
-    background-color: ${colors.Neutral200};
+    background-color: ${colors.Neutral300};
   }
 `;

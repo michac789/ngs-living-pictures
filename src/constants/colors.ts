@@ -10,6 +10,7 @@ export const colors = {
   Neutral800: '#2d2d2d',
   Neutral900: '#000000',
 
+  Red400: '#f56565',
   Red500: '#eb4634',
   Red700: '#bd2c0f',
 

@@ -44,7 +44,7 @@ export const orderedPages: SinglePage[] = [
   },
   {
     link: '/essay_Roy',
-    name: 'III. (Other)worldly Things: The Social',
+    name: 'III. (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia',
     element: <PageContent data={essayRoy} />,
   },
   {

@@ -10,12 +10,13 @@ export const SidebarContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 268px;
+  width: 282px;
   height: calc(100vh - 32px);
 
   background-color: ${colors.Neutral800};
   border-right: 2px solid ${colors.Neutral500};
-  padding: 16px;
+  padding: 16px 16px 16px 0;
+  overflow: auto;
 
   &[data-sidebar-closed="true"] {
     right: -300px;
@@ -24,9 +25,23 @@ export const SidebarContainer = styled.div`
 `;
 
 export const SidebarMenuItem = styled(Text)`
-  margin-bottom: 12px;
+  padding: 8px 8px 8px 16px;
   cursor: pointer;
   color: ${colors.Neutral200};
+  line-height: 1.3;
+
+  border-left: 4px solid ${colors.Neutral800};
+  &[data-selected="true"] {
+    border-left: 4px solid ${colors.Red400};
+    color: ${colors.Red400};
+    cursor: default;
+
+    &:hover {
+      border-left: 4px solid ${colors.Red400};
+      color: ${colors.Red400};
+      text-decoration: none;
+    }
+  }
 
   &:hover {
     color: ${colors.Neutral100};
@@ -35,14 +50,20 @@ export const SidebarMenuItem = styled(Text)`
 `;
 
 export const SidebarTitleText = styled(Text)`
-  margin-bottom: 8px;
+  margin: 8px 0 8px 20px;
   font-weight: 700;
   line-height: 1.2;
   color: ${colors.Neutral200};
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.Neutral100};
+    text-decoration: underline;
+  }
 `;
 
 export const SidebarSubtitleText = styled(Text)`
-  margin-bottom: 24px;
+  margin: 0 0 24px 20px;
   color: ${colors.Neutral200};
   font-style: italic;
 `;
