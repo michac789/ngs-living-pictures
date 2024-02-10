@@ -33,8 +33,8 @@ const title2 = css`
 const title3 = css`
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 24px;
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 400;
+  line-height: 1.5;
   letter-spacing: 0.25px;
   color: ${colors.Neutral800};
 `;

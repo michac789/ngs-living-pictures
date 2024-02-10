@@ -36,6 +36,8 @@ export const SidebarMenuItem = styled(Text)`
 
 export const SidebarTitleText = styled(Text)`
   margin-bottom: 8px;
+  font-weight: 700;
+  line-height: 1.2;
   color: ${colors.Neutral200};
 `;
 

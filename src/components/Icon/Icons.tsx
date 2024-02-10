@@ -3,6 +3,7 @@ import React from 'react';
 const iconNames = [
   'ri-arrow-down-s-line',
   'ri-arrow-left-s-line',
+  'ri-arrow-right-line',
   'ri-arrow-right-s-line',
   'ri-home-3-fill',
   'ri-menu-fill',
@@ -17,6 +18,9 @@ export const icons: Record<IconName, JSX.Element> = {
   ),
   'ri-arrow-left-s-line': (
     <path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
+  ),
+  'ri-arrow-right-line': (
+    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
   ),
   'ri-arrow-right-s-line': (
     <path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path>
