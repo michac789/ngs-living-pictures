@@ -1,19 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ContentButtonContainer, ContentContainer, ContentLinkText, TitleText } from "./ContentStyle";
-import { Button } from "../../components/Button/Button";
+import { ContentContainer, ContentLinkText, TitleText } from "./ContentStyle";
 import { Icon } from "../../components/Icon/Icon";
+import { NavButton } from "../../components/NavButton/NavButton";
 import { contentLinks } from "../../constants/content";
 
 const Content = () => {
   const navigate = useNavigate();
-
-  const handleBack = () => {
-    navigate('/');
-  }
-  const handleNext = () => {
-    navigate('/foreword');
-  }
 
   return (
     <>
@@ -35,22 +28,7 @@ const Content = () => {
           </ContentLinkText>
         ))}
       </ContentContainer>
-      <ContentButtonContainer>
-        <Button
-          onClick={handleBack}
-          icon={<Icon name="ri-arrow-left-s-line" />}
-          iconPosition="left"
-        >
-          Back
-        </Button>
-        <Button
-          onClick={handleNext}
-          icon={<Icon name="ri-arrow-right-s-line" />}
-          iconPosition="right"
-        >
-          Next
-        </Button>
-      </ContentButtonContainer>
+      <NavButton />
     </>
   );
 }

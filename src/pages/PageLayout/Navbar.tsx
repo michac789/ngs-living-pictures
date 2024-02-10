@@ -55,7 +55,7 @@ export const Navbar = ({
 
   return (
     <NavbarContainer data-sidebar-open={isSidebarOpen}>
-      <StyledNavbarIcon name="ri-search-line" size="32px" />
+      <StyledNavbarIcon name="ri-search-line" size="28px" />
       <NavbarCenterWrapper>
         {prevLink && (
           <NavbarButton onClick={handleBackClick}>
@@ -66,11 +66,11 @@ export const Navbar = ({
           </NavbarButton>
         )}
         {currentPath === '/' ? (
-          <StyledNavbarIcon name="ri-play-fill" size="32px" onClick={
+          <StyledNavbarIcon name="ri-play-fill" size="28px" onClick={
             () => navigate('/content')
           } />
         ) : (
-          <StyledNavbarIcon name="ri-home-3-fill" size="32px" onClick={
+          <StyledNavbarIcon name="ri-home-3-fill" size="28px" onClick={
             () => navigate('/')
           } />
         )}
@@ -84,7 +84,7 @@ export const Navbar = ({
         )}
       </NavbarCenterWrapper>
       <StyledNavbarIcon
-        name="ri-menu-fill" size="32px"
+        name="ri-menu-fill" size="28px"
         onClick={onToggleSidebar}
       />
     </NavbarContainer>

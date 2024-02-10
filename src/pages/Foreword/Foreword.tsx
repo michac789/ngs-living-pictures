@@ -1,9 +1,8 @@
 import React from "react";
 import { forewordConstants } from "../../constants/foreword";
-import { ContentButtonContainer, ForewordTextContainer, SubtitleText, TitleText } from "./ForewordStyle";
+import { ForewordTextContainer, SubtitleText, TitleText } from "./ForewordStyle";
 import { Markdown } from "../../components/Markdown/Markdown";
-import { Button } from "../../components/Button/Button";
-import { Icon } from "../../components/Icon/Icon";
+import { NavButton } from "../../components/NavButton/NavButton";
 
 const Foreword = () => {
   return (
@@ -17,20 +16,7 @@ const Foreword = () => {
       <ForewordTextContainer>
         <Markdown value={forewordConstants.forewordTextMd} />
       </ForewordTextContainer>
-      <ContentButtonContainer>
-        <Button
-          icon={<Icon name="ri-arrow-left-s-line" />}
-          iconPosition="left"
-        >
-          Back
-        </Button>
-        <Button
-          icon={<Icon name="ri-arrow-right-s-line" />}
-          iconPosition="right"
-        >
-          Next
-        </Button>
-      </ContentButtonContainer>
+      <NavButton />
     </>
   );
 }

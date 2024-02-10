@@ -24,12 +24,3 @@ export const ForewordTextContainer = styled.div`
     margin: -12px 6px -12px -12px;
   }
 `;
-
-export const ContentButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  padding: 32px;
-  gap: 16px;
-`;

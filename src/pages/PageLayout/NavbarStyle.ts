@@ -27,7 +27,7 @@ export const NavbarCenterWrapper = styled.div`
 `;
 
 export const StyledNavbarIcon = styled(Icon)`
-  padding: 12px;
+  padding: 14px;
   cursor: pointer;
   
   &:hover {
