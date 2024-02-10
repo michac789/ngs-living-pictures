@@ -10,18 +10,18 @@ export const PageContentContainer = styled.div`
 
 export const LabelText = styled(Text)`
   padding: 2px 8px;
-  margin: 64px 0 32px;
+  margin: 64px 0 0;
   border-top: 2px solid ${colors.Red500};
   border-bottom: 2px solid ${colors.Red500};
 `;
 
 export const TitleText = styled(Text)`
-  margin-bottom: 48px;
+  margin: 32px 60px 48px;
   text-align: center;
 `;
 
 export const SubtitleText = styled(Text)`
-  margin-bottom: 48px;
+  margin: 0 72px 48px;
   text-align: center;
 `;
 
