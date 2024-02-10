@@ -9,23 +9,44 @@ import Home from "./pages/Home/Home";
 import ColorPalette from "./pages/_Internal/ColorPalette";
 import Typography from "./pages/_Internal/Typography";
 
+export const orderedPages: {
+  link: string;
+  name: string;
+  element: React.ReactNode;
+}[] = [
+  {
+    link: "/",
+    name: "Cover",
+    element: <Home />
+  },
+  {
+    link: '/content',
+    name: 'Contents',
+    element: <Content />
+  },
+  {
+    link: '/foreword',
+    name: 'Foreword',
+    element: <Foreword />
+  },
+]
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PageLayout />,
     children: [
-      {
-        path: "",
-        element: <Home />
-      },
-      {
-        path: "content",
-        element: <Content />
-      },
-      {
-        path: "foreword",
-        element: <Foreword />
-      },
+      // pages in progression order
+      ...orderedPages.map(
+        ({ link, element }) => {
+          return {
+            path: link.substring(1),
+            element,
+          }
+        }
+      ),
+
+      // internal pages below
       {
         path: "color",
         element: <ColorPalette />

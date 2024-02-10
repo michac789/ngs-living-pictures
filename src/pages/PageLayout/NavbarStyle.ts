@@ -23,13 +23,28 @@ export const NavbarCenterWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 `;
 
 export const StyledNavbarIcon = styled(Icon)`
   padding: 12px;
   cursor: pointer;
   
+  &:hover {
+    background-color: ${colors.Blue100};
+    transition: all 0.3s ease;
+  }
+`;
+
+export const NavbarButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 10px 16px;
+  gap: 4px;
+  cursor: pointer;
+
   &:hover {
     background-color: ${colors.Blue100};
     transition: all 0.3s ease;
