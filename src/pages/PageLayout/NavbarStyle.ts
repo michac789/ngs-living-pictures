@@ -32,7 +32,6 @@ export const StyledNavbarIcon = styled(Icon)`
   
   &:hover {
     background-color: ${colors.Blue100};
-    fill: ${colors.Blue100};
     transition: all 0.3s ease;
   }
 `;

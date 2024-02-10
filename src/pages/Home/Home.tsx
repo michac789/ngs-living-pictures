@@ -35,7 +35,7 @@ const Home = () => {
       <CoverImageContainer>
         <CoverImage src={coverImg} alt="test" />
         <DownArrowWrapper onClick={handleEnterClick}>
-          <Icon name="hi-chevron-down" size="40px" fill={colors.Neutral800} stroke={colors.Neutral200} />
+          <Icon name="ri-arrow-down-s-line" size="40px" fill={colors.Neutral200} stroke={colors.Neutral200} />
         </DownArrowWrapper>
         <TitleOverlayWrapper>
           <Text variant="title1" color={colors.Neutral200}>
@@ -57,7 +57,7 @@ const Home = () => {
       </HomeContentContainer>
       <NextButtonContainer>
         <Button
-          icon={<Icon name="hi-chevron-right" />}
+          icon={<Icon name="ri-arrow-right-s-line" />}
           iconPosition="right"
           ref={nextButtonRef}
           onClick={handleNext}

@@ -32,5 +32,6 @@ export const ButtonContainer = styled.div`
     height: 24px;
     width: 24px;
     stroke: ${colors.Neutral200};
+    fill: ${colors.Neutral200};
   }
 `;
