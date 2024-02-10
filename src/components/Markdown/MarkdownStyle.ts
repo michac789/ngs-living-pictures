@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { variantMapping } from "../Text/TextStyle";
+import { textVariantMapping } from "../Text/TextStyle";
 
 export const MarkdownTextWrapper = styled.div`
-  ${variantMapping['body1']}
+  ${textVariantMapping['body1']}
 
   h1 {
-    ${variantMapping['title1']}
+    ${textVariantMapping['title1']}
   }
   
   h2 {
-    ${variantMapping['title2']}
+    ${textVariantMapping['title2']}
   }
 
   h3 {
-    ${variantMapping['title3']}
+    ${textVariantMapping['title3']}
   }
 `;

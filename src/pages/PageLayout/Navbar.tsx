@@ -74,7 +74,7 @@ export const Navbar = ({
             () => navigate('/')
           } />
         )}
-        {nextLink && (
+        {currentPath !== '/' && nextLink && (
           <NavbarButton onClick={handleNextClick}>
             <Text variant="body1">
               {nextLink.name}

@@ -44,7 +44,7 @@ const Home = () => {
           <Text variant="title2" color={colors.Neutral200}>
             {homeConstants.coverSubtitle}
           </Text>
-          <Text variant="subtitle" color={colors.Neutral200}>
+          <Text variant="subtitle1" color={colors.Neutral200}>
             {homeConstants.coverSubtitle2}
           </Text>
           <EnterButtonWrapper variant="button" onClick={handleEnterClick}>

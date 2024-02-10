@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { variantMapping } from "../Text/TextStyle";
+import { textVariantMapping } from "../Text/TextStyle";
 import { colors } from "../../constants/colors";
 
 export const ButtonContainer = styled.div`
@@ -18,7 +18,7 @@ export const ButtonContainer = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
 
-  ${variantMapping['button']}
+  ${textVariantMapping['button']}
   color: ${colors.Neutral200};
   box-shadow: 0px 0px 2px 0px ${colors.Blue500};
   border: 1px solid ${colors.Blue800};
