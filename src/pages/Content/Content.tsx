@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ContentContainer, ContentLinkText, TitleText } from "./ContentStyle";
 import { Icon } from "../../components/Icon/Icon";
 import { NavButton } from "../../components/NavButton/NavButton";
-import { contentLinks } from "../../constants/content";
+import { orderedPages } from "../../constants/pages";
 
 const Content = () => {
   const navigate = useNavigate();
@@ -14,15 +14,15 @@ const Content = () => {
         Contents
       </TitleText>
       <ContentContainer>
-        {contentLinks.map((link) => (
+        {orderedPages.slice(2).map((page, index) => (
           <ContentLinkText
             variant="title3"
-            key={link.path}
-            onClick={() => navigate(link.path)}
+            key={index}
+            onClick={() => navigate(page.link)}
           >
-            {link.title}
-            {link.author && (
-              <span>&nbsp;&mdash;&nbsp;{link.author}</span>
+            {page.name}
+            {page.author && (
+              <span>&nbsp;&mdash;&nbsp;{page.author}</span>
             )}
             <Icon name="ri-arrow-right-line" />
           </ContentLinkText>

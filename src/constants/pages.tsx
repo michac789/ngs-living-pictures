@@ -13,6 +13,7 @@ import { essaySze } from "./essaySze";
 interface SinglePage {
   link: string;
   name: string;
+  author?: string;
   element: React.ReactNode;
 }
 
@@ -31,21 +32,25 @@ export const orderedPages: SinglePage[] = [
     link: '/foreword',
     name: 'Foreword',
     element: <Foreword />,
+    author: 'Eugene Tan',
   },
   {
     link: '/essay_CT',
     name: 'I. Living Photographs',
     element: <PageContent data={essayCT} />,
+    author: 'Chermaine Toh',
   },
   {
     link: '/essay_Sze',
     name: 'II. The Tender Insistence of Ruthless',
     element: <PageContent data={essaySze} />,
+    author: 'Sze Ying Goh',
   },
   {
     link: '/essay_Roy',
     name: 'III. (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia',
     element: <PageContent data={essayRoy} />,
+    author: 'Roy Ng',
   },
   {
     link: '/image-plates',
