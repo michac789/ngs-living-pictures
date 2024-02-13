@@ -1,14 +1,14 @@
 import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
+import Contributors from "../pages/Contributors/Contributors";
 import Foreword from "../pages/Foreword/Foreword";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
 import { PageContent } from "../components/PageContent/PageContent";
-import { about } from "./pagecontents/about";
-import { contributors } from "./contributors";
-import { essayCT } from "./pagecontents/essayCT";
-import { essayRoy } from "./pagecontents/essayRoy";
-import { essaySze } from "./pagecontents/essaySze";
+import { about } from "./essays/about";
+import { essayCT } from "./essays/essayCT";
+import { essayRoy } from "./essays/essayRoy";
+import { essaySze } from "./essays/essaySze";
 
 interface SinglePage {
   link: string;
@@ -65,7 +65,7 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/contributors',
     name: 'Contributors',
-    element: <PageContent data={contributors} />,
+    element: <Contributors />,
   },
   {
     link: '/about',
