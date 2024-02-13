@@ -1,10 +1,10 @@
 
 export const homeConstants = {
-  coverImagePath: "coverImg.jpg",
-  coverTitle: "Living Pictures",
-  coverSubtitle: "Photography in Southeast Asia",
-  coverSubtitle2: "Chermaine Toh",
-
+  coverImagePath: 'coverImg.jpg',
+  coverTitle: 'Living Pictures',
+  coverSubtitle: 'Photography in Southeast Asia',
+  coverSubtitle2: 'Chermaine Toh',
+  creditTextMd: 'Image: Le Minh Truong. *Soliders in U Minh*. 1973, printed 2006. Gelatin Silver print on paper, 29.3 × 39.2 cm. Collection of National Gallery Singapore.',
   homeTextMd: `
 This richly illustrated catalogue examines the power of photography and its mobilisation within
 systems of knowledge and representation across Southeast Asian societies.
@@ -20,5 +20,5 @@ how these processes have shaped the visual regimes of the region, through essays
 comprehensive plates including never-before published images, and new research by leading international
 scholars focusing on the interdisciplinary intersections between photography and art history,
 archaeology and cultural theory.
-  `
+  `,
 };

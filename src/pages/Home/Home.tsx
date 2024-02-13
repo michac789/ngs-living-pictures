@@ -7,12 +7,14 @@ import {
   EnterButtonWrapper,
   HomeContentContainer,
   NextButtonContainer,
+  StyledIcon,
   TitleOverlayWrapper,
 } from "./HomeStyle";
 import { Button } from "../../components/Button/Button";
 import { Icon } from "../../components/Icon/Icon";
 import { Markdown } from "../../components/Markdown/Markdown";
 import { Text } from "../../components/Text/Text";
+import { textVariantMapping } from "../../components/Text/TextStyle";
 import { colors } from "../../constants/colors";
 import { homeConstants } from "../../constants/home";
 
@@ -35,7 +37,7 @@ const Home = () => {
       <CoverImageContainer>
         <CoverImage src={coverImg} alt="test" />
         <DownArrowWrapper onClick={handleEnterClick}>
-          <Icon name="ri-arrow-down-s-line" size="40px" fill={colors.Neutral200} stroke={colors.Neutral200} />
+          <StyledIcon name="ri-arrow-down-s-line" size="40px" />
         </DownArrowWrapper>
         <TitleOverlayWrapper>
           <Text variant="title1" color={colors.Neutral200}>
@@ -50,6 +52,13 @@ const Home = () => {
           <EnterButtonWrapper variant="button" onClick={handleEnterClick}>
             ENTER
           </EnterButtonWrapper>
+          <Markdown
+            value={homeConstants.creditTextMd}
+            additionalStyles={{
+              ...textVariantMapping.body2,
+              color: colors.Neutral200,
+            }}
+          />
         </TitleOverlayWrapper>
       </CoverImageContainer>
       <HomeContentContainer>

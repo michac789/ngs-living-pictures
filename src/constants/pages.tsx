@@ -19,8 +19,8 @@ interface SinglePage {
 
 export const orderedPages: SinglePage[] = [
   {
-    link: "/",
-    name: "Cover",
+    link: '/',
+    name: 'Cover',
     element: <Home />,
   },
   {
