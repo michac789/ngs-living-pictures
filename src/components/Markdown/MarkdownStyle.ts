@@ -21,7 +21,11 @@ export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
   }
 
   p {
-    margin: 0;
+    margin: 0 0 16px 0;
+  }
+
+  figure {
+    text-align: center;
   }
 
   ${({ additionalStyles }) => additionalStyles}

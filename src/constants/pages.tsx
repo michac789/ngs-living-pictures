@@ -4,11 +4,11 @@ import Foreword from "../pages/Foreword/Foreword";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
 import { PageContent } from "../components/PageContent/PageContent";
-import { about } from "./about";
+import { about } from "./pagecontents/about";
 import { contributors } from "./contributors";
-import { essayCT } from "./essayCT";
-import { essayRoy } from "./essayRoy";
-import { essaySze } from "./essaySze";
+import { essayCT } from "./pagecontents/essayCT";
+import { essayRoy } from "./pagecontents/essayRoy";
+import { essaySze } from "./pagecontents/essaySze";
 
 interface SinglePage {
   link: string;

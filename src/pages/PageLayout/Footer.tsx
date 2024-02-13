@@ -2,12 +2,13 @@ import React from "react";
 import { Text } from "../../components/Text/Text";
 import { colors } from "../../constants/colors";
 import { FooterContainer, FooterImage, StyledLinkText } from "./FooterStyle";
+import footerImg from "../../assets/footerImg.png";
 
 export const Footer = () => {
   return (
     <FooterContainer>
       <FooterImage
-        src="https://www.nationalgallery.sg/nationalgallery-og.png"
+        src={footerImg}
         alt="National Gallery Singapore Logo"
       />
       <Text variant="body2" color={colors.Neutral200}>

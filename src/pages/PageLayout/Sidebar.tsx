@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { SidebarContainer, SidebarMenuItem, SidebarSubtitleText, SidebarTitleText } from "./SidebarStyle";
-import { sidebarConstants } from "../../constants/sidebar";
 import { orderedPages } from "../../constants/pages";
+import { sidebarConstants } from "../../constants/sidebar";
 
 interface SidebarProps {
   isSidebarOpen: boolean;

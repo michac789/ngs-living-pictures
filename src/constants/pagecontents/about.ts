@@ -8,7 +8,7 @@ Accompanying the visual display was the exhibition catalogue *Living Pictures*, 
 
 <figure>
   <a href="https://www.amazon.com/Living-Pictures-Photography-Southeast-Asia/dp/981184044X"
-  target="_blank" rel="noopener noreferrer"
+    target="_blank" rel="noopener noreferrer"
   >
     <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/7196vM-i6uL._SY466_.jpg" alt="Get a Copy of Living Pictures Catalogue from Amazon">
   </a>
