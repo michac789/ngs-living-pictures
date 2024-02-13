@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { NavbarButton, NavbarCenterWrapper, NavbarContainer, StyledNavbarIcon } from "./NavbarStyle";
-import { Icon } from "../../components/Icon/Icon";
-import { Text } from "../../components/Text/Text";
+import {
+  LeftButtonContainer,
+  NavbarButton,
+  NavbarContainer,
+  RightButtonContainer,
+  StyledArrowIcon,
+  StyledNavbarIcon,
+  StyledNavbarText,
+} from "./NavbarStyle";
 import { orderedPages } from "../../constants/pages";
 
 interface NavbarProps {
@@ -57,33 +63,35 @@ export const Navbar = ({
   return (
     <NavbarContainer data-sidebar-open={isSidebarOpen}>
       <StyledNavbarIcon name="ri-search-line" size="28px" />
-      <NavbarCenterWrapper>
+      <LeftButtonContainer>
         {prevLink && (
           <NavbarButton onClick={handleBackClick}>
-            <Icon name="ri-arrow-left-s-line" />
-            <Text variant="body1">
+            <StyledArrowIcon name="ri-arrow-left-s-line" />
+            <StyledNavbarText variant="body1">
               {prevLink.name}
-            </Text>
+            </StyledNavbarText>
           </NavbarButton>
         )}
-        {currentPath === '/' ? (
-          <StyledNavbarIcon name="ri-play-fill" size="28px" onClick={
-            () => navigate('/content')
-          } />
-        ) : (
-          <StyledNavbarIcon name="ri-home-3-fill" size="28px" onClick={
-            () => navigate('/')
-          } />
-        )}
+      </LeftButtonContainer>
+      {currentPath === '/' ? (
+        <StyledNavbarIcon name="ri-play-fill" size="28px" onClick={
+          () => navigate('/content')
+        } />
+      ) : (
+        <StyledNavbarIcon name="ri-home-3-fill" size="28px" onClick={
+          () => navigate('/')
+        } />
+      )}
+      <RightButtonContainer>
         {currentPath !== '/' && nextLink && (
           <NavbarButton onClick={handleNextClick}>
-            <Text variant="body1">
+            <StyledNavbarText variant="body1">
               {nextLink.name}
-            </Text>
-            <Icon name="ri-arrow-right-s-line" />
+            </StyledNavbarText>
+            <StyledArrowIcon name="ri-arrow-right-s-line" />
           </NavbarButton>
         )}
-      </NavbarCenterWrapper>
+      </RightButtonContainer>
       <StyledNavbarIcon
         name="ri-menu-fill" size="28px"
         onClick={onToggleSidebar}
