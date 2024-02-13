@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, { Interpolation } from "styled-components";
 import { textVariantMapping } from "../Text/TextStyle";
 
-export const MarkdownTextWrapper = styled.div`
+interface MarkdownTextWrapperProps {
+  additionalStyles?: Interpolation<React.CSSProperties>;
+}
+
+export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
   ${textVariantMapping['body1']}
 
   h1 {
@@ -15,4 +19,10 @@ export const MarkdownTextWrapper = styled.div`
   h3 {
     ${textVariantMapping['title3']}
   }
+
+  p {
+    margin: 0;
+  }
+
+  ${({ additionalStyles }) => additionalStyles}
 `;

@@ -6,23 +6,25 @@ import {
   SubtitleText,
   TitleText,
 } from "./PageContentStyle";
-import { NavButton } from "../../components/NavButton/NavButton";
-import { Markdown } from "../../components/Markdown/Markdown";
-import { Text } from "../../components/Text/Text";
+import { NavButton } from "../NavButton/NavButton";
+import { Markdown } from "../Markdown/Markdown";
+import { Text } from "../Text/Text";
 
 interface ContentData {
   label?: string;
   title: string;
   subtitle?: string;
   abstract?: string;
-  markdown: string;
+  markdown?: string;
 }
 interface PageContentProps {
   data: ContentData;
+  children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-const PageContent = ({
-  data
+export const PageContent = ({
+  data, children, style,
 }: PageContentProps) => {
   return (
     <PageContentContainer>
@@ -39,16 +41,18 @@ const PageContent = ({
           {data.subtitle}
         </SubtitleText>
       )}
-      <ContentContainer>
+      <ContentContainer style={style}>
         {data.abstract && (
           <Text variant="subtitle2">
             {data.abstract}
           </Text>
         )}
-        <Markdown value={data.markdown} />
+        {data.markdown && (
+          <Markdown value={data.markdown} />
+        )}
+        {children}
       </ContentContainer>
       <NavButton />
     </PageContentContainer>
   );
 }
-export default PageContent;

@@ -1,10 +1,10 @@
+import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
 import Foreword from "../pages/Foreword/Foreword";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
-import PageContent from "../pages/PageContent/PageContent";
+import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./about";
-import { bibliography } from "./bibliography";
 import { contributors } from "./contributors";
 import { essayCT } from "./essayCT";
 import { essayRoy } from "./essayRoy";
@@ -55,7 +55,7 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/bibliography',
     name: 'Bibliography',
-    element: <PageContent data={bibliography} />,
+    element: <Bibliography />,
   },
   {
     link: '/contributors',
