@@ -25,7 +25,7 @@ const Home = () => {
   const nextButtonRef = useRef<HTMLDivElement>(null);
 
   const handleNext = () => {
-    navigate("/content");
+    navigate('/content');
   }
 
   const handleEnterClick = () => {

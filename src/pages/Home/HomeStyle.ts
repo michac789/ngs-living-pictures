@@ -5,7 +5,7 @@ import { colors } from "../../constants/colors";
 
 export const CoverImageContainer = styled.div`
   position: relative;
-  height: 85vh;
+  height: max(85vh, 600px);
 `;
 
 export const CoverImage = styled.img`

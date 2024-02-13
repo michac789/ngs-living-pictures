@@ -17,6 +17,7 @@ export const SidebarContainer = styled.div`
   border-right: 2px solid ${colors.Neutral500};
   padding: 16px 16px 16px 0;
   overflow: auto;
+  z-index: 2;
 
   &[data-sidebar-closed="true"] {
     right: -300px;

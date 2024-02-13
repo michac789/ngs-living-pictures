@@ -16,7 +16,7 @@ export const Sidebar = ({
   return (
     <SidebarContainer data-sidebar-closed={!isSidebarOpen}>
       <SidebarTitleText variant="title3" onClick={
-        () => navigate("/")
+        () => navigate('/')
       }>
         {sidebarConstants.title}
       </SidebarTitleText>
