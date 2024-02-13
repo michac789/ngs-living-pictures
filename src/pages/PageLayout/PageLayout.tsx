@@ -6,7 +6,7 @@ import { MainContainer, OutletContainer } from "./PageLayoutStyle";
 import { Sidebar } from "./Sidebar";
 
 const PageLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

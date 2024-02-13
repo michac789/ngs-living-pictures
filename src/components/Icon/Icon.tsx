@@ -9,7 +9,7 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
 };
 
 export const Icon = ({
-  name, size, ...props
+  name, size="24px", ...props
 }: IconProps) => {
   const iconSvg = icons[name];
   if (!iconSvg) {
@@ -20,8 +20,8 @@ export const Icon = ({
       height={size}
       width={size}
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      fill={colors.Neutral200}
+      strokeWidth={0.5}
+      fill={colors.Neutral600}
       stroke={colors.Neutral600}
       {...props}
     >
