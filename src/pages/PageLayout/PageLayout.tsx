@@ -4,6 +4,8 @@ import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { MainContainer, OutletContainer } from "./PageLayoutStyle";
 import { Sidebar } from "./Sidebar";
+import { ErrorBoundary } from "react-error-boundary";
+import { GeneralError } from "../../components/Error/Error";
 
 const PageLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
@@ -13,7 +15,7 @@ const PageLayout = () => {
   }
 
   return (
-    <>
+    <ErrorBoundary fallback={<GeneralError />}>
       <Navbar isSidebarOpen={isSidebarOpen} onToggleSidebar={toggleSidebar} />
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <MainContainer data-sidebar-open={isSidebarOpen}>
@@ -22,7 +24,7 @@ const PageLayout = () => {
         </OutletContainer>
         <Footer />
       </MainContainer>
-    </>
+    </ErrorBoundary>
   );
 }
 export default PageLayout;
