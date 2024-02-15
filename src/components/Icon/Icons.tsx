@@ -1,6 +1,6 @@
 import React from 'react';
 
-const iconNames = [
+export const iconNames = [
   'ri-arrow-down-s-line',
   'ri-arrow-left-circle-line',
   'ri-arrow-left-s-line',
