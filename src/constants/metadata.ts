@@ -19,6 +19,22 @@ export const metaData: {[key: string]: SingleMetaData} = {
     title: 'Foreword | NGS Living Pictures',
     description: 'National Gallery Singapore Living Pictures Foreword',
   },
+  'essay_CT': {
+    title: 'Living Photographs | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures Living Photographs by Chermaine Toh',
+  },
+  'essay_Sze': {
+    title: 'The Tender Insistence of Ruthless | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures The Tender Insistence of Ruthless by Sze Ying Goh',
+  },
+  'essay_Roy': {
+    title: '(Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia by Roy Ng',
+  },
+  'image-plates': {
+    title: 'Image Plates | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures Image Plates',
+  },
   'bibliography': {
     title: 'Bibliography | NGS Living Pictures',
     description: 'National Gallery Singapore Living Pictures Bibliography',
@@ -31,23 +47,12 @@ export const metaData: {[key: string]: SingleMetaData} = {
     title: 'About Living Pictures Exhibition | NGS Living Pictures',
     description: 'National Gallery Singapore Living Pictures About Living Pictures Exhibition',
   },
-  // 'image-plates': {
-  //   title: 'Image Plates | NGS Living Pictures',
-  //   description: 'National Gallery Singapore Living Pictures Image Plates',
-  // },
-  // glossary TODO
-  // image slider TODO
-
-  'essay_CT': {
-    title: 'Living Photographs | NGS Living Pictures',
-    description: 'National Gallery Singapore Living Pictures Living Photographs by Chermaine Toh',
+  'glossary': {
+    title: 'Glossary | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures Glossary',
   },
-  'essay_Sze': {
-    title: 'The Tender Insistence of Ruthless | NGS Living Pictures',
-    description: 'National Gallery Singapore Living Pictures The Tender Insistence of Ruthless by Sze Ying Goh',
-  },
-  'essay_Roy': {
-    title: '(Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia | NGS Living Pictures',
-    description: 'National Gallery Singapore Living Pictures (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia by Roy Ng',
+  'image-slider': {
+    title: 'Image Slider | NGS Living Pictures',
+    description: 'National Gallery Singapore Living Pictures Image Slider',
   },
 }

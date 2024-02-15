@@ -4,15 +4,15 @@ import { NavButton } from "../../components/NavButton/NavButton";
 import { Text } from "../../components/Text/Text";
 import { metaData } from "../../constants/metadata";
 
-const ImagePlates = () => {
+const Glossary = () => {
   return (
     <>
-      <MetaData {...metaData['image-plates']} />
+      <MetaData {...metaData['glossary']} />
       <Text variant="title2">
-        Image Plates - TODO
+        Glossary - TODO
       </Text>
       <NavButton />
     </>
-  )
-};
-export default ImagePlates;
+  );
+}
+export default Glossary;

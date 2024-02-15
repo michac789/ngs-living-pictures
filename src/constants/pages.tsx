@@ -3,6 +3,7 @@ import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
 import Contributors from "../pages/Contributors/Contributors";
 import Foreword from "../pages/Foreword/Foreword";
+import Glossary from "../pages/Glossary/Glossary";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
 import ImageSlider from "../pages/ImageSlider/ImageSlider";
@@ -78,5 +79,10 @@ export const orderedPages: SinglePage[] = [
     link: '/image-slider',
     name: 'Image Slider',
     element: <ImageSlider />,
+  },
+  {
+    link: '/glossary',
+    name: 'Glossary',
+    element: <Glossary />,
   },
 ]

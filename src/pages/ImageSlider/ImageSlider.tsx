@@ -9,8 +9,10 @@ import {
   StyledImage,
   CaptionTextWrapper,
 } from "./ImageSliderStyle";
+import { MetaData } from "../../components/MetaData/MetaData";
 import { NavButton } from "../../components/NavButton/NavButton";
 import { images } from "../../constants/imageslider";
+import { metaData } from "../../constants/metadata";
 
 const ImageSlider = () => {
   const [currentImage, setCurrentImage] = useState<number>(0);
@@ -36,6 +38,7 @@ const ImageSlider = () => {
 
   return (
     <PageContainer>
+      <MetaData {...metaData['image-slider']} />
       <ImageSliderContainer>
         <StyledImage
           src={imagesData[currentImage].image}
