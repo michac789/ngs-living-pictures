@@ -4,6 +4,7 @@ import Contributors from "../pages/Contributors/Contributors";
 import Foreword from "../pages/Foreword/Foreword";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
+import ImageSlider from "../pages/ImageSlider/ImageSlider";
 import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./essays/about";
 import { essayCT } from "./essays/essayCT";
@@ -71,5 +72,10 @@ export const orderedPages: SinglePage[] = [
     link: '/about',
     name: 'About Living Pictures Exhibition',
     element: <PageContent data={about} />,
+  },
+  {
+    link: '/image-slider',
+    name: 'Image Slider',
+    element: <ImageSlider />,
   },
 ]
