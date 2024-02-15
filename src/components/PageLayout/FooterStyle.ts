@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
-import { Text } from "../../components/Text/Text";
+import { Text } from "../Text/Text";
 
 export const FooterContainer = styled.div`
   display: flex;

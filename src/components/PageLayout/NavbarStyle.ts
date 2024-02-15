@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
-import { Icon } from "../../components/Icon/Icon";
-import { Text } from "../../components/Text/Text";
+import { Icon } from "../Icon/Icon";
+import { Text } from "../Text/Text";
 
 export const NavbarContainer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text } from "../../components/Text/Text";
+import { Text } from "../Text/Text";
 import { colors } from "../../constants/colors";
 
 export const SidebarContainer = styled.div`

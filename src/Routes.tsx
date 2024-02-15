@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { orderedPages } from "./constants/pages";
-import PageLayout from "./pages/PageLayout/PageLayout";
+import { PageLayout } from "./components/PageLayout/PageLayout";
 import ColorPalette from "./pages/_Internal/ColorPalette";
 import IconSvg from "./pages/_Internal/IconSvg";
 import Typography from "./pages/_Internal/Typography";
