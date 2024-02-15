@@ -8,6 +8,7 @@ import {
 } from "./PageContentStyle";
 import { NavButton } from "../NavButton/NavButton";
 import { Markdown } from "../Markdown/Markdown";
+import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 
 interface ContentData {
@@ -21,13 +22,15 @@ interface PageContentProps {
   data: ContentData;
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  metaData?: SingleMetaData;
 }
 
 export const PageContent = ({
-  data, children, style,
+  data, children, style, metaData={},
 }: PageContentProps) => {
   return (
     <PageContentContainer>
+      <MetaData {...metaData} />
       {data.label && (
         <LabelText variant="button">
           {data.label}

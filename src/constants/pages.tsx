@@ -1,3 +1,4 @@
+import { metaData } from "./metadata";
 import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
 import Contributors from "../pages/Contributors/Contributors";
@@ -38,19 +39,19 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/essay_CT',
     name: 'I. Living Photographs',
-    element: <PageContent data={essayCT} />,
+    element: <PageContent data={essayCT} metaData={metaData.essay_CT} />,
     author: 'Chermaine Toh',
   },
   {
     link: '/essay_Sze',
     name: 'II. The Tender Insistence of Ruthless',
-    element: <PageContent data={essaySze} />,
+    element: <PageContent data={essaySze} metaData={metaData.essay_Sze} />,
     author: 'Sze Ying Goh',
   },
   {
     link: '/essay_Roy',
     name: 'III. (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia',
-    element: <PageContent data={essayRoy} />,
+    element: <PageContent data={essayRoy} metaData={metaData.essay_Roy} />,
     author: 'Roy Ng',
   },
   {
@@ -71,7 +72,7 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/about',
     name: 'About Living Pictures Exhibition',
-    element: <PageContent data={about} />,
+    element: <PageContent data={about} metaData={metaData.about} />,
   },
   {
     link: '/image-slider',

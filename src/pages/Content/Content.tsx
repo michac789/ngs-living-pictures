@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ContentContainer, ContentLinkText, TitleText } from "./ContentStyle";
 import { Icon } from "../../components/Icon/Icon";
+import { MetaData } from "../../components/MetaData/MetaData";
 import { NavButton } from "../../components/NavButton/NavButton";
+import { metaData } from "../../constants/metadata";
 import { orderedPages } from "../../constants/pages";
 
 const Content = () => {
@@ -10,6 +12,7 @@ const Content = () => {
 
   return (
     <>
+      <MetaData {...metaData.content} />
       <TitleText variant="title1">
         Contents
       </TitleText>
