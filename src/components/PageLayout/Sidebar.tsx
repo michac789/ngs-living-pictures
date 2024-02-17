@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { SidebarContainer, SidebarMenuItem, SidebarSubtitleText, SidebarTitleText } from "./SidebarStyle";
 import { orderedPages } from "../../constants/pages";
@@ -9,9 +9,11 @@ interface SidebarProps {
   onPageChange: () => void;
 };
 
-export const Sidebar = ({
-  isSidebarOpen, onPageChange
-}: SidebarProps) => {
+export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
+  {
+    isSidebarOpen, onPageChange
+  }, ref
+) => {
   const navigate = useNavigate();
 
   const handleLinkClick = (link: string) => {
@@ -20,7 +22,7 @@ export const Sidebar = ({
   }
 
   return (
-    <SidebarContainer data-sidebar-closed={!isSidebarOpen}>
+    <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
       <SidebarTitleText variant="title3" onClick={
         () => handleLinkClick("/")
       }>
@@ -45,4 +47,4 @@ export const Sidebar = ({
       })}
     </SidebarContainer>
   );
-};
+});

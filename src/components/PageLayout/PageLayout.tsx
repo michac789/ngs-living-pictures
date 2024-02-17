@@ -6,11 +6,17 @@ import { MainContainer, OutletContainer } from "./PageLayoutStyle";
 import { Sidebar } from "./Sidebar";
 import { ErrorBoundary } from "react-error-boundary";
 import { GeneralError } from "../Error/Error";
+import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
 export const PageLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const mainContainerRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
+  useOnClickOutside(sidebarRef, () => {
+    setIsSidebarOpen(false);
+  });
+  
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   }
@@ -30,6 +36,7 @@ export const PageLayout = () => {
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         onPageChange={instantScrollToTop}
+        ref={sidebarRef}
       />
       <MainContainer
         data-sidebar-open={isSidebarOpen}
