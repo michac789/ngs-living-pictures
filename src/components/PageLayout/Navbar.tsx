@@ -4,6 +4,8 @@ import {
   LeftButtonContainer,
   NavbarButton,
   NavbarContainer,
+  ProgressionContainer,
+  ProgressionBarDiv,
   RightButtonContainer,
   StyledArrowIcon,
   StyledNavbarIcon,
@@ -30,6 +32,8 @@ export const Navbar = ({
 
   const [prevLink, setPrevLink] = useState<Link | null>(null);
   const [nextLink, setNextLink] = useState<Link | null>(null);
+  const [currPage, setCurrPage] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   useEffect(() => {
     const currentIndex = orderedPages.findIndex(({ link }) => link === currentPath);
@@ -48,6 +52,8 @@ export const Navbar = ({
         name: orderedPages[currentIndex + 1].name
       }
     });
+    setCurrPage(currentIndex);
+    setTotalPages(orderedPages.length - 1);
   }, [currentPath]);
 
   const handleBackClick = () => {
@@ -64,41 +70,50 @@ export const Navbar = ({
   };
 
   return (
-    <NavbarContainer data-sidebar-open={isSidebarOpen}>
-      <StyledNavbarIcon name="ri-search-line" size="28px" />
-      <LeftButtonContainer>
-        {prevLink && (
-          <NavbarButton onClick={handleBackClick}>
-            <StyledArrowIcon name="ri-arrow-left-s-line" />
-            <StyledNavbarText variant="body1">
-              {prevLink.name}
-            </StyledNavbarText>
-          </NavbarButton>
+    <>
+      <NavbarContainer data-sidebar-open={isSidebarOpen}>
+        <StyledNavbarIcon name="ri-search-line" size="28px" />
+        <LeftButtonContainer>
+          {prevLink && (
+            <NavbarButton onClick={handleBackClick}>
+              <StyledArrowIcon name="ri-arrow-left-s-line" />
+              <StyledNavbarText variant="body1">
+                {prevLink.name}
+              </StyledNavbarText>
+            </NavbarButton>
+          )}
+        </LeftButtonContainer>
+        {currentPath === '/' ? (
+          <StyledNavbarIcon name="ri-play-fill" size="28px" onClick={
+            () => navigate('/content')
+          } />
+        ) : (
+          <StyledNavbarIcon name="ri-home-3-fill" size="28px" onClick={
+            () => navigate('/')
+          } />
         )}
-      </LeftButtonContainer>
-      {currentPath === '/' ? (
-        <StyledNavbarIcon name="ri-play-fill" size="28px" onClick={
-          () => navigate('/content')
-        } />
-      ) : (
-        <StyledNavbarIcon name="ri-home-3-fill" size="28px" onClick={
-          () => navigate('/')
-        } />
-      )}
-      <RightButtonContainer>
-        {currentPath !== '/' && nextLink && (
-          <NavbarButton onClick={handleNextClick}>
-            <StyledNavbarText variant="body1">
-              {nextLink.name}
-            </StyledNavbarText>
-            <StyledArrowIcon name="ri-arrow-right-s-line" />
-          </NavbarButton>
-        )}
-      </RightButtonContainer>
-      <StyledNavbarIcon
-        name="ri-menu-fill" size="28px"
-        onClick={onToggleSidebar}
-      />
-    </NavbarContainer>
+        <RightButtonContainer>
+          {currentPath !== '/' && nextLink && (
+            <NavbarButton onClick={handleNextClick}>
+              <StyledNavbarText variant="body1">
+                {nextLink.name}
+              </StyledNavbarText>
+              <StyledArrowIcon name="ri-arrow-right-s-line" />
+            </NavbarButton>
+          )}
+        </RightButtonContainer>
+        <StyledNavbarIcon
+          name="ri-menu-fill" size="28px"
+          onClick={onToggleSidebar}
+        />
+      </NavbarContainer>
+      <ProgressionContainer data-sidebar-open={isSidebarOpen}>
+        <ProgressionBarDiv
+          data-sidebar-open={isSidebarOpen}
+          currPage={currPage}
+          totalPages={totalPages}
+        />
+      </ProgressionContainer>
+    </>
   );
 };
