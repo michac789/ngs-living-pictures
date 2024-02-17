@@ -10,6 +10,7 @@ export const NavButton = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
     const navigate = useNavigate();
     const [backLink, setBackLink] = useState<string | null>(null);
     const [nextLink, setNextLink] = useState<string | null>(null);
+    const mainContainer = document.getElementById("main-container");
 
     useEffect(() => {
       const currentPath = window.location.pathname;
@@ -29,11 +30,13 @@ export const NavButton = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
     const handleBackClick = () => {
       if (backLink) {
         navigate(backLink);
+        mainContainer?.scrollTo({ top: 0 });
       }
     }
     const handleNextClick = () => {
       if (nextLink) {
         navigate(nextLink);
+        mainContainer?.scrollTo({ top: 0 });
       }
     }
 

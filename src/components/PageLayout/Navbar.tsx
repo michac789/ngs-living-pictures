@@ -14,6 +14,7 @@ import { orderedPages } from "../../constants/pages";
 interface NavbarProps {
   isSidebarOpen: boolean;
   onToggleSidebar: () => void;
+  onPageChange: () => void;
 }
 interface Link {
   link: string;
@@ -21,7 +22,7 @@ interface Link {
 }
 
 export const Navbar = ({
-  isSidebarOpen, onToggleSidebar
+  isSidebarOpen, onToggleSidebar, onPageChange
 }: NavbarProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
@@ -52,11 +53,13 @@ export const Navbar = ({
   const handleBackClick = () => {
     if (prevLink) {
       navigate(prevLink.link);
+      onPageChange();
     }
   };
   const handleNextClick = () => {
     if (nextLink) {
       navigate(nextLink.link);
+      onPageChange();
     }
   };
 

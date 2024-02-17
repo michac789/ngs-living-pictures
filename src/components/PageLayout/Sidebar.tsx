@@ -6,17 +6,23 @@ import { sidebarConstants } from "../../constants/sidebar";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
+  onPageChange: () => void;
 };
 
 export const Sidebar = ({
-  isSidebarOpen
+  isSidebarOpen, onPageChange
 }: SidebarProps) => {
   const navigate = useNavigate();
+
+  const handleLinkClick = (link: string) => {
+    navigate(link);
+    onPageChange();
+  }
 
   return (
     <SidebarContainer data-sidebar-closed={!isSidebarOpen}>
       <SidebarTitleText variant="title3" onClick={
-        () => navigate('/')
+        () => handleLinkClick("/")
       }>
         {sidebarConstants.title}
       </SidebarTitleText>
@@ -31,7 +37,7 @@ export const Sidebar = ({
             key={index}
             variant="body1"
             data-selected={window.location.pathname === link}
-            onClick={() => navigate(link)}
+            onClick={() => handleLinkClick(link)}
           >
             {name}
           </SidebarMenuItem>
