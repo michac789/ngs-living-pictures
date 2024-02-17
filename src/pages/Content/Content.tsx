@@ -9,6 +9,12 @@ import { orderedPages } from "../../constants/pages";
 
 const Content = () => {
   const navigate = useNavigate();
+  const mainContainer = document.getElementById("main-container");
+
+  const handleLinkClick = (link: string) => {
+    navigate(link);
+    mainContainer?.scrollTo({ top: 0 });
+  }
 
   return (
     <>
@@ -21,7 +27,7 @@ const Content = () => {
           <ContentLinkText
             variant="title3"
             key={index}
-            onClick={() => navigate(page.link)}
+            onClick={() => handleLinkClick(page.link)}
           >
             {page.name}
             {page.author && (
