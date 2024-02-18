@@ -1,3 +1,4 @@
+import { getTodayDate } from "../utils/getTodayDate";
 
 const productionUrl = "https://ngs.michac789.com/";
 
@@ -11,7 +12,7 @@ export const sidebarConstants = {
     },
     {
       'format': 'MLA',
-      'text': `Toh, Chermaine. “Living Pictures: Photography in Southeast Asia”, *National Gallery Singapore*, ${productionUrl}. Accessed TODO-DATE.`,
+      'text': `Toh, Chermaine. “Living Pictures: Photography in Southeast Asia”, *National Gallery Singapore*, ${productionUrl}. Accessed ${getTodayDate()}.`,
     },
   ]
 };

@@ -102,6 +102,25 @@ export const SidebarCitationText = styled(Text)`
   }
 `;
 
+export const SidebarCitationFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    height: 16px;
+    width: 16px;
+    fill: ${colors.Neutral300};
+    stroke: ${colors.Neutral300};
+    cursor: pointer;
+
+    &:hover {
+      fill: ${colors.Green500};
+    }
+  }
+`;
+
 export const SidebarImage = styled.img`
   margin-top: 16px;
   padding: 4px 4px 4px 20px;
