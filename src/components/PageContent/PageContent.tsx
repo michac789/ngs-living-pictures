@@ -15,6 +15,7 @@ import { NavButton } from "../NavButton/NavButton";
 import { Markdown } from "../Markdown/Markdown";
 import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
+import { colors } from "../../constants/colors";
 import { processRawMarkdown } from "../../utils/processRawMd";
 
 interface ContentData {
@@ -35,6 +36,7 @@ interface PageContentProps {
 export const PageContent = ({
   data, children, style, metaData={},
 }: PageContentProps) => {
+  // some vanilla js code, to modify the markdown content
   useEffect(() => {
     const citationSpans = document.querySelectorAll(".citation");
     citationSpans.forEach((span) => {
@@ -43,6 +45,22 @@ export const PageContent = ({
         window.location.hash = `endnotes-${idNumber}`;
       });
     })
+
+    const bibliographySpans = document.querySelectorAll(".bibliography");
+    bibliographySpans.forEach((span) => {
+      const spanElement = span as HTMLElement;
+      span.addEventListener("mouseover", () => {
+        spanElement.style.color = colors.Red900;
+        spanElement.style.textDecoration = `underline ${colors.Red700}`;
+      });
+      span.addEventListener("mouseout", () => {
+        spanElement.style.color = colors.Blue900;
+        spanElement.style.textDecoration = `underline ${colors.Blue600} dotted`;
+      });
+      span.addEventListener("click", () => {
+        console.log(span.textContent, 'TODO: open tooltip with citation details');
+      });
+    });
   }, [data]);
 
   return (
