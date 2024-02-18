@@ -20,38 +20,20 @@ In this case, the king emulates Western conventions of royal portraiture: Rama V
 
 While originally produced for visual consumption by the Thai elite and Western expatriates, these photographs occasionally circulated as postcards and illustrations in books and magazines for a mass audience in Thailand. Towards the latter part of Rama V’s reign, his face was even embossed on coins and printed on stamps, and his equestrian statue was erected to oversee Bangkok’s public space, as was the civil model and convention in Thailand’s neighbouring colonies under European rule. [^8] It is from such an unprecedented scale of reproducing the king’s likeness that one might then speculate a withering of his royal aura. His image, to use German philosopher Walter Benjamin’s term, is subject to the onslaught of mechanical reproduction, and the authoritative, authentic and aesthetic presence of the original—that single definitive encounter with the king—is eroded. [^9] Through the photographic medium, the original is displaced by the ubiquitous copy, embedded in a process of mass circulation. The “reproduced” monarch, according to historian H.G. Quaritch Wales, far from being reduced to an everyday commodity, is transformed into a historical subject. Likewise, the king, insofar as he is a symbol of “perennial” or “eternal” Buddhist values, could also be a product of changing times. [^10] If reproduction was a force to be reckoned with, the point then, at least for Rama V’s court, was not to deny it, but to use it. More than just the image, the process with which it was dispersed became in and of itself a mode of self-fashioning, positioning Rama V as a forward-looking sovereign attuned to flux and receptive to the speed of modernity.
 
-In this regard, the photographic object both entrenches and disrupts this historically bound conception of royalty, shifting the relational dynamic between king and Siamese subject towards one that occurs within a space of intimate devotion. Now a presiding figure in each household or one’s private possession, the royal image is assumed to be anywhere and everywhere, his omnipresence buttressed by modern modes of reproduction. What emerges could well be a type of *buzz*, to use art historian David Joselit’s term, where under the purview of the king’s photographers and their studios, reproductive behaviours are coordinated to exalt the monarch’s presence in newly inventive ways. [^11] The velocity and commercial mobility of *all* royal portraits might be regarded as constituent parts in an ever-expanding economy of images, existing in a constant state of becoming. Reproduction, far from negating the monarch’s allure, reifies his image as a progressive figure. With the endless potential of copying and dispersing his portrait, the royal presence could be seen as extending beyond the strict confines of the court, to “touch” the subject through private or public moments of viewing, and vice versa. It is through the photograph as *object* that the king appears before his subject—not in the flesh, but a close equivalent of it through print, to be seen and held by the beholder. Represented, collected, distributed and displayed as didactic expressions of ideal leadership, the monarch resides in a variable, liminal and contingent space existing here and now as much as he does *there and then*. [^12]
-
-
-{% backmatter %}
-
-### Endnotes
-
-[^1]: Geoffrey Batchen, *Photography’s Objects* (Albuquerque: University of New Mexico Art Museum, 1997), 2.
-
-[^2]: Elizabeth Edards & Janice Hart, “Photograph as Objects,” in *Photographs, Objects, Histories: On the Materiality of Images*, eds. Elizabeth Edwards & Janice Hart (London: Routledge, 2004), 2.
-
-[^3]: Maurizio Peleggi, “The Aesthetics and Politics of Royal Portraiture in Thailand,” *Ars Orientalis* 43 (2013): 84.
-
-[^4]: Apinan Poshyananda, *Chittrakam lae patimakam baep tawantok nai racthasanmak* (Western-Style Painting and Sculpture in the Thai Royal Court), vol. 1 (Bangkok: Bureau of the Royal Household, 1992), 336.
-
-[^5]: Maurizio Peleggi, *Lord of Things: The Fashioning of the Siamese Monarchy’s Modern Image* (Ho-nolulu: University of Hawaii Press, 2002), 11–14.
-
-[^6]: Peleggi, “Aesthetics and Politics,” 87.
-
-[^7]: Ibid., 88.
-
-[^8]: Ibid. 
-
-[^9]: Walter Benjamin, “The Work of Arin the Age of Mechanical Repro-duction” in *Illuminations: Essays and Reflections*, trans. Harry Zohn (New York: Schocken Books, 1968), 217–251.
-
-[^10]: H.G. Quaritch Wales, *Siamese State Ceremonies* (London: B. Quaritch, 1931), 173.
-
-[^11]: D. Joselit, *After Art* (Princeton: Princeton University Press, 2013), 15–16.
-
-[^12]: Joanna Wolfarth, “Royal Portraiture in the Cambodian Politico-Cultural Complex: Norodom Sihanouk and the Place of Photography,” *Udaya: Journal of Khmer Studies* 12 (2014): 145, 163.
-
-
-{% endbackmatter %}    
-  `
+In this regard, the photographic object both entrenches and disrupts this historically bound conception of royalty, shifting the relational dynamic between king and Siamese subject towards one that occurs within a space of intimate devotion. Now a presiding figure in each household or one’s private possession, the royal image is assumed to be anywhere and everywhere, his omnipresence buttressed by modern modes of reproduction. What emerges could well be a type of *buzz*, to use art historian David Joselit’s term, where under the purview of the king’s photographers and their studios, reproductive behaviours are coordinated to exalt the monarch’s presence in newly inventive ways. [^11] The velocity and commercial mobility of *all* royal portraits might be regarded as constituent parts in an ever-expanding economy of images, existing in a constant state of becoming. Reproduction, far from negating the monarch’s allure, reifies his image as a progressive figure. With the endless potential of copying and dispersing his portrait, the royal presence could be seen as extending beyond the strict confines of the court, to “touch” the subject through private or public moments of viewing, and vice versa. It is through the photograph as *object* that the king appears before his subject—not in the flesh, but a close equivalent of it through print, to be seen and held by the beholder. Represented, collected, distributed and displayed as didactic expressions of ideal leadership, the monarch resides in a variable, liminal and contingent space existing here and now as much as he does *there and then*. [^12] 
+  `,
+  'endNotes': [
+    'Geoffrey Batchen, *Photography’s Objects* (Albuquerque: University of New Mexico Art Museum, 1997), 2.',
+    'Elizabeth Edards & Janice Hart, “Photograph as Objects,” in *Photographs, Objects, Histories: On the Materiality of Images*, eds. Elizabeth Edwards & Janice Hart (London: Routledge, 2004), 2.',
+    'Maurizio Peleggi, “The Aesthetics and Politics of Royal Portraiture in Thailand,” *Ars Orientalis* 43 (2013): 84.',
+    'Apinan Poshyananda, *Chittrakam lae patimakam baep tawantok nai racthasanmak* (Western-Style Painting and Sculpture in the Thai Royal Court), vol. 1 (Bangkok: Bureau of the Royal Household, 1992), 336.',
+    'Maurizio Peleggi, *Lord of Things: The Fashioning of the Siamese Monarchy’s Modern Image* (Ho-nolulu: University of Hawaii Press, 2002), 11–14.',
+    'Peleggi, “Aesthetics and Politics,” 87.',
+    'Ibid., 88.',
+    'Ibid.',
+    'Walter Benjamin, “The Work of Arin the Age of Mechanical Repro-duction” in *Illuminations: Essays and Reflections*, trans. Harry Zohn (New York: Schocken Books, 1968), 217–251.',
+    'H.G. Quaritch Wales, *Siamese State Ceremonies* (London: B. Quaritch, 1931), 173.',
+    'D. Joselit, *After Art* (Princeton: Princeton University Press, 2013), 15–16.',
+    'Joanna Wolfarth, “Royal Portraiture in the Cambodian Politico-Cultural Complex: Norodom Sihanouk and the Place of Photography,” *Udaya: Journal of Khmer Studies* 12 (2014): 145, 163.',
+  ],
 };

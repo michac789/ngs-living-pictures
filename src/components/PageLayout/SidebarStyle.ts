@@ -89,5 +89,10 @@ export const SidebarIconWrapper = styled.div`
     cursor: pointer;
     fill: ${colors.Neutral300};
     stroke: ${colors.Neutral300};
+
+    &:hover {
+      fill: ${colors.Neutral100};
+      stroke: ${colors.Neutral100};
+    }
   }
 `;

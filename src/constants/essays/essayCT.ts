@@ -3,7 +3,7 @@ export const essayCT = {
   'label': 'I',
   'title': 'Living Photographs',
   'subtitle': 'Charmaine Toh, Former Senior Curator at National Gallery Singapore',
-  'abstract': '  Excerpt from "Living Photographs" in Living Pictures (2022) edited by Charmaine Toh. Available for access in its entirety, on Project Muse and JSTOR.',
+  'abstract': 'Excerpt from "Living Photographs" in Living Pictures (2022) edited by Charmaine Toh. Available for access in its entirety, on Project Muse and JSTOR.',
   'markdown': `
 Since its invention, photographic practices have been integral to visual culture and art in Southeast Asia, but recognition of their specificities have yet to be fully discussed. Photography in South- east Asia has thus far been largely left out of both photographic and art histories, even those of its own nations. Ironically, this exclusion has allowed such photographs to “live” outside the established historical canons and so offer an opportunity to tell alternative histories. *Living Pictures: Photography in Southeast Asia* looks at the power of photography in affecting the way we see and approach the world, and its mobilisation n systems of knowledge and representation since it arrived in the region in the mid-19<sup>th</sup> century. 
 
@@ -26,27 +26,18 @@ However, in his book *Picturing Empire*, James Ryan has demonstrated how the pho
 
 While Ryan’s book focused on the British Empire, this is equally true of images of the Dutch and French colonies. Consider the album owned by Charles McWhirter Mercer (1828–1884) with views of Punjab, Kashmir, Sri Lanka, Myanmar, Penang, Singapore and Java. Within it are a large number of photographs of newly built infrastructure such as roads and buildings, all carefully composed to present visually pleasing scenes. Even the photographs of the countryside are picturesque landscapes, rather than untamed tropical jungles filled with wild beasts (**see** {% cite 'pl. 37' %}). The images conveyed the civilising benefits of colonialism while also “domesticating a potentially hostile landscape.” [^5] They offered a deliberate balance of the foreign and the familiar.
 
-The photographic studio of G.R. Lambert & Co. was also aware of what its customers wanted. Active in Singapore from 1867 till 1918, the studio had one of the largest catalogues of images—over 3,000 from different parts of Southeast Asia— including landscapes and images of people of various races, which sold extremely well to tourists and residents. [^6] It is important to note that the latter were not portraits in the traditional sense but were closer to ethnographic studies. Such photographs are described as “types” rather than “portraits” because the people in them were depicted as observed subjects rather than individual personalities. For example, the photograph of two Indian men had the caption of “Kling Washermen” and showed them posing with bags of laundry.
+The photographic studio of G.R. Lambert & Co. was also aware of what its customers wanted. Active in Singapore from 1867 till 1918, the studio had one of the largest catalogues of images—over 3,000 from different parts of Southeast Asia— including landscapes and images of people of various races, which sold extremely well to tourists and residents.[^6] It is important to note that the latter were not portraits in the traditional sense but were closer to ethnographic studies. Such photographs are described as “types” rather than “portraits” because the people in them were depicted as observed subjects rather than individual personalities. For example, the photograph of two Indian men had the caption of “Kling Washermen” and showed them posing with bags of laundry.
 
 {% figure 'fig-1'%}
 
 {% backmatter %}
-
-### Endnotes
-
-[^1]: Christopher Phillips has traced the story of MoMA’s department of photography through the reign of its three directors Beaumont Newhall, Edward Steichen and Jan Sarkowski, effectively demonstrating the way the museum produced a version of photographic history that was “in truth, a flight from history.” Christopher Phillips, “The Judgment Seat of Photography,” October 22 (1982): 63.
-
-[^2]: Gilles Massot, “Jules Itier and the Lagrené Mission,” *History of Photography* 39, no. 4 (2015): 319–47.
-
-[^3]: John Thomson, quoted in James R. Ryan, *Picturing Empire: Photography and the Visualization of the British Empire* (London: Reaktion Books, 2013), 24.
-
-[^4]: Ibid., 20.
-
-[^5]: Ibid., 51.
-
-[^6]: John Falconer, *A Vision of the Past: A History of Early Photography in Singapore and Malaya: The Photographs of GR Lambert & Co.*, 1880–1910 (Singapore: Times Editions, 1987), 5.
-
-
-{% endbackmatter %}
-  `
+  `,
+  'endNotes': [
+    'Christopher Phillips has traced the story of MoMA’s department of photography through the reign of its three directors Beaumont Newhall, Edward Steichen and Jan Sarkowski, effectively demonstrating the way the museum produced a version of photographic history that was “in truth, a flight from history.” Christopher Phillips, “The Judgment Seat of Photography,” October 22 (1982): 63.',
+    'Gilles Massot, “Jules Itier and the Lagrené Mission,” *History of Photography* 39, no. 4 (2015): 319–47.',
+    'John Thomson, quoted in James R. Ryan, *Picturing Empire: Photography and the Visualization of the British Empire* (London: Reaktion Books, 2013), 24.',
+    'Ibid., 20.',
+    'Ibid., 51.',
+    'John Falconer, *A Vision of the Past: A History of Early Photography in Singapore and Malaya: The Photographs of GR Lambert & Co.*, 1880–1910 (Singapore: Times Editions, 1987), 5.',
+  ],
 };
