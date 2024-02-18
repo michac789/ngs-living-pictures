@@ -7,11 +7,14 @@ import {
   TitleText,
 } from "./ForewordStyle";
 import { Markdown } from "../../components/Markdown/Markdown";
+import { MetaData } from "../../components/MetaData/MetaData";
 import { NavButton } from "../../components/NavButton/NavButton";
+import { metaData } from "../../constants/metadata";
 
 const Foreword = () => {
   return (
     <ForewordBgContainer>
+      <MetaData {...metaData.foreword} />
       <TitleText variant="title1">
         Foreword
       </TitleText>

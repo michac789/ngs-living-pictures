@@ -10,7 +10,9 @@ import {
 } from "./ContributorsStyle";
 import { PageContent } from "../../components/PageContent/PageContent";
 import { Markdown } from "../../components/Markdown/Markdown";
+import { MetaData } from "../../components/MetaData/MetaData";
 import { contributorList } from "../../constants/contributors";
+import { metaData } from "../../constants/metadata";
 
 const Contributors = () => {
   const imagesDict: {[key: string]: string} = {};
@@ -23,6 +25,7 @@ const Contributors = () => {
     <PageContent data={{
       title: 'Contributors',
     }}>
+      <MetaData {...metaData.contributors} />
       {contributorList.map((contributor, index) => (
         <SingleContributorContainer key={index}>
           <NameHeaderContainer>

@@ -1,8 +1,10 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { orderedPages } from "./constants/pages";
-import PageLayout from "./pages/PageLayout/PageLayout";
+import { PageNotFoundError } from "./components/Error/Error";
+import { PageLayout } from "./components/PageLayout/PageLayout";
 import ColorPalette from "./pages/_Internal/ColorPalette";
+import IconSvg from "./pages/_Internal/IconSvg";
 import Typography from "./pages/_Internal/Typography";
 
 const router = createBrowserRouter([
@@ -23,11 +25,19 @@ const router = createBrowserRouter([
       // internal pages below
       {
         path: "color",
-        element: <ColorPalette />
+        element: <ColorPalette />,
+      },
+      {
+        path: "icon",
+        element: <IconSvg />,
       },
       {
         path: "typography",
-        element: <Typography />
+        element: <Typography />,
+      },
+      {
+        path: "*",
+        element: <PageNotFoundError />,
       }
     ]
   }

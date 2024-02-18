@@ -1,9 +1,12 @@
+import { metaData } from "./metadata";
 import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
 import Contributors from "../pages/Contributors/Contributors";
 import Foreword from "../pages/Foreword/Foreword";
+import Glossary from "../pages/Glossary/Glossary";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
+import ImageSlider from "../pages/ImageSlider/ImageSlider";
 import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./essays/about";
 import { essayCT } from "./essays/essayCT";
@@ -37,19 +40,19 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/essay_CT',
     name: 'I. Living Photographs',
-    element: <PageContent data={essayCT} />,
+    element: <PageContent data={essayCT} metaData={metaData.essay_CT} />,
     author: 'Chermaine Toh',
   },
   {
     link: '/essay_Sze',
     name: 'II. The Tender Insistence of Ruthless',
-    element: <PageContent data={essaySze} />,
+    element: <PageContent data={essaySze} metaData={metaData.essay_Sze} />,
     author: 'Sze Ying Goh',
   },
   {
     link: '/essay_Roy',
     name: 'III. (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia',
-    element: <PageContent data={essayRoy} />,
+    element: <PageContent data={essayRoy} metaData={metaData.essay_Roy} />,
     author: 'Roy Ng',
   },
   {
@@ -70,6 +73,16 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/about',
     name: 'About Living Pictures Exhibition',
-    element: <PageContent data={about} />,
+    element: <PageContent data={about} metaData={metaData.about} />,
+  },
+  {
+    link: '/image-slider',
+    name: 'Image Slider',
+    element: <ImageSlider />,
+  },
+  {
+    link: '/glossary',
+    name: 'Glossary',
+    element: <Glossary />,
   },
 ]

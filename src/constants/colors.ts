@@ -10,14 +10,21 @@ export const colors = {
   Neutral800: '#2d2d2d',
   Neutral900: '#000000',
 
+  Red300: '#fa8171',
   Red400: '#f56565',
   Red500: '#eb4634',
   Red700: '#bd2c0f',
+  Red900: '#7d1a0c',
 
   Blue100: '#c4f1f9',
   Blue300: '#7fcffe',
+  Blue400: '#4faffe',
   Blue500: '#0096ff',
   Blue600: '#3272d2',
-  Blue800: '#2C5282',
+  Blue800: '#2c5282',
   Blue900: '#12345d',
-}
+
+  Green200: '#d7f9d7',
+  Green500: '#58d559',
+  Green700: '#2e8b57',
+};

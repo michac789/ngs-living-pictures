@@ -13,10 +13,12 @@ import {
 import { Button } from "../../components/Button/Button";
 import { Icon } from "../../components/Icon/Icon";
 import { Markdown } from "../../components/Markdown/Markdown";
+import { MetaData } from "../../components/MetaData/MetaData";
 import { Text } from "../../components/Text/Text";
 import { textVariantMapping } from "../../components/Text/TextStyle";
 import { colors } from "../../constants/colors";
 import { homeConstants } from "../../constants/home";
+import { metaData } from "../../constants/metadata";
 
 const coverImg = require(`../../assets/${homeConstants.coverImagePath}`);
 
@@ -34,8 +36,9 @@ const Home = () => {
 
   return (
     <>
+      <MetaData {...metaData.cover} />
       <CoverImageContainer>
-        <CoverImage src={coverImg} alt="test" />
+        <CoverImage src={coverImg} alt={homeConstants.coverImageAlt} />
         <DownArrowWrapper onClick={handleEnterClick}>
           <StyledIcon name="ri-arrow-down-s-line" size="40px" />
         </DownArrowWrapper>
