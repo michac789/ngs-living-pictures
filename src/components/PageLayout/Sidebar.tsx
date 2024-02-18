@@ -1,15 +1,19 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  SidebarActionText,
   SidebarBottomText,
+  SidebarCitationText,
   SidebarContainer,
   SidebarIconWrapper,
   SidebarImage,
   SidebarMenuItem,
+  SidebarSectionText,
   SidebarSubtitleText,
   SidebarTitleText,
 } from "./SidebarStyle";
 import { Icon } from "../Icon/Icon";
+import { Markdown } from "../Markdown/Markdown";
 import { colors } from "../../constants/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
@@ -54,6 +58,28 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
           >
             {name}
           </SidebarMenuItem>
+        );
+      })}
+      <SidebarSectionText variant="body1">
+        OTHER FORMATS
+      </SidebarSectionText>
+      <SidebarActionText variant="body1">
+        PDF
+      </SidebarActionText>
+      <SidebarActionText variant="body1">
+        EPUB
+      </SidebarActionText>
+      <SidebarSectionText variant="body1">
+        CITE THIS PAGE
+      </SidebarSectionText>
+      {sidebarConstants.citations.map(({
+        format, text
+      }, index) => {
+        return (
+          <SidebarCitationText key={index} variant="body1">
+            {format}
+            <Markdown value={text} />
+          </SidebarCitationText>
         );
       })}
       <SidebarImage src={sidebarImg} alt="National Gallery Singapore Logo" />

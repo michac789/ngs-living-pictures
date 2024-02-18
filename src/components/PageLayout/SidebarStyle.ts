@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
+import { textVariantMapping } from "../Text/TextStyle";
 import { colors } from "../../constants/colors";
 
 export const SidebarContainer = styled.div`
@@ -69,8 +70,40 @@ export const SidebarSubtitleText = styled(Text)`
   font-style: italic;
 `;
 
+export const SidebarSectionText = styled(Text)`
+  margin: 16px 0 4px 20px;
+  color: ${colors.Neutral500};
+  border-bottom: 1px solid ${colors.Neutral500};
+`;
+
+export const SidebarActionText = styled(Text)`
+  padding: 8px 8px 8px 20px;
+  cursor: pointer;
+  color: ${colors.Neutral200};
+  line-height: 1.3;
+
+  &:hover {
+    color: ${colors.Neutral100};
+    text-decoration: underline;
+  }
+`;
+
+export const SidebarCitationText = styled(Text)`
+  margin: 0 0 8px 20px;
+  color: ${colors.Neutral200};
+
+  div {
+    ${textVariantMapping['body2']}
+    color: ${colors.Neutral200};
+  }
+
+  p {
+    margin: 0;
+  }
+`;
+
 export const SidebarImage = styled.img`
-  margin-top: 32px;
+  margin-top: 16px;
   padding: 4px 4px 4px 20px;
   width: 120px;
 `;
