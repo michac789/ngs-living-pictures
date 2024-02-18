@@ -68,3 +68,26 @@ export const SidebarSubtitleText = styled(Text)`
   color: ${colors.Neutral200};
   font-style: italic;
 `;
+
+export const SidebarImage = styled.img`
+  margin-top: 32px;
+  padding: 4px 4px 4px 20px;
+  width: 120px;
+`;
+
+export const SidebarBottomText = styled(Text)`
+  margin: 4px 4px 4px 20px;
+  color: ${colors.Neutral200};
+`;
+
+export const SidebarIconWrapper = styled.div`
+  display: flex;
+  padding: 8px 4px 4px 20px;
+  gap: 8px;
+
+  svg {
+    cursor: pointer;
+    fill: ${colors.Neutral300};
+    stroke: ${colors.Neutral300};
+  }
+`;

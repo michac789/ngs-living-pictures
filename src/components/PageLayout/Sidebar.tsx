@@ -1,8 +1,19 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { SidebarContainer, SidebarMenuItem, SidebarSubtitleText, SidebarTitleText } from "./SidebarStyle";
+import {
+  SidebarBottomText,
+  SidebarContainer,
+  SidebarIconWrapper,
+  SidebarImage,
+  SidebarMenuItem,
+  SidebarSubtitleText,
+  SidebarTitleText,
+} from "./SidebarStyle";
+import { Icon } from "../Icon/Icon";
+import { colors } from "../../constants/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
+import sidebarImg from "../../assets/sidebarImg.jpg";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -45,6 +56,25 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
           </SidebarMenuItem>
         );
       })}
+      <SidebarImage src={sidebarImg} alt="National Gallery Singapore Logo" />
+      <SidebarBottomText variant="body2" color={colors.Neutral200}>
+        &copy; 2024 National Gallery Singapore
+      </SidebarBottomText>
+      <SidebarIconWrapper>
+        <Icon
+          name="ri-creative-commons-line"
+          size="28px"
+          onClick={() => {window.open("https://creativecommons.org/licenses/by/4.0/")}}
+        />
+        <Icon
+          name="ri-github-fill"
+          size="28px"
+          onClick={() => {window.open("https://github.com/michac789/ngs-living-pictures")}}
+        />
+      </SidebarIconWrapper>
+      <SidebarBottomText variant="body2" color={colors.Neutral200}>
+        This work is licensed under a Creative Common Attribution 4.0 International License.
+      </SidebarBottomText>
     </SidebarContainer>
   );
 });

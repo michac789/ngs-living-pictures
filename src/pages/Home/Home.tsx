@@ -38,7 +38,7 @@ const Home = () => {
     <>
       <MetaData {...metaData.cover} />
       <CoverImageContainer>
-        <CoverImage src={coverImg} alt="test" />
+        <CoverImage src={coverImg} alt={homeConstants.coverImageAlt} />
         <DownArrowWrapper onClick={handleEnterClick}>
           <StyledIcon name="ri-arrow-down-s-line" size="40px" />
         </DownArrowWrapper>

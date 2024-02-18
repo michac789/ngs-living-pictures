@@ -95,7 +95,7 @@ export const ProgressionBarDiv = styled.div<ProgressionBarProps>`
   background-color: ${colors.Red500};
 
   z-index: 3;
-  transition: width 0.5s ease;
+  transition: width 0.3s ease;
   width: ${({ currPage, totalPages }) => (currPage / totalPages) * 100}%;
   &[data-sidebar-open="true"] {
     width: calc((100vw - 300px) * ${({ currPage, totalPages }) => (currPage / totalPages)});
