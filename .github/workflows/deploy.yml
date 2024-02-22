@@ -3,8 +3,7 @@ name: Deploy Application CI/CD
 on:
   push:
     branches:
-      - master
-      - feature/ci-cd
+      - main
 
 jobs:
   build:
