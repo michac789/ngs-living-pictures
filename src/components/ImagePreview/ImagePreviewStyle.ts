@@ -46,3 +46,49 @@ export const StyledFigureName = styled(Text)`
     color: ${colors.Red600};
   }
 `;
+
+export const ImageBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  background-color: rgba(35, 35, 35, 0.9);
+  z-index: 200;
+`;
+
+export const ZoomedImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;
+
+export const CloseIconContainer = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  z-index: 300;
+  transition: all 0.3s ease-in-out;
+
+  svg {
+    height: 32px;
+    width: 32px;
+    fill: ${colors.Neutral300};
+    stroke: ${colors.Neutral300};
+    box-shadow: 0 0 0 2px ${colors.Neutral400};
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    svg {
+      fill: ${colors.Neutral200};
+      stroke: ${colors.Neutral200};
+      box-shadow: 0 0 0 2px ${colors.Neutral300};
+    }
+  }
+`;
