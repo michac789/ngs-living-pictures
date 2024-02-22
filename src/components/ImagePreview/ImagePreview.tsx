@@ -10,23 +10,23 @@ import { Markdown } from "../Markdown/Markdown";
 
 interface ImagePreviewProps {
   imageUrl: string;
-  name: string;
+  label: string;
   caption: string;
 }
 
 export const ImagePreview = ({
-  imageUrl, name, caption
+  imageUrl, label, caption
 }: ImagePreviewProps) => {
   const image = require(`../../assets/${imageUrl}`);
 
   return (
     <>
-      <StyledImagePreview src={image} alt={name} />
+      <StyledImagePreview src={image} alt={label} />
       <CaptionContainer>
         <FigureNameWrapper>
           <Icon name="ri-zoom-in-line" size="16px" />
           <StyledFigureName variant="body2" as="span">
-            {name}
+            {label}
           </StyledFigureName>
         </FigureNameWrapper>
         <Markdown value={caption} />

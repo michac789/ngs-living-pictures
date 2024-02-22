@@ -13,12 +13,14 @@ import {
   TitleText,
 } from "./PageContentStyle";
 import { Icon } from "../Icon/Icon";
+import { ImagePreview } from "../ImagePreview/ImagePreview";
 import { NavButton } from "../NavButton/NavButton";
 import { Markdown } from "../Markdown/Markdown";
 import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 import { colors } from "../../constants/colors";
 import { bibliographyList } from "../../constants/bibliography";
+import { figures } from "../../constants/figures";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 import { getFigures } from "../../utils/getFigures";
@@ -105,6 +107,29 @@ export const PageContent = ({
     </Text>
   ) : null;
 
+  const mainContentComponent = data.markdown && (
+    <>
+      {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
+        if (mdStr.startsWith('fig')) {
+          const id = mdStr.split("-")[1];
+          const figure = figures.find((fig) => fig.id === id);
+          return <>
+            <StyledHorizontalLine />
+              <ImagePreview
+                key={index}
+                imageUrl={figure?.imageUrl || ""}
+                label={figure?.label || ""}
+                caption={figure?.caption || ""}
+              />
+            <StyledHorizontalLine data-bottom-space={true} />
+          </>
+        } else {
+          return <Markdown value={processRawMarkdown(mdStr)} key={index} />
+        }
+      })}
+    </>
+  )
+
   const endNotesComponent = data.endNotes && (
     <>
       <Text variant="body1" style={{ fontWeight: 600 }}>
@@ -161,17 +186,7 @@ export const PageContent = ({
       )}
       <ContentContainer style={style}>
         {abstractComponent}
-        {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
-          if (mdStr.startsWith('fig')) {
-            return <>
-              <StyledHorizontalLine />
-                TODO - {mdStr}
-              <StyledHorizontalLine data-bottom-space={true} />
-            </>
-          } else {
-            return <Markdown value={processRawMarkdown(mdStr)} key={index} />
-          }
-        })}
+        {mainContentComponent}
         {endNotesComponent}
         {bibliographyComponent}
         {children}
