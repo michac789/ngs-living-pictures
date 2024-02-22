@@ -75,11 +75,11 @@ export const Tooltip = ({
     }, timeout);
   };
 
-  useOnClickOutside(containerRef, () => {
+  useOnClickOutside(() => {
     if (closeOnClickOutside) {
       setShow(false);
     }
-  });
+  }, containerRef);
 
   const handleClick = () => {
     handleAnimation();

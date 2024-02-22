@@ -4,6 +4,7 @@ import {
   CloseIconContainer,
   FigureNameWrapper,
   ImageBackdrop,
+  ImageCaptionWrapper,
   StyledFigureName,
   StyledImagePreview,
   ZoomedImage,
@@ -11,6 +12,7 @@ import {
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
 import { Markdown } from "../Markdown/Markdown";
+import { Text } from "../Text/Text";
 import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
 interface ImagePreviewProps {
@@ -24,12 +26,13 @@ export const ImagePreview = ({
 }: ImagePreviewProps) => {
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
   const zoomedImageRef = useRef<HTMLImageElement>(null);
+  const zoomedCaptionRef = useRef<HTMLDivElement>(null);
 
   const image = require(`../../assets/${imageUrl}`);
 
-  useOnClickOutside(zoomedImageRef, () => {
+  useOnClickOutside(() => {
     setIsZoomed(false);
-  });
+  }, zoomedImageRef, zoomedCaptionRef);
 
   const handleZoom = () => {
     setIsZoomed(true);
@@ -55,6 +58,12 @@ export const ImagePreview = ({
           <CloseIconContainer>
             <Icon name="ri-close-fill" onClick={() => setIsZoomed(false)} />
           </CloseIconContainer>
+          <ImageCaptionWrapper ref={zoomedCaptionRef}>
+            <Text variant="body2" as="span" style={{ fontWeight: 600 }}>
+              {label}.&nbsp;
+            </Text>
+            <Markdown value={caption} />
+          </ImageCaptionWrapper>
         </Portal>
       )}
     </>

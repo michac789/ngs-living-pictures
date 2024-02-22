@@ -92,3 +92,24 @@ export const CloseIconContainer = styled.div`
     }
   }
 `;
+
+export const ImageCaptionWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+
+  background-color: rgba(35, 35, 35, 0.5);
+  z-index: 4000;
+  span {
+    color: ${colors.Neutral200};
+  }
+  & div {
+    ${textVariantMapping.body2};
+    color: ${colors.Neutral200};
+  }
+  & p {
+    margin: 0;
+  }
+`;
