@@ -22,6 +22,7 @@ export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
   position: absolute;
   background-color: ${colors.Neutral100};
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
   padding: 8px;
   z-index: 100;
   width: fit-content;

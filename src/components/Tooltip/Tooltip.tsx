@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Portal } from "../Portal/Portal";
 import { TooltipContainer, TooltipContentWrapper } from "./TooltipStyle";
+import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
 interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -8,10 +9,12 @@ interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: "top" | "bottom" | "left" | "right";
   timeout?: number;
   extraStyles?: string;
+  closeOnClickOutside?: boolean;
 }
 
 export const Tooltip = ({
-  children, contents, position="top", timeout=1000, extraStyles="", ...props
+  children, contents, position="top", timeout=1000, extraStyles="",
+  closeOnClickOutside=true, ...props
 }: TooltipProps) => {
   const [show, setShow] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -72,8 +75,13 @@ export const Tooltip = ({
     }, timeout);
   };
 
+  useOnClickOutside(containerRef, () => {
+    if (closeOnClickOutside) {
+      setShow(false);
+    }
+  });
+
   const handleClick = () => {
-    console.log('clicked')
     handleAnimation();
   }
 
