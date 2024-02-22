@@ -17,6 +17,7 @@ import { Markdown } from "../Markdown/Markdown";
 import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 import { colors } from "../../constants/colors";
+import { bibliographyList } from "../../constants/bibliography";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 
@@ -60,9 +61,39 @@ export const PageContent = ({
         spanElement.style.textDecoration = `underline ${colors.Blue600} dotted`;
       });
       span.addEventListener("click", () => {
-        console.log(span.textContent, 'TODO: open tooltip with citation details');
+        const tooltipDiv = document.createElement("div");
+        const rect = spanElement.getBoundingClientRect();
+        const { top, left } = rect;
+        tooltipDiv.style.position = "absolute";
+        tooltipDiv.style.top = `${top - 85}px`;
+        tooltipDiv.style.left = `${left - 100}px`;
+        tooltipDiv.style.backgroundColor = colors.Blue900;
+        tooltipDiv.style.color = colors.Neutral100;
+        tooltipDiv.style.padding = "8px";
+        tooltipDiv.style.borderRadius = "4px";
+        tooltipDiv.style.zIndex = "100";
+        tooltipDiv.style.maxWidth = "400px";
+        const bibliographyEntry = bibliographyList.find((entry) => entry.id === span.textContent);
+        tooltipDiv.innerHTML = bibliographyEntry?.markdown || "No details found for this citation."
+        const portal = document.getElementById("special-portal");
+        console.log(tooltipDiv, portal)
+        portal?.appendChild(tooltipDiv);
+        setTimeout(() => {
+          portal?.removeChild(tooltipDiv);
+        }, 3000);
       });
     });
+
+    return () => {
+      citationSpans.forEach((span) => {
+        span.removeEventListener("click", () => {});
+      });
+      bibliographySpans.forEach((span) => {
+        span.removeEventListener("mouseover", () => {});
+        span.removeEventListener("mouseout", () => {});
+        span.removeEventListener("click", () => {});
+      });
+    }
   }, [data]);
 
   const endNotesComponent = (
