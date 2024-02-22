@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  BibliographySingleEntry,
   ContentContainer,
   EndnotesLi,
   EndnotesLiContentWrapper,
@@ -16,6 +17,7 @@ import { Markdown } from "../Markdown/Markdown";
 import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 import { colors } from "../../constants/colors";
+import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 
 interface ContentData {
@@ -63,6 +65,44 @@ export const PageContent = ({
     });
   }, [data]);
 
+  const endNotesComponent = (
+    <>
+      <Text variant="body1" style={{ fontWeight: 600 }}>
+        ENDNOTES
+      </Text>
+      <EndnotesOl>
+        {data.endNotes && data.endNotes.map((note, index) => (
+          <EndnotesLi key={index} id={`endnotes-${index + 1}`}>
+            <EndnotesLiContentWrapper>
+              <Markdown value={note} />
+              <EndnotesLinkIconWrapper
+                onClick={() => window.location.hash = `#citation-${index + 1}`}
+              >
+                <Icon name="ri-reply-fill" />
+              </EndnotesLinkIconWrapper>
+            </EndnotesLiContentWrapper>
+          </EndnotesLi>
+        ))}
+      </EndnotesOl>
+    </>
+  );
+  
+  const bibliographyComponent = (
+    <>
+      <Text variant="body1" style={{ fontWeight: 600 }}>
+        BIBLIOGRAPHY
+      </Text>
+      {data.markdown && getBibliographyContents(data.markdown).map((entry, index) => (
+        <BibliographySingleEntry key={index}>
+          <Text key={index} variant="body2" style={{ fontWeight: 600 }}>
+            {entry.id}
+          </Text>
+          <Markdown value={entry.markdown} />
+        </BibliographySingleEntry>
+      ))}
+    </>
+  );
+
   return (
     <PageContentContainer>
       <MetaData {...metaData} />
@@ -90,27 +130,8 @@ export const PageContent = ({
         {data.markdown && (
           <Markdown value={processRawMarkdown(data.markdown)} />
         )}
-        {data.endNotes && (
-          <>
-            <Text variant="body1" style={{ fontWeight: 600 }}>
-              ENDNOTES
-            </Text>
-            <EndnotesOl>
-              {data.endNotes.map((note, index) => (
-                <EndnotesLi key={index} id={`endnotes-${index + 1}`}>
-                  <EndnotesLiContentWrapper>
-                    <Markdown value={note} />
-                    <EndnotesLinkIconWrapper
-                      onClick={() => window.location.hash = `#citation-${index + 1}`}
-                    >
-                      <Icon name="ri-reply-fill" />
-                    </EndnotesLinkIconWrapper>
-                  </EndnotesLiContentWrapper>
-                </EndnotesLi>
-              ))}
-            </EndnotesOl>
-          </>
-        )}
+        {endNotesComponent}
+        {bibliographyComponent}
         {children}
       </ContentContainer>
       <NavButton />

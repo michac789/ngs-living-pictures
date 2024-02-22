@@ -1,5 +1,5 @@
 
-interface BibliographyEntry {
+export interface BibliographyEntry {
   id: string;
   markdown: string;
 };
