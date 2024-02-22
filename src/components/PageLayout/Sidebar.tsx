@@ -16,6 +16,7 @@ import {
 import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
 import { Text } from "../Text/Text";
+import { Tooltip } from "../Tooltip/Tooltip";
 import { colors } from "../../constants/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
@@ -83,10 +84,12 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
               <Text variant="body1" as="span" color={colors.Neutral200}>
                 {format}
               </Text>
-              <Icon
-                name="ri-file-copy-2-line"
-                onClick={() => navigator.clipboard.writeText(text)}
-              />
+              <Tooltip contents="Copied to clipboard!" extraStyles="height: 16px;">
+                <Icon
+                  name="ri-file-copy-2-line"
+                  onClick={() => navigator.clipboard.writeText(text)}
+                />
+              </Tooltip>
             </SidebarCitationFlex>
             <Markdown value={text} />
           </SidebarCitationText>

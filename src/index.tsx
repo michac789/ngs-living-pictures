@@ -15,7 +15,6 @@ root.render(
   <React.StrictMode>
     <HelmetProvider>
       <GlobalStyles />
-      <div id="special-portal" />
       <RouterProvider router={router} />
     </HelmetProvider>
   </React.StrictMode>

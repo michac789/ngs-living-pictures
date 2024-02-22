@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
+import { textVariantMapping } from "../Text/TextStyle";
 
-export const TooltipContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
+interface TooltipContainerProps {
+  extraStyles?: string;
+}
+export const TooltipContainer = styled.div<TooltipContainerProps>`
   cursor: pointer;
+  pointer-events: all;
+  z-index: 99;
+
+  ${({ extraStyles }: TooltipContainerProps) => extraStyles};
 `;
 
 interface TooltipContentWrapperProps {
@@ -24,6 +30,7 @@ export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
   top: ${({ topPosition }) => `${topPosition}px`};
   left: ${({ leftPosition }) => `${leftPosition}px`};
   visibility: ${({ hidden }) => hidden ? "hidden" : "visible"};
+  ${textVariantMapping['body2']};
 
   @keyframes fade-in-tooltip {
     0% {
@@ -44,5 +51,5 @@ export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
   animation: fade-in-tooltip 0.3s ease-in forwards;
   &.closed-animation {
     animation: fade-out-tooltip 0.3s ease-out forwards;
-  }
+  }  
 `;

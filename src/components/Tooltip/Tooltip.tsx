@@ -7,10 +7,11 @@ interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   contents: React.ReactNode;
   position?: "top" | "bottom" | "left" | "right";
   timeout?: number;
+  extraStyles?: string;
 }
 
 export const Tooltip = ({
-  children, contents, position="top", timeout=3000, ...props
+  children, contents, position="top", timeout=1000, extraStyles="", ...props
 }: TooltipProps) => {
   const [show, setShow] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,31 +22,36 @@ export const Tooltip = ({
   const bufferDistancePx = 8;
   const paddingDistancePx = 8;
   useEffect(() => {
-    if (containerRef.current && tooltipRef.current) {
-      const { top, left, width, height } = containerRef.current.getBoundingClientRect();
-      const { width: tooltipWidth, height: tooltipHeight } = tooltipRef.current.getBoundingClientRect();
-      switch (position) {
-        case "top":
-          setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
-          setToolTipY(top - height - tooltipHeight - bufferDistancePx);
-          break;
-        case "bottom":
-          setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
-          setToolTipY(top + height + bufferDistancePx);
-          break;
-        case "left":
-          setToolTipX(left - tooltipWidth - bufferDistancePx - paddingDistancePx * 2);
-          setToolTipY(top + height / 2 - tooltipHeight / 2 - paddingDistancePx);
-          break;
-        case "right":
-          setToolTipX(left + width + bufferDistancePx);
-          setToolTipY(top + height / 2 - tooltipHeight / 2 - paddingDistancePx);
-          break;
-        default:
-          break;
+    const calculateTooltipPosition = () => {
+      if (containerRef.current && tooltipRef.current) {
+        const { top, left, width, height } = containerRef.current.getBoundingClientRect();
+        const { width: tooltipWidth, height: tooltipHeight } = tooltipRef.current.getBoundingClientRect();
+        switch (position) {
+          case "top":
+            setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
+            setToolTipY(top - height - tooltipHeight - bufferDistancePx);
+            break;
+          case "bottom":
+            setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
+            setToolTipY(top + height + bufferDistancePx);
+            break;
+          case "left":
+            setToolTipX(left - tooltipWidth - bufferDistancePx - paddingDistancePx * 2);
+            setToolTipY(top + height / 2 - tooltipHeight / 2 - paddingDistancePx);
+            break;
+          case "right":
+            setToolTipX(left + width + bufferDistancePx);
+            setToolTipY(top + height / 2 - tooltipHeight / 2 - paddingDistancePx);
+            break;
+          default:
+            break;
+        }
       }
+    };
+    if (show) {
+      calculateTooltipPosition();
     }
-  }, [position]);
+  }, [show, position]);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [animate, setAnimate] = useState<boolean>(false);
@@ -76,6 +82,7 @@ export const Tooltip = ({
       <TooltipContainer
         onClick={handleClick}
         ref={containerRef}
+        extraStyles={extraStyles}
         {...props}
       >
         {children}
