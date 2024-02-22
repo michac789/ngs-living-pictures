@@ -87,3 +87,12 @@ export const BibliographySingleEntry = styled.div`
     ${textVariantMapping.body2};
   }
 `;
+
+export const StyledHorizontalLine = styled.hr`
+  border: 1px solid ${colors.Red500};
+  margin: 4px 0;
+
+  &[data-bottom-space="true"] {
+    margin-bottom: 16px;
+  }
+`;

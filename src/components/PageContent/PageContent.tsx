@@ -9,6 +9,7 @@ import {
   LabelText,
   PageContentContainer,
   SubtitleText,
+  StyledHorizontalLine,
   TitleText,
 } from "./PageContentStyle";
 import { Icon } from "../Icon/Icon";
@@ -20,6 +21,7 @@ import { colors } from "../../constants/colors";
 import { bibliographyList } from "../../constants/bibliography";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
+import { getFigures } from "../../utils/getFigures";
 
 interface ContentData {
   label?: string;
@@ -76,7 +78,6 @@ export const PageContent = ({
         const bibliographyEntry = bibliographyList.find((entry) => entry.id === span.textContent);
         tooltipDiv.innerHTML = bibliographyEntry?.markdown || "No details found for this citation."
         const portal = document.getElementById("special-portal");
-        console.log(tooltipDiv, portal)
         portal?.appendChild(tooltipDiv);
         setTimeout(() => {
           portal?.removeChild(tooltipDiv);
@@ -95,6 +96,14 @@ export const PageContent = ({
       });
     }
   }, [data]);
+
+  const abstractComponent = data.abstract ? (
+    <Text variant="subtitle2" style={{
+      marginBottom: "24px"
+    }}>
+      {data.abstract}
+    </Text>
+  ) : null;
 
   const endNotesComponent = (
     <>
@@ -151,16 +160,18 @@ export const PageContent = ({
         </SubtitleText>
       )}
       <ContentContainer style={style}>
-        {data.abstract && (
-          <Text variant="subtitle2" style={{
-            marginBottom: "24px"
-          }}>
-            {data.abstract}
-          </Text>
-        )}
-        {data.markdown && (
-          <Markdown value={processRawMarkdown(data.markdown)} />
-        )}
+        {abstractComponent}
+        {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
+          if (mdStr.startsWith('fig')) {
+            return <>
+              <StyledHorizontalLine />
+                TODO - {mdStr}
+              <StyledHorizontalLine data-bottom-space={true} />
+            </>
+          } else {
+            return <Markdown value={processRawMarkdown(mdStr)} key={index} />
+          }
+        })}
         {endNotesComponent}
         {bibliographyComponent}
         {children}
