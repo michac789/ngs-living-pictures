@@ -9,7 +9,7 @@ const ImagePlates = () => {
     <>
       <MetaData {...metaData['image-plates']} />
       <Text variant="title2">
-        Image Plates - TODO
+        Image Plates - TODO (TEST DEPLOYMENT)
       </Text>
       <NavButton />
     </>
