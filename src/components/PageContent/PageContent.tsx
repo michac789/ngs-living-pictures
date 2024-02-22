@@ -105,13 +105,13 @@ export const PageContent = ({
     </Text>
   ) : null;
 
-  const endNotesComponent = (
+  const endNotesComponent = data.endNotes && (
     <>
       <Text variant="body1" style={{ fontWeight: 600 }}>
         ENDNOTES
       </Text>
       <EndnotesOl>
-        {data.endNotes && data.endNotes.map((note, index) => (
+        {data.endNotes.map((note, index) => (
           <EndnotesLi key={index} id={`endnotes-${index + 1}`}>
             <EndnotesLiContentWrapper>
               <Markdown value={note} />
@@ -127,12 +127,12 @@ export const PageContent = ({
     </>
   );
   
-  const bibliographyComponent = (
+  const bibliographyComponent = data.markdown && getBibliographyContents(data.markdown).length !== 0 && (
     <>
       <Text variant="body1" style={{ fontWeight: 600 }}>
         BIBLIOGRAPHY
       </Text>
-      {data.markdown && getBibliographyContents(data.markdown).map((entry, index) => (
+      {getBibliographyContents(data.markdown).map((entry, index) => (
         <BibliographySingleEntry key={index}>
           <Text key={index} variant="body2" style={{ fontWeight: 600 }}>
             {entry.id}
