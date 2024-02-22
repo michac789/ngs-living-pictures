@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  BibliographySingleEntry,
   ContentContainer,
   EndnotesLi,
   EndnotesLiContentWrapper,
@@ -8,15 +9,21 @@ import {
   LabelText,
   PageContentContainer,
   SubtitleText,
+  StyledHorizontalLine,
   TitleText,
 } from "./PageContentStyle";
 import { Icon } from "../Icon/Icon";
+import { ImagePreview } from "../ImagePreview/ImagePreview";
 import { NavButton } from "../NavButton/NavButton";
 import { Markdown } from "../Markdown/Markdown";
 import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 import { colors } from "../../constants/colors";
+import { bibliographyList } from "../../constants/bibliography";
+import { figures } from "../../constants/figures";
+import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
+import { getFigures } from "../../utils/getFigures";
 
 interface ContentData {
   label?: string;
@@ -58,10 +65,108 @@ export const PageContent = ({
         spanElement.style.textDecoration = `underline ${colors.Blue600} dotted`;
       });
       span.addEventListener("click", () => {
-        console.log(span.textContent, 'TODO: open tooltip with citation details');
+        const tooltipDiv = document.createElement("div");
+        const rect = spanElement.getBoundingClientRect();
+        const { top, left } = rect;
+        tooltipDiv.style.position = "absolute";
+        tooltipDiv.style.top = `${top - 85}px`;
+        tooltipDiv.style.left = `${left - 100}px`;
+        tooltipDiv.style.backgroundColor = colors.Blue900;
+        tooltipDiv.style.color = colors.Neutral100;
+        tooltipDiv.style.padding = "8px";
+        tooltipDiv.style.borderRadius = "4px";
+        tooltipDiv.style.zIndex = "100";
+        tooltipDiv.style.maxWidth = "400px";
+        const bibliographyEntry = bibliographyList.find((entry) => entry.id === span.textContent);
+        tooltipDiv.innerHTML = bibliographyEntry?.markdown || "No details found for this citation."
+        const portal = document.getElementById("special-portal");
+        portal?.appendChild(tooltipDiv);
+        setTimeout(() => {
+          portal?.removeChild(tooltipDiv);
+        }, 3000);
       });
     });
+
+    return () => {
+      citationSpans.forEach((span) => {
+        span.removeEventListener("click", () => {});
+      });
+      bibliographySpans.forEach((span) => {
+        span.removeEventListener("mouseover", () => {});
+        span.removeEventListener("mouseout", () => {});
+        span.removeEventListener("click", () => {});
+      });
+    }
   }, [data]);
+
+  const abstractComponent = data.abstract ? (
+    <Text variant="subtitle2" style={{
+      marginBottom: "24px"
+    }}>
+      {data.abstract}
+    </Text>
+  ) : null;
+
+  const mainContentComponent = data.markdown && (
+    <>
+      {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
+        if (mdStr.startsWith('fig')) {
+          const id = mdStr.split("-")[1];
+          const figure = figures.find((fig) => fig.id === id);
+          return <>
+            <StyledHorizontalLine />
+              <ImagePreview
+                key={index}
+                imageUrl={figure?.imageUrl || ""}
+                label={figure?.label || ""}
+                caption={figure?.caption || ""}
+              />
+            <StyledHorizontalLine data-bottom-space={true} />
+          </>
+        } else {
+          return <Markdown value={processRawMarkdown(mdStr)} key={index} />
+        }
+      })}
+    </>
+  )
+
+  const endNotesComponent = data.endNotes && (
+    <>
+      <Text variant="body1" style={{ fontWeight: 600 }}>
+        ENDNOTES
+      </Text>
+      <EndnotesOl>
+        {data.endNotes.map((note, index) => (
+          <EndnotesLi key={index} id={`endnotes-${index + 1}`}>
+            <EndnotesLiContentWrapper>
+              <Markdown value={note} />
+              <EndnotesLinkIconWrapper
+                onClick={() => window.location.hash = `#citation-${index + 1}`}
+              >
+                <Icon name="ri-reply-fill" />
+              </EndnotesLinkIconWrapper>
+            </EndnotesLiContentWrapper>
+          </EndnotesLi>
+        ))}
+      </EndnotesOl>
+    </>
+  );
+  
+  const bibliographyComponent = data.markdown && getBibliographyContents(data.markdown).length !== 0 && (
+    <>
+      <Text variant="body1" style={{ fontWeight: 600 }}>
+        BIBLIOGRAPHY
+      </Text>
+      {getBibliographyContents(data.markdown).map((entry, index) => (
+        <BibliographySingleEntry key={index}>
+          <Text key={index} variant="body2" style={{ fontWeight: 600 }}>
+            {entry.id}
+          </Text>
+          <Markdown value={entry.markdown} />
+        </BibliographySingleEntry>
+      ))}
+    </>
+  );
 
   return (
     <PageContentContainer>
@@ -80,37 +185,10 @@ export const PageContent = ({
         </SubtitleText>
       )}
       <ContentContainer style={style}>
-        {data.abstract && (
-          <Text variant="subtitle2" style={{
-            marginBottom: "24px"
-          }}>
-            {data.abstract}
-          </Text>
-        )}
-        {data.markdown && (
-          <Markdown value={processRawMarkdown(data.markdown)} />
-        )}
-        {data.endNotes && (
-          <>
-            <Text variant="body1" style={{ fontWeight: 600 }}>
-              ENDNOTES
-            </Text>
-            <EndnotesOl>
-              {data.endNotes.map((note, index) => (
-                <EndnotesLi key={index} id={`endnotes-${index + 1}`}>
-                  <EndnotesLiContentWrapper>
-                    <Markdown value={note} />
-                    <EndnotesLinkIconWrapper
-                      onClick={() => window.location.hash = `#citation-${index + 1}`}
-                    >
-                      <Icon name="ri-reply-fill" />
-                    </EndnotesLinkIconWrapper>
-                  </EndnotesLiContentWrapper>
-                </EndnotesLi>
-              ))}
-            </EndnotesOl>
-          </>
-        )}
+        {abstractComponent}
+        {mainContentComponent}
+        {endNotesComponent}
+        {bibliographyComponent}
         {children}
       </ContentContainer>
       <NavButton />

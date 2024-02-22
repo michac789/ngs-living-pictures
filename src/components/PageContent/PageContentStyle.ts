@@ -77,3 +77,22 @@ export const EndnotesLinkIconWrapper = styled.div`
     }
   }
 `;
+
+export const BibliographySingleEntry = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  & div {
+    ${textVariantMapping.body2};
+  }
+`;
+
+export const StyledHorizontalLine = styled.hr`
+  border: 1px solid ${colors.Red500};
+  margin: 8px 0;
+
+  &[data-bottom-space="true"] {
+    margin-bottom: 16px;
+  }
+`;
