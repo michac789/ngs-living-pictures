@@ -6,10 +6,12 @@ import { Tooltip } from "../Tooltip/Tooltip";
 
 interface StickyMenuProps {
   contributorRef: React.RefObject<HTMLDivElement>;
+  onDownloadClick: () => void;
+  isDownloadLoading: boolean;
 };
 
 export const StickyMenu = ({
-  contributorRef,
+  contributorRef, onDownloadClick, isDownloadLoading,
 }: StickyMenuProps) => {
   const [isSticky, setIsSticky] = useState(false);
   const [horizontalDistance, setHorizontalDistance] = useState(0);
@@ -66,8 +68,10 @@ export const StickyMenu = ({
   };
 
   const handleDownloadClick = () => {
-    console.log("download clicked");
-  };
+    if (!isDownloadLoading) {
+      return onDownloadClick();
+    }
+  }
 
   const handleInfoClick = () => {
     contributorRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -87,7 +91,12 @@ export const StickyMenu = ({
           <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
         </Tooltip>
         <Tooltip contents="Download" position="left" timeout={0} hoverable>
-          <Icon name="ri-download-line" onClick={handleDownloadClick} />
+          <Icon name="ri-download-line" onClick={handleDownloadClick}
+            style={{
+              cursor: isDownloadLoading ? "not-allowed" : "pointer",
+              opacity: isDownloadLoading ? 0.5 : 1
+            }}
+          />
         </Tooltip>
         <Tooltip contents="Information" position="left" timeout={0} hoverable>
           <Icon name="ri-information-line" onClick={handleInfoClick} />

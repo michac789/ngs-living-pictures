@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BibliographySingleEntry,
   ContentContainer,
@@ -29,6 +29,8 @@ import { getFigures } from "../../utils/getFigures";
 import { contributorList } from "../../constants/contributors";
 import { SingleContributor } from "../../pages/Contributors/SingleContributor";
 
+const html2pdf = require('html2pdf.js');
+
 interface ContentData {
   label?: string;
   title: string;
@@ -47,6 +49,8 @@ interface PageContentProps {
 export const PageContent = ({
   data, children, style, metaData={},
 }: PageContentProps) => {
+  const [isDownloadLoading, setIsDownloadLoading] = useState(false);
+  const pageContentRef = useRef<HTMLDivElement>(null);
   const contributorRef = useRef<HTMLDivElement>(null);
 
   // some vanilla js code, to modify the markdown content
@@ -104,6 +108,23 @@ export const PageContent = ({
       });
     }
   }, [data]);
+
+  const generatePdf = () => {
+    setIsDownloadLoading(true);
+    const content = pageContentRef.current;
+    if (content) {
+      const opt = {
+        margin: 10,
+        filename: `${metaData.title}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().from(content).set(opt).save().then(() => {
+        setIsDownloadLoading(false);
+      });
+    }
+  }
 
   const abstractComponent = data.abstract ? (
     <Text variant="subtitle2" style={{
@@ -196,7 +217,7 @@ export const PageContent = ({
   )
 
   return (
-    <PageContentContainer>
+    <PageContentContainer ref={pageContentRef}>
       <MetaData {...metaData} />
       {data.label && (
         <LabelText variant="button">
@@ -222,6 +243,8 @@ export const PageContent = ({
       <NavButton />
       <StickyMenu
         contributorRef={contributorRef}
+        onDownloadClick={generatePdf}
+        isDownloadLoading={isDownloadLoading}
       />
     </PageContentContainer>
   );
