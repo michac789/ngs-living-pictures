@@ -4,7 +4,9 @@ import { colors } from "../../constants/colors";
 export const MainContainer = styled.div`
   height: calc(100vh - 58px);
   width: 100vw;
+  overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
   
   &[data-sidebar-open="true"] {
     width: calc(100vw - 300px);

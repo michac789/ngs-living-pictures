@@ -13,9 +13,9 @@ export const PageLayout = () => {
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(sidebarRef, () => {
+  useOnClickOutside(() => {
     setIsSidebarOpen(false);
-  });
+  }, sidebarRef);
   
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

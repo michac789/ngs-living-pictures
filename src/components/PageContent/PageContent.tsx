@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BibliographySingleEntry,
   ContentContainer,
+  ContributorContainer,
   EndnotesLi,
   EndnotesLiContentWrapper,
   EndnotesLinkIconWrapper,
@@ -12,6 +13,7 @@ import {
   StyledHorizontalLine,
   TitleText,
 } from "./PageContentStyle";
+import { StickyMenu } from "./StickyMenu";
 import { Icon } from "../Icon/Icon";
 import { ImagePreview } from "../ImagePreview/ImagePreview";
 import { NavButton } from "../NavButton/NavButton";
@@ -24,6 +26,10 @@ import { figures } from "../../constants/figures";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 import { getFigures } from "../../utils/getFigures";
+import { contributorList } from "../../constants/contributors";
+import { SingleContributor } from "../../pages/Contributors/SingleContributor";
+
+const html2pdf = require('html2pdf.js');
 
 interface ContentData {
   label?: string;
@@ -43,6 +49,10 @@ interface PageContentProps {
 export const PageContent = ({
   data, children, style, metaData={},
 }: PageContentProps) => {
+  const [isDownloadLoading, setIsDownloadLoading] = useState(false);
+  const pageContentRef = useRef<HTMLDivElement>(null);
+  const contributorRef = useRef<HTMLDivElement>(null);
+
   // some vanilla js code, to modify the markdown content
   useEffect(() => {
     const citationSpans = document.querySelectorAll(".citation");
@@ -99,6 +109,23 @@ export const PageContent = ({
     }
   }, [data]);
 
+  const generatePdf = () => {
+    setIsDownloadLoading(true);
+    const content = pageContentRef.current;
+    if (content) {
+      const opt = {
+        margin: 10,
+        filename: `${metaData.title}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().from(content).set(opt).save().then(() => {
+        setIsDownloadLoading(false);
+      });
+    }
+  }
+
   const abstractComponent = data.abstract ? (
     <Text variant="subtitle2" style={{
       marginBottom: "24px"
@@ -132,7 +159,7 @@ export const PageContent = ({
 
   const endNotesComponent = data.endNotes && (
     <>
-      <Text variant="body1" style={{ fontWeight: 600 }}>
+      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline' }}>
         ENDNOTES
       </Text>
       <EndnotesOl>
@@ -154,7 +181,7 @@ export const PageContent = ({
   
   const bibliographyComponent = data.markdown && getBibliographyContents(data.markdown).length !== 0 && (
     <>
-      <Text variant="body1" style={{ fontWeight: 600 }}>
+      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline' }}>
         BIBLIOGRAPHY
       </Text>
       {getBibliographyContents(data.markdown).map((entry, index) => (
@@ -168,8 +195,29 @@ export const PageContent = ({
     </>
   );
 
+  const currContributor = contributorList.find((contributor) => contributor.essays.some((essay) => essay.url === window.location.pathname));
+  const contributorComponent = currContributor && (
+    <>
+      <Text
+        variant="body1"
+        style={{ fontWeight: 600, textDecoration: 'underline', lineHeight: 1 }}
+      >
+        CONTRIBUTOR
+      </Text>
+      <ContributorContainer ref={contributorRef}>
+        <SingleContributor
+          name={currContributor.name}
+          descriptionMd={currContributor.descriptionMd}
+          image={require(`../../assets/${currContributor.imageUrl}`)}
+          portfolioUrl={currContributor.portfolioUrl}
+          essays={currContributor.essays}
+        />
+      </ContributorContainer>
+    </>
+  )
+
   return (
-    <PageContentContainer>
+    <PageContentContainer ref={pageContentRef}>
       <MetaData {...metaData} />
       {data.label && (
         <LabelText variant="button">
@@ -184,14 +232,20 @@ export const PageContent = ({
           {data.subtitle}
         </SubtitleText>
       )}
-      <ContentContainer style={style}>
+      <ContentContainer id="content-container" style={style}>
         {abstractComponent}
         {mainContentComponent}
         {endNotesComponent}
         {bibliographyComponent}
+        {contributorComponent}
         {children}
       </ContentContainer>
       <NavButton />
+      <StickyMenu
+        contributorRef={contributorRef}
+        onDownloadClick={generatePdf}
+        isDownloadLoading={isDownloadLoading}
+      />
     </PageContentContainer>
   );
 }

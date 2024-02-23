@@ -96,3 +96,17 @@ export const StyledHorizontalLine = styled.hr`
     margin-bottom: 16px;
   }
 `;
+
+export const ContributorContainer = styled.div`
+  div {
+    ${textVariantMapping.body2};
+
+    .contributor-name {
+      font-weight: 600;
+    }
+  }
+
+  .contributor-container {
+    margin: 0;
+  }
+`;
