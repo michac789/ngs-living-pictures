@@ -60,6 +60,28 @@ export const ImageBackdrop = styled.div`
   overflow: auto;
   background-color: rgba(35, 35, 35, 0.9);
   z-index: 200;
+
+  transition: all 0.3s ease-in-out;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  animation: fadeIn 0.3s ease;
+  &.exiting {
+    animation: fadeOut 0.3s ease;
+  }
 `;
 
 export const ZoomedImage = styled.img`
@@ -111,5 +133,27 @@ export const ImageCaptionWrapper = styled.div`
   }
   & p {
     margin: 0;
+  }
+
+  transition: all 0.3s ease-in-out;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  animation: fadeIn 0.3s ease;
+  &.exiting {
+    animation: fadeOut 0.3s ease;
   }
 `;

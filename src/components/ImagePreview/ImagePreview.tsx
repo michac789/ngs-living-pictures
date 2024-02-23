@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   CaptionContainer,
   CloseIconContainer,
@@ -25,24 +25,42 @@ export const ImagePreview = ({
   imageUrl, label, caption
 }: ImagePreviewProps) => {
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
+  const [isExiting, setIsExiting] = useState<boolean>(false);
   const zoomedImageRef = useRef<HTMLImageElement>(null);
   const zoomedCaptionRef = useRef<HTMLDivElement>(null);
-
+  
   const image = require(`../../assets/${imageUrl}`);
+  
+  const timeout = useRef<NodeJS.Timeout | null>(null);
+  useEffect(() => {
+    return () => {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+    };
+  }, []);
 
   useOnClickOutside(() => {
-    setIsZoomed(false);
+    handleExitZoom();
   }, zoomedImageRef, zoomedCaptionRef);
 
   const handleZoom = () => {
     setIsZoomed(true);
   }
 
+  const handleExitZoom = () => {
+    setIsExiting(true);
+    timeout.current = setTimeout(() => {
+      setIsZoomed(false);
+      setIsExiting(false);
+    }, 270);
+  }
+
   return (
     <>
       <StyledImagePreview src={image} alt={label} onClick={handleZoom} />
       <CaptionContainer>
-        <FigureNameWrapper onClick={handleZoom}>
+        <FigureNameWrapper onClick={handleExitZoom}>
           <Icon name="ri-fullscreen-fill" size="16px" />
           <StyledFigureName variant="body2" as="span">
             {label}
@@ -52,13 +70,16 @@ export const ImagePreview = ({
       </CaptionContainer>
       {isZoomed && (
         <Portal>
-          <ImageBackdrop>
+          <ImageBackdrop className={isExiting ? "exiting" : ""}>
             <ZoomedImage src={image} alt={label} ref={zoomedImageRef} />
           </ImageBackdrop>
           <CloseIconContainer>
-            <Icon name="ri-close-fill" onClick={() => setIsZoomed(false)} />
+            <Icon name="ri-close-fill" onClick={handleExitZoom} />
           </CloseIconContainer>
-          <ImageCaptionWrapper ref={zoomedCaptionRef}>
+          <ImageCaptionWrapper
+            ref={zoomedCaptionRef}
+            className={isExiting ? "exiting" : ""}
+          >
             <Text variant="body2" as="span" style={{ fontWeight: 600 }}>
               {label}.&nbsp;
             </Text>

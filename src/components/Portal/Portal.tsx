@@ -15,7 +15,15 @@ export const Portal = ({ children, id = "special-portal" }: PortalProps) => {
     }
     portalRef.current = portalElement;
   }, [id]);
-  if (!portalRef.current) {
+
+  if (id === "special-portal") {
+    const portal = document.getElementById(id);
+    if (!portal) {
+      throw new Error(`No element with id ${id} found`);
+    }
+    return createPortal(children, portal);
+  }
+  else if (!portalRef.current) {
     return null;
   }
   return createPortal(children, portalRef.current);
