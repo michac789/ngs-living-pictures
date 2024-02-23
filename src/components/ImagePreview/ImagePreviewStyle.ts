@@ -97,7 +97,7 @@ export const ImageCaptionWrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% - 32px);
   padding: 16px;
 
   background-color: rgba(35, 35, 35, 0.5);

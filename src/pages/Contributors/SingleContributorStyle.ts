@@ -12,7 +12,7 @@ export const NameHeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 8px;
+  padding: 8px 8px 8px 0;
   gap: 8px;
 `;
 

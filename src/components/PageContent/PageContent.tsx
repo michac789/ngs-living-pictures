@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import {
   BibliographySingleEntry,
   ContentContainer,
+  ContributorContainer,
   EndnotesLi,
   EndnotesLiContentWrapper,
   EndnotesLinkIconWrapper,
@@ -24,6 +25,8 @@ import { figures } from "../../constants/figures";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 import { getFigures } from "../../utils/getFigures";
+import { contributorList } from "../../constants/contributors";
+import { SingleContributor } from "../../pages/Contributors/SingleContributor";
 
 interface ContentData {
   label?: string;
@@ -132,7 +135,7 @@ export const PageContent = ({
 
   const endNotesComponent = data.endNotes && (
     <>
-      <Text variant="body1" style={{ fontWeight: 600 }}>
+      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline' }}>
         ENDNOTES
       </Text>
       <EndnotesOl>
@@ -154,7 +157,7 @@ export const PageContent = ({
   
   const bibliographyComponent = data.markdown && getBibliographyContents(data.markdown).length !== 0 && (
     <>
-      <Text variant="body1" style={{ fontWeight: 600 }}>
+      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline' }}>
         BIBLIOGRAPHY
       </Text>
       {getBibliographyContents(data.markdown).map((entry, index) => (
@@ -167,6 +170,24 @@ export const PageContent = ({
       ))}
     </>
   );
+
+  const currContributor = contributorList.find((contributor) => contributor.essays.some((essay) => essay.url === window.location.pathname));
+  const contributorComponent = currContributor && (
+    <>
+      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline', lineHeight: 1 }}>
+        CONTRIBUTOR
+      </Text>
+      <ContributorContainer>
+        <SingleContributor
+          name={currContributor.name}
+          descriptionMd={currContributor.descriptionMd}
+          image={require(`../../assets/${currContributor.imageUrl}`)}
+          portfolioUrl={currContributor.portfolioUrl}
+          essays={currContributor.essays}
+        />
+      </ContributorContainer>
+    </>
+  )
 
   return (
     <PageContentContainer>
@@ -189,6 +210,7 @@ export const PageContent = ({
         {mainContentComponent}
         {endNotesComponent}
         {bibliographyComponent}
+        {contributorComponent}
         {children}
       </ContentContainer>
       <NavButton />

@@ -4,7 +4,7 @@ interface EssayEntry {
   url: string;
 }
 
-interface ContributorEntry {
+export interface ContributorEntry {
   name: string;
   descriptionMd: string;
   imageUrl: string;
