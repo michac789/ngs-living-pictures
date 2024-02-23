@@ -1,8 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
 import { StickyMenuContainer } from "./StickyMenuStyle";
+import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
+import { Tooltip } from "../Tooltip/Tooltip";
 
-export const StickyMenu = () => {
+interface StickyMenuProps {
+  contributorRef: React.RefObject<HTMLDivElement>;
+};
+
+export const StickyMenu = ({
+  contributorRef,
+}: StickyMenuProps) => {
   const [isSticky, setIsSticky] = useState(false);
   const [horizontalDistance, setHorizontalDistance] = useState(0);
   const [verticalDistance, setVerticalDistance] = useState(0);
@@ -47,7 +55,23 @@ export const StickyMenu = () => {
       resizeObserver.disconnect();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.location.pathname])
+  }, [window.location.pathname]);
+
+  const handleShareClick = () => {
+    console.log("share clicked");
+  };
+
+  const handleCitationClick = () => {
+    console.log("citation clicked");
+  };
+
+  const handleDownloadClick = () => {
+    console.log("download clicked");
+  };
+
+  const handleInfoClick = () => {
+    contributorRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <Portal id="main-container">
@@ -56,7 +80,18 @@ export const StickyMenu = () => {
         top: isSticky ? 58 : verticalDistance,
         position: isSticky ? "fixed" : "absolute"
       }}>
-        TODO
+        <Tooltip contents="Share" position="left" timeout={0} hoverable>
+          <Icon name="ri-share-line" onClick={handleShareClick} />
+        </Tooltip>
+        <Tooltip contents="Cite" position="left" timeout={0} hoverable>
+          <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
+        </Tooltip>
+        <Tooltip contents="Download" position="left" timeout={0} hoverable>
+          <Icon name="ri-download-line" onClick={handleDownloadClick} />
+        </Tooltip>
+        <Tooltip contents="Information" position="left" timeout={0} hoverable>
+          <Icon name="ri-information-line" onClick={handleInfoClick} />
+        </Tooltip>
       </StickyMenuContainer>
     </Portal>
   )

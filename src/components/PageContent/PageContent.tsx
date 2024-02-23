@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   BibliographySingleEntry,
   ContentContainer,
@@ -47,6 +47,8 @@ interface PageContentProps {
 export const PageContent = ({
   data, children, style, metaData={},
 }: PageContentProps) => {
+  const contributorRef = useRef<HTMLDivElement>(null);
+
   // some vanilla js code, to modify the markdown content
   useEffect(() => {
     const citationSpans = document.querySelectorAll(".citation");
@@ -175,10 +177,13 @@ export const PageContent = ({
   const currContributor = contributorList.find((contributor) => contributor.essays.some((essay) => essay.url === window.location.pathname));
   const contributorComponent = currContributor && (
     <>
-      <Text variant="body1" style={{ fontWeight: 600, textDecoration: 'underline', lineHeight: 1 }}>
+      <Text
+        variant="body1"
+        style={{ fontWeight: 600, textDecoration: 'underline', lineHeight: 1 }}
+      >
         CONTRIBUTOR
       </Text>
-      <ContributorContainer>
+      <ContributorContainer ref={contributorRef}>
         <SingleContributor
           name={currContributor.name}
           descriptionMd={currContributor.descriptionMd}
@@ -215,7 +220,9 @@ export const PageContent = ({
         {children}
       </ContentContainer>
       <NavButton />
-      <StickyMenu />
+      <StickyMenu
+        contributorRef={contributorRef}
+      />
     </PageContentContainer>
   );
 }

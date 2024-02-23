@@ -10,15 +10,17 @@ interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   timeout?: number;
   extraStyles?: string;
   closeOnClickOutside?: boolean;
+  hoverable?: boolean;
 }
 
 export const Tooltip = ({
-  children, contents, position="top", timeout=1000, extraStyles="",
+  children, contents, position="top", timeout=1000, extraStyles="", hoverable=false,
   closeOnClickOutside=true, ...props
 }: TooltipProps) => {
   const [show, setShow] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
+  const hiddenTooltipRef = useRef<HTMLDivElement>(null);
   const [toolTipX, setToolTipX] = useState<number>(0);
   const [toolTipY, setToolTipY] = useState<number>(0);
 
@@ -26,9 +28,9 @@ export const Tooltip = ({
   const paddingDistancePx = 8;
   useEffect(() => {
     const calculateTooltipPosition = () => {
-      if (containerRef.current && tooltipRef.current) {
+      if (containerRef.current && hiddenTooltipRef.current) {
         const { top, left, width, height } = containerRef.current.getBoundingClientRect();
-        const { width: tooltipWidth, height: tooltipHeight } = tooltipRef.current.getBoundingClientRect();
+        const { width: tooltipWidth, height: tooltipHeight } = hiddenTooltipRef.current.getBoundingClientRect();
         switch (position) {
           case "top":
             setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
@@ -79,10 +81,23 @@ export const Tooltip = ({
     if (closeOnClickOutside) {
       setShow(false);
     }
-  }, containerRef);
+  }, containerRef, tooltipRef);
 
   const handleClick = () => {
-    handleAnimation();
+    if (!hoverable) handleAnimation();
+  }
+
+  const handleMouseEnter = () => {
+    if (hoverable) {
+      setShow(true);
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (hoverable) {
+      setShow(false);
+      handleAnimation();
+    }
   }
 
   return (
@@ -91,12 +106,14 @@ export const Tooltip = ({
         onClick={handleClick}
         ref={containerRef}
         extraStyles={extraStyles}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         {...props}
       >
         {children}
       </TooltipContainer>
       {/* need this to get height and width of tooltip, if ref points to the one below, it is not rerendered at first*/}
-      <div style={{ position: "absolute", opacity: 0 }} ref={tooltipRef}>
+      <div style={{ position: "absolute", opacity: 0 }} ref={hiddenTooltipRef}>
         {contents}
       </div>
       <Portal>
@@ -105,6 +122,7 @@ export const Tooltip = ({
           topPosition={toolTipY}
           leftPosition={toolTipX}
           hidden={!show}
+          ref={tooltipRef}
         >
           {contents}
         </TooltipContentWrapper>
