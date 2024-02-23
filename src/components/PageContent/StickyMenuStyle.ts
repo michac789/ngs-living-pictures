@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Spinner } from "../Spinner/Spinner";
 import { colors } from "../../constants/colors";
 
 export const StickyMenuContainer = styled.div`
@@ -21,4 +22,9 @@ export const StickyMenuContainer = styled.div`
       fill: ${colors.Green700};
     }
   }
+`;
+
+export const StyledSpinner = styled(Spinner)`
+  cursor: not-allowed;
+  opacity: 0.5;
 `;

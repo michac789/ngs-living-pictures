@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { StickyMenuContainer } from "./StickyMenuStyle";
+import { StickyMenuContainer, StyledSpinner } from "./StickyMenuStyle";
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
 import { Tooltip } from "../Tooltip/Tooltip";
@@ -91,12 +91,11 @@ export const StickyMenu = ({
           <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
         </Tooltip>
         <Tooltip contents="Download" position="left" timeout={0} hoverable>
-          <Icon name="ri-download-line" onClick={handleDownloadClick}
-            style={{
-              cursor: isDownloadLoading ? "not-allowed" : "pointer",
-              opacity: isDownloadLoading ? 0.5 : 1
-            }}
-          />
+          {isDownloadLoading ? (
+            <StyledSpinner />
+          ) : (
+            <Icon name="ri-download-line" onClick={handleDownloadClick} />
+          )}
         </Tooltip>
         <Tooltip contents="Information" position="left" timeout={0} hoverable>
           <Icon name="ri-information-line" onClick={handleInfoClick} />

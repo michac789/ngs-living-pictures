@@ -16,6 +16,7 @@ export const iconNames = [
   'ri-github-fill',
   'ri-home-3-fill',
   'ri-information-line',
+  'ri-loader-4-line',
   'ri-menu-fill',
   'ri-play-fill',
   'ri-reply-fill',
@@ -70,6 +71,9 @@ export const icons: Record<IconName, JSX.Element> = {
   ),
   'ri-information-line': (
     <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z"></path>
+  ),
+  'ri-loader-4-line': (
+    <path d="M18.364 5.63604L16.9497 7.05025C15.683 5.7835 13.933 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12H21C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C14.4853 3 16.7353 4.00736 18.364 5.63604Z"></path>
   ),
   'ri-menu-fill': (
     <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
