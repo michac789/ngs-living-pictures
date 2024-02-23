@@ -13,6 +13,7 @@ import {
   StyledHorizontalLine,
   TitleText,
 } from "./PageContentStyle";
+import { StickyMenu } from "./StickyMenu";
 import { Icon } from "../Icon/Icon";
 import { ImagePreview } from "../ImagePreview/ImagePreview";
 import { NavButton } from "../NavButton/NavButton";
@@ -205,7 +206,7 @@ export const PageContent = ({
           {data.subtitle}
         </SubtitleText>
       )}
-      <ContentContainer style={style}>
+      <ContentContainer id="content-container" style={style}>
         {abstractComponent}
         {mainContentComponent}
         {endNotesComponent}
@@ -214,6 +215,7 @@ export const PageContent = ({
         {children}
       </ContentContainer>
       <NavButton />
+      <StickyMenu />
     </PageContentContainer>
   );
 }
