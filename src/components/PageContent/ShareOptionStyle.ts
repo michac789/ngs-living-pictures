@@ -4,7 +4,7 @@ import { colors } from "../../constants/colors";
 
 export const HeaderText = styled(Text)`
   color: ${colors.Neutral300};
-  margin-bottom: 16px;
+  margin-bottom: 48px;
 `;
 
 export const OptionsFlexContainer = styled.div`

@@ -3,6 +3,7 @@ import { CloseIconContainer, DarkBackdrop } from "../ImagePreview/ImagePreviewSt
 import { HeaderText, OptionsFlexContainer, SingleOptionWrapper } from "./ShareOptionStyle";
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
+import { Tooltip } from "../Tooltip/Tooltip";
 import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
 interface ShareOptionProps {
@@ -89,50 +90,74 @@ export const ShareOption = ({
           Share via
         </HeaderText>
         <OptionsFlexContainer>
-          <SingleOptionWrapper
-            data-type="twitter"
-            ref={singleOptionRefs.twitter}
-            onClick={shareOnTwitter}
-          >
-            <Icon name="ri-twitter-fill" />
-          </SingleOptionWrapper>
-          <SingleOptionWrapper
-            data-type="facebook"
-            ref={singleOptionRefs.facebook}
-            onClick={shareOnFacebook}
-          >
-            <Icon name="ri-facebook-fill" />
-          </SingleOptionWrapper>
-          <SingleOptionWrapper
-            data-type="pinterest"
-            ref={singleOptionRefs.pinterest}
-            onClick={shareOnPinterest}
-          >
-            <Icon name="ri-pinterest-line" />
-          </SingleOptionWrapper>
+          <Tooltip contents="Twitter" style={{
+            zIndex: 500,
+          }} timeout={0} position="left" hoverable>
+            <SingleOptionWrapper
+              data-type="twitter"
+              ref={singleOptionRefs.twitter}
+              onClick={shareOnTwitter}
+            >
+              <Icon name="ri-twitter-fill" />
+            </SingleOptionWrapper>
+          </Tooltip>
+          <Tooltip contents="Facebook" style={{
+            zIndex: 500,
+          }} timeout={0} position="top" hoverable>
+            <SingleOptionWrapper
+              data-type="facebook"
+              ref={singleOptionRefs.facebook}
+              onClick={shareOnFacebook}
+            >
+              <Icon name="ri-facebook-fill" />
+            </SingleOptionWrapper>
+          </Tooltip>
+          <Tooltip contents="Pinterest" style={{
+            zIndex: 500,
+          }} timeout={0} position="right" hoverable>
+            <SingleOptionWrapper
+              data-type="pinterest"
+              ref={singleOptionRefs.pinterest}
+              onClick={shareOnPinterest}
+            >
+              <Icon name="ri-pinterest-line" />
+            </SingleOptionWrapper>
+          </Tooltip>
         </OptionsFlexContainer>
         <OptionsFlexContainer>
-          <SingleOptionWrapper
-            data-type="whatsapp"
-            ref={singleOptionRefs.whatsapp}
-            onClick={shareOnWhatsApp}
-          >
-            <Icon name="ri-whatsapp-fill" />
-          </SingleOptionWrapper>
-          <SingleOptionWrapper
-            data-type="linkedin"
-            ref={singleOptionRefs.linkedin}
-            onClick={shareOnLinkedIn}
-          >
-            <Icon name="ri-linkedin-fill" />
-          </SingleOptionWrapper>
-          <SingleOptionWrapper
-            data-type="telegram"
-            ref={singleOptionRefs.telegram}
-            onClick={shareOnTelegram}
-          >
-            <Icon name="ri-telegram-line" />
-          </SingleOptionWrapper>
+          <Tooltip contents="WhatsApp" style={{
+            zIndex: 500,
+          }} timeout={0} position="left" hoverable>
+            <SingleOptionWrapper
+              data-type="whatsapp"
+              ref={singleOptionRefs.whatsapp}
+              onClick={shareOnWhatsApp}
+            >
+              <Icon name="ri-whatsapp-fill" />
+            </SingleOptionWrapper>
+          </Tooltip>
+          <Tooltip contents="Linkedin" style={{
+            zIndex: 500,
+          }} timeout={0} position="bottom" hoverable>
+            <SingleOptionWrapper
+              data-type="linkedin"
+              ref={singleOptionRefs.linkedin}
+              onClick={shareOnLinkedIn}
+            >
+              <Icon name="ri-linkedin-fill" />
+            </SingleOptionWrapper>
+          </Tooltip>
+          <Tooltip contents="Telegram" style={{
+            zIndex: 500,
+          }} timeout={0} position="right" hoverable>
+            <SingleOptionWrapper
+              data-type="telegram"
+              ref={singleOptionRefs.telegram}
+              onClick={shareOnTelegram}
+            >
+              <Icon name="ri-telegram-line" />
+            </SingleOptionWrapper>
+          </Tooltip>
         </OptionsFlexContainer>
       </DarkBackdrop>
       <CloseIconContainer>

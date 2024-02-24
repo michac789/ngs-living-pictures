@@ -34,7 +34,7 @@ export const Tooltip = ({
         switch (position) {
           case "top":
             setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
-            setToolTipY(top - height - tooltipHeight - bufferDistancePx);
+            setToolTipY(top - tooltipHeight - bufferDistancePx - paddingDistancePx * 2);
             break;
           case "bottom":
             setToolTipX(left + width / 2 - tooltipWidth / 2 - paddingDistancePx);
@@ -108,12 +108,11 @@ export const Tooltip = ({
         extraStyles={extraStyles}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        {...props}
       >
         {children}
       </TooltipContainer>
       {/* need this to get height and width of tooltip, if ref points to the one below, it is not rerendered at first*/}
-      <div style={{ position: "absolute", opacity: 0 }} ref={hiddenTooltipRef}>
+      <div style={{ position: "absolute", opacity: 0, width: "fit-content", height: "fit-content" }} ref={hiddenTooltipRef}>
         {contents}
       </div>
       <Portal>
@@ -123,6 +122,7 @@ export const Tooltip = ({
           leftPosition={toolTipX}
           hidden={!show}
           ref={tooltipRef}
+          {...props}
         >
           {contents}
         </TooltipContentWrapper>
