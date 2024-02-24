@@ -1,6 +1,6 @@
 import { getTodayDate } from "../utils/getTodayDate";
 
-const productionUrl = "https://ngs.michac789.com/";
+export const productionUrl = "https://ngs.michac789.com/";
 
 export const sidebarConstants = {
   subtitle: "Charmaine Toh",

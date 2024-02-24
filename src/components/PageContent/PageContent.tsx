@@ -39,6 +39,7 @@ interface ContentData {
   abstract?: string;
   markdown?: string;
   endNotes?: string[];
+  citation?: string;
 }
 interface PageContentProps {
   data: ContentData;
@@ -257,6 +258,7 @@ export const PageContent = ({
           contributorRef={contributorRef}
           onDownloadClick={generatePdf}
           isDownloadLoading={isDownloadLoading}
+          citation={data.citation}
         />
       )}
     </PageContentContainer>

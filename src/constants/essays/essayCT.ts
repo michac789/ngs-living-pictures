@@ -1,3 +1,4 @@
+import { productionUrl } from "../sidebar";
 
 export const essayCT = {
   'label': 'I',
@@ -46,4 +47,5 @@ The photographic studio of G.R. Lambert & Co. was also aware of what its custome
     'Ibid., 51.',
     'John Falconer, *A Vision of the Past: A History of Early Photography in Singapore and Malaya: The Photographs of GR Lambert & Co.*, 1880–1910 (Singapore: Times Editions, 1987), 5.',
   ],
+  'citation': `Toh, Chermaine. *Living Photographs*. Singapore: National Gallery Singapore, 2024. ${productionUrl}`,
 };

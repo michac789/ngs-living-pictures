@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Spinner } from "../Spinner/Spinner";
 import { colors } from "../../constants/colors";
+import { textVariantMapping } from "../Text/TextStyle";
 
 export const StickyMenuContainer = styled.div`
   position: absolute;
@@ -27,4 +28,18 @@ export const StickyMenuContainer = styled.div`
 export const StyledSpinner = styled(Spinner)`
   cursor: not-allowed;
   opacity: 0.5;
+`;
+
+export const CitationTooltipWrapper = styled.div`
+  height: 100px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  & > div {
+    ${textVariantMapping.body2};
+    font-size: 12px;
+  }
 `;

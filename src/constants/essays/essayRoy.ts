@@ -1,3 +1,4 @@
+import { productionUrl } from "../sidebar";
 
 export const essayRoy = {
     'label': 'III',
@@ -38,4 +39,5 @@ In this regard, the photographic object both entrenches and disrupts this histor
     'D. Joselit, *After Art* (Princeton: Princeton University Press, 2013), 15–16.',
     'Joanna Wolfarth, “Royal Portraiture in the Cambodian Politico-Cultural Complex: Norodom Sihanouk and the Place of Photography,” *Udaya: Journal of Khmer Studies* 12 (2014): 145, 163.',
   ],
+  'citation': `Roy Ng, "(Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia". Singapore: National Gallery Singapore, 2024. ${productionUrl}`,
 };

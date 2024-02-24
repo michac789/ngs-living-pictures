@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ShareOption } from "./ShareOption";
-import { StickyMenuContainer, StyledSpinner } from "./StickyMenuStyle";
+import { CitationTooltipWrapper, StickyMenuContainer, StyledSpinner } from "./StickyMenuStyle";
 import { Icon } from "../Icon/Icon";
+import { Markdown } from "../Markdown/Markdown";
 import { Portal } from "../Portal/Portal";
 import { Tooltip } from "../Tooltip/Tooltip";
 
@@ -9,10 +10,11 @@ interface StickyMenuProps {
   contributorRef: React.RefObject<HTMLDivElement>;
   onDownloadClick: () => void;
   isDownloadLoading: boolean;
+  citation?: string;
 };
 
 export const StickyMenu = ({
-  contributorRef, onDownloadClick, isDownloadLoading,
+  contributorRef, onDownloadClick, isDownloadLoading, citation,
 }: StickyMenuProps) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isShareOptionOpen, setIsShareOptionOpen] = useState(false);
@@ -66,7 +68,7 @@ export const StickyMenu = ({
   };
 
   const handleCitationClick = () => {
-    console.log("citation clicked");
+    navigator.clipboard.writeText(citation || "");
   };
 
   const handleDownloadClick = () => {
@@ -90,9 +92,20 @@ export const StickyMenu = ({
           <Tooltip contents="Share" position="left" timeout={0} hoverable>
             <Icon name="ri-share-line" onClick={handleShareClick} />
           </Tooltip>
-          <Tooltip contents="Cite" position="left" timeout={0} hoverable>
-            <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
-          </Tooltip>
+          {citation && (
+            <Tooltip contents={
+              <CitationTooltipWrapper>
+                <span>Cite (click the icon beside to copy)</span>
+                <Markdown value={citation} />
+              </CitationTooltipWrapper>
+            } position="left" timeout={0} hoverable>
+              <Tooltip contents="Copied to clipboard!" position="top" style={{
+                zIndex: 101,
+              }}>
+                <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
+              </Tooltip>
+            </Tooltip>
+          )}
           <Tooltip contents="Download" position="left" timeout={0} hoverable>
             {isDownloadLoading ? (
               <StyledSpinner />
