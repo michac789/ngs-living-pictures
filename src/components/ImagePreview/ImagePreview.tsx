@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   CaptionContainer,
   CloseIconContainer,
+  DarkBackdrop,
   FigureNameWrapper,
-  ImageBackdrop,
   ImageCaptionWrapper,
   StyledFigureName,
   StyledImagePreview,
@@ -60,7 +60,7 @@ export const ImagePreview = ({
     <>
       <StyledImagePreview src={image} alt={label} onClick={handleZoom} />
       <CaptionContainer>
-        <FigureNameWrapper onClick={handleExitZoom}>
+        <FigureNameWrapper onClick={handleZoom}>
           <Icon name="ri-fullscreen-fill" size="16px" />
           <StyledFigureName variant="body2" as="span">
             {label}
@@ -70,9 +70,9 @@ export const ImagePreview = ({
       </CaptionContainer>
       {isZoomed && (
         <Portal>
-          <ImageBackdrop className={isExiting ? "exiting" : ""}>
+          <DarkBackdrop className={isExiting ? "exiting" : ""}>
             <ZoomedImage src={image} alt={label} ref={zoomedImageRef} />
-          </ImageBackdrop>
+          </DarkBackdrop>
           <CloseIconContainer>
             <Icon name="ri-close-fill" onClick={handleExitZoom} />
           </CloseIconContainer>

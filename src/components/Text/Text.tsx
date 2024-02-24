@@ -1,4 +1,4 @@
-import React, { CSSProperties, ElementType } from "react";
+import React, { CSSProperties, ElementType, forwardRef } from "react";
 import { textVariants, TextVariant, StyledText } from "./TextStyle";
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement>{
@@ -10,19 +10,19 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement>{
   style?: CSSProperties;
 }
 
-export const Text = ({
+export const Text = forwardRef<HTMLElement, TextProps>(({
   as,
   children,
   variant,
   style,
   ...props
-}: TextProps) => {
+}: TextProps, ref) => {
   if (variant && !textVariants.includes(variant)) {
     throw new Error(`Invalid text variant: ${variant}`);
   }
   return (
-    <StyledText style={style} as={as} variant={variant} {...props}>
+    <StyledText ref={ref} style={style} as={as} variant={variant} {...props}>
       {children}
     </StyledText>
   );
-};
+});

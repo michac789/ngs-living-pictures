@@ -1,3 +1,4 @@
+import { productionUrl } from "../sidebar";
 
 export const essaySze = {
   'label': 'II',
@@ -27,5 +28,6 @@ In Simryn Gill’s (b. 1959) *32 Volumes* (**see** {% cite 'pl. 287' %}), *32 vo
     'Henry Luce, “The American Century,” in *LIFE* 10, no. 7 (17 February 1941): 61–5.',
     'Russell Storer, “Simryn Gill: Gathering,” in *Simryn Gill* (Sydney: MCA & Koln: Verlag der Buchhandlung, 2008), 45.',
     'The term “changefulness” comes from Ross Gibson’s essay which charts Simryn Gill’s work in relation to Australia’s history in “Motility” in *Simryn Gill: Here art grows on trees* (Belgium: MER and Australia Council for the Arts, 2013), 259.'
-  ]
+  ],
+  'citation': `Goh, Sze Ying. *The Tender Insistence of Ruthless Remembering*. Singapore: National Gallery Singapore, 2024. ${productionUrl}`,
 };

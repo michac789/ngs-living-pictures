@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import ReactPlayer from "react-player";
 import {
   BibliographySingleEntry,
   ContentContainer,
@@ -38,16 +39,18 @@ interface ContentData {
   abstract?: string;
   markdown?: string;
   endNotes?: string[];
+  citation?: string;
 }
 interface PageContentProps {
   data: ContentData;
   children?: React.ReactNode;
   style?: React.CSSProperties;
   metaData?: SingleMetaData;
+  hasStickyMenu?: boolean;
 }
 
 export const PageContent = ({
-  data, children, style, metaData={},
+  data, children, style, metaData={}, hasStickyMenu=false,
 }: PageContentProps) => {
   const [isDownloadLoading, setIsDownloadLoading] = useState(false);
   const pageContentRef = useRef<HTMLDivElement>(null);
@@ -137,19 +140,28 @@ export const PageContent = ({
   const mainContentComponent = data.markdown && (
     <>
       {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
-        if (mdStr.startsWith('fig')) {
+        if (mdStr.startsWith('hr')) {
+          return <StyledHorizontalLine key={index} data-bottom-space={true} />
+        } else if (mdStr.startsWith('fig')) {
           const id = mdStr.split("-")[1];
           const figure = figures.find((fig) => fig.id === id);
           return <>
-            <StyledHorizontalLine />
-              <ImagePreview
-                key={index}
-                imageUrl={figure?.imageUrl || ""}
-                label={figure?.label || ""}
-                caption={figure?.caption || ""}
-              />
-            <StyledHorizontalLine data-bottom-space={true} />
+            <ImagePreview
+              key={index}
+              imageUrl={figure?.imageUrl || ""}
+              label={figure?.label || ""}
+              caption={figure?.caption || ""}
+            />
           </>
+        } else if (mdStr.startsWith('vid')) {
+          const videoUrl = mdStr.split("-")[1];
+          return <ReactPlayer
+            key={index}
+            url={videoUrl}
+            controls
+            width="100%"
+            style={{ paddingBottom: "8px" }}
+          />
         } else {
           return <Markdown value={processRawMarkdown(mdStr)} key={index} />
         }
@@ -241,11 +253,14 @@ export const PageContent = ({
         {children}
       </ContentContainer>
       <NavButton />
-      <StickyMenu
-        contributorRef={contributorRef}
-        onDownloadClick={generatePdf}
-        isDownloadLoading={isDownloadLoading}
-      />
+      {hasStickyMenu && (
+        <StickyMenu
+          contributorRef={contributorRef}
+          onDownloadClick={generatePdf}
+          isDownloadLoading={isDownloadLoading}
+          citation={data.citation}
+        />
+      )}
     </PageContentContainer>
   );
 }
