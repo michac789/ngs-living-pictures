@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { ShareOption } from "./ShareOption";
 import { StickyMenuContainer, StyledSpinner } from "./StickyMenuStyle";
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
@@ -14,6 +15,7 @@ export const StickyMenu = ({
   contributorRef, onDownloadClick, isDownloadLoading,
 }: StickyMenuProps) => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isShareOptionOpen, setIsShareOptionOpen] = useState(false);
   const [horizontalDistance, setHorizontalDistance] = useState(0);
   const [verticalDistance, setVerticalDistance] = useState(0);
   const [prevVerticalDistance, setPrevVerticalDistance] = useState(0);
@@ -60,7 +62,7 @@ export const StickyMenu = ({
   }, [window.location.pathname]);
 
   const handleShareClick = () => {
-    console.log("share clicked");
+    setIsShareOptionOpen(true);
   };
 
   const handleCitationClick = () => {
@@ -78,29 +80,36 @@ export const StickyMenu = ({
   };
 
   return (
-    <Portal id="main-container">
-      <StickyMenuContainer ref={stickyMenuRef} style={{
-        left: horizontalDistance,
-        top: isSticky ? 58 : verticalDistance,
-        position: isSticky ? "fixed" : "absolute"
-      }}>
-        <Tooltip contents="Share" position="left" timeout={0} hoverable>
-          <Icon name="ri-share-line" onClick={handleShareClick} />
-        </Tooltip>
-        <Tooltip contents="Cite" position="left" timeout={0} hoverable>
-          <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
-        </Tooltip>
-        <Tooltip contents="Download" position="left" timeout={0} hoverable>
-          {isDownloadLoading ? (
-            <StyledSpinner />
-          ) : (
-            <Icon name="ri-download-line" onClick={handleDownloadClick} />
-          )}
-        </Tooltip>
-        <Tooltip contents="Information" position="left" timeout={0} hoverable>
-          <Icon name="ri-information-line" onClick={handleInfoClick} />
-        </Tooltip>
-      </StickyMenuContainer>
-    </Portal>
+    <>
+      <Portal id="main-container">
+        <StickyMenuContainer ref={stickyMenuRef} style={{
+          left: horizontalDistance,
+          top: isSticky ? 58 : verticalDistance,
+          position: isSticky ? "fixed" : "absolute"
+        }}>
+          <Tooltip contents="Share" position="left" timeout={0} hoverable>
+            <Icon name="ri-share-line" onClick={handleShareClick} />
+          </Tooltip>
+          <Tooltip contents="Cite" position="left" timeout={0} hoverable>
+            <Icon name="ri-sticky-note-add-line" onClick={handleCitationClick} />
+          </Tooltip>
+          <Tooltip contents="Download" position="left" timeout={0} hoverable>
+            {isDownloadLoading ? (
+              <StyledSpinner />
+            ) : (
+              <Icon name="ri-download-line" onClick={handleDownloadClick} />
+            )}
+          </Tooltip>
+          <Tooltip contents="Information" position="left" timeout={0} hoverable>
+            <Icon name="ri-information-line" onClick={handleInfoClick} />
+          </Tooltip>
+        </StickyMenuContainer>
+      </Portal>
+      {isShareOptionOpen && (
+        <ShareOption
+          onClose={() => setIsShareOptionOpen(false)}
+        />
+      )}
+    </>
   )
 };

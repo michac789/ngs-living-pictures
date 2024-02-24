@@ -47,7 +47,7 @@ export const StyledFigureName = styled(Text)`
   }
 `;
 
-export const ImageBackdrop = styled.div`
+export const DarkBackdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -55,29 +55,15 @@ export const ImageBackdrop = styled.div`
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: auto;
-  background-color: rgba(35, 35, 35, 0.9);
+  background-color: rgba(35, 35, 35, 0.8);
+  backdrop-filter: blur(4px);
   z-index: 200;
 
   transition: all 0.3s ease-in-out;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
   animation: fadeIn 0.3s ease;
   &.exiting {
     animation: fadeOut 0.3s ease;
