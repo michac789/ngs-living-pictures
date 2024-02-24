@@ -14,7 +14,9 @@ Unlike the rest of late 19<sup>th</sup> century Southeast Asia, which was marked
 
 Examples of this notion include the portraits of King Chulalongkorn, Rama V (r. 1868–1910), one of the most photographed monarchs in the 19<sup>th</sup> century and an avid photographer in his later years. A portrait, taken on his second coronation in October 1873 (*see* {% cite 'pl. 104' %}), reveals the new king’s desire to harness the magic of photographic reproduction. In this albumen silver print produced by Thai court photographer Francis Chit (1830–1891) in 1873, the monarch is seated in his royal regalia. His front-facing posture and stately pose create a symmetrical composition only to be broken slightly by a sword which he wields as if it were a godly attribute. One could read this as a mode of royal legitimisation, a visual proclamation of Rama V’s right to inherit the throne. [^6] The stern composition of the image is reminiscent of Hindu-Buddhist iconography—from the king’s crown at the centre, the fruit bowl on the left and the urn on the right, we see a triadic arrangement befitting of, and alluding to, the *devaraja*. Contrast that with the photograph of Rama V taken by Prussian photographer Robert Lenz (1864–1939) before the king left for his first journey to Europe in April 1897. 
 
+{% figure 'hr' %}
 {% figure 'fig-2' %}
+{% figure 'hr' %}
 
 In this case, the king emulates Western conventions of royal portraiture: Rama V is dressed in a Napoleonic garment with a robe flowing across his shoulder, with the studio’s interior décor resembling a salon. Lenz’s work transposes the well-known visual norms of royal portraiture under the camera’s lens, cropping the regal aura of the image to fit into photography’s vernacular. By domesticating the status of kingship within the print’s representational space, he confers the idea that the king can be looked upon in private, domestic settings. [^7]
 

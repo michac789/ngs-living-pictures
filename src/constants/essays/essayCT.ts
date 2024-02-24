@@ -28,7 +28,15 @@ While Ryan’s book focused on the British Empire, this is equally true of image
 
 The photographic studio of G.R. Lambert & Co. was also aware of what its customers wanted. Active in Singapore from 1867 till 1918, the studio had one of the largest catalogues of images—over 3,000 from different parts of Southeast Asia— including landscapes and images of people of various races, which sold extremely well to tourists and residents.[^6] It is important to note that the latter were not portraits in the traditional sense but were closer to ethnographic studies. Such photographs are described as “types” rather than “portraits” because the people in them were depicted as observed subjects rather than individual personalities. For example, the photograph of two Indian men had the caption of “Kling Washermen” and showed them posing with bags of laundry.
 
+{% figure 'hr' %}
+
 {% figure 'fig-1' %}
+
+{% figure 'hr' %}
+
+{% figure 'vid-https://www.youtube.com/watch?v=o1z9p4iRI94' %}
+
+{% figure 'hr' %}
   `,
   'endNotes': [
     'Christopher Phillips has traced the story of MoMA’s department of photography through the reign of its three directors Beaumont Newhall, Edward Steichen and Jan Sarkowski, effectively demonstrating the way the museum produced a version of photographic history that was “in truth, a flight from history.” Christopher Phillips, “The Judgment Seat of Photography,” October 22 (1982): 63.',
