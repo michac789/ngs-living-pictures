@@ -136,22 +136,6 @@ export const ImageCaptionWrapper = styled.div`
   }
 
   transition: all 0.3s ease-in-out;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
   animation: fadeIn 0.3s ease;
   &.exiting {
     animation: fadeOut 0.3s ease;

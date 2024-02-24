@@ -21,4 +21,20 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track {
     background-color: ${colors.Neutral300};
   }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;

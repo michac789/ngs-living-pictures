@@ -40,19 +40,19 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/essay_CT',
     name: 'I. Living Photographs',
-    element: <PageContent data={essayCT} metaData={metaData.essay_CT} />,
+    element: <PageContent data={essayCT} metaData={metaData.essay_CT} hasStickyMenu />,
     author: 'Chermaine Toh',
   },
   {
     link: '/essay_Sze',
     name: 'II. The Tender Insistence of Ruthless',
-    element: <PageContent data={essaySze} metaData={metaData.essay_Sze} />,
+    element: <PageContent data={essaySze} metaData={metaData.essay_Sze} hasStickyMenu />,
     author: 'Sze Ying Goh',
   },
   {
     link: '/essay_Roy',
     name: 'III. (Other)worldly Things: The Social and Material Lives of Photographs in Southeast Asia',
-    element: <PageContent data={essayRoy} metaData={metaData.essay_Roy} />,
+    element: <PageContent data={essayRoy} metaData={metaData.essay_Roy} hasStickyMenu />,
     author: 'Roy Ng',
   },
   {

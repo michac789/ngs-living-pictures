@@ -44,10 +44,11 @@ interface PageContentProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   metaData?: SingleMetaData;
+  hasStickyMenu?: boolean;
 }
 
 export const PageContent = ({
-  data, children, style, metaData={},
+  data, children, style, metaData={}, hasStickyMenu=false,
 }: PageContentProps) => {
   const [isDownloadLoading, setIsDownloadLoading] = useState(false);
   const pageContentRef = useRef<HTMLDivElement>(null);
@@ -241,11 +242,13 @@ export const PageContent = ({
         {children}
       </ContentContainer>
       <NavButton />
-      <StickyMenu
-        contributorRef={contributorRef}
-        onDownloadClick={generatePdf}
-        isDownloadLoading={isDownloadLoading}
-      />
+      {hasStickyMenu && (
+        <StickyMenu
+          contributorRef={contributorRef}
+          onDownloadClick={generatePdf}
+          isDownloadLoading={isDownloadLoading}
+        />
+      )}
     </PageContentContainer>
   );
 }
