@@ -29,7 +29,8 @@ export const ImagePreview = ({
   const zoomedImageRef = useRef<HTMLImageElement>(null);
   const zoomedCaptionRef = useRef<HTMLDivElement>(null);
   
-  const image = require(`../../assets/${imageUrl}`);
+  const image = imageUrl.startsWith("*") ? imageUrl.slice(1) :
+    require(`../../assets/${imageUrl}`);
   
   const timeout = useRef<NodeJS.Timeout | null>(null);
   useEffect(() => {
