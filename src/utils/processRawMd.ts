@@ -1,4 +1,4 @@
-import { colors } from "../constants/colors";
+import { colors } from "../constants/styles/colors";
 
 /**
  * Process raw markdown to add custom rules that are not supported otherwise

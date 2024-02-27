@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "../../components/Icon/Icon";
 import { Text } from "../../components/Text/Text";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const PageContainer = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const StyledImagePreview = styled.img`
   width: 100%;

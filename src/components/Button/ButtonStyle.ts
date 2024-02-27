@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { textVariantMapping } from "../Text/TextStyle";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const ButtonContainer = styled.div`
   display: flex;

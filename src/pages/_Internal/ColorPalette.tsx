@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "../../components/Text/Text";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 const getTextColor = (hexColor: string) => {
   hexColor = hexColor.replace('#', '');

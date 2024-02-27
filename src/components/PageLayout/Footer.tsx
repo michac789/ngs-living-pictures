@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "../Text/Text";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 import { FooterContainer, FooterImage, StyledLinkText } from "./FooterStyle";
 import footerImg from "../../assets/footerImg.png";
 

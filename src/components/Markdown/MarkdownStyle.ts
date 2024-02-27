@@ -1,6 +1,6 @@
 import styled, { Interpolation } from "styled-components";
 import { textVariantMapping } from "../Text/TextStyle";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 interface MarkdownTextWrapperProps {
   additionalStyles?: Interpolation<React.CSSProperties>;

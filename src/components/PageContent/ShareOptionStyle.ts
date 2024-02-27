@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const HeaderText = styled(Text)`
   color: ${colors.Neutral300};

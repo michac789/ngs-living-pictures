@@ -17,7 +17,7 @@ import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
 import { Text } from "../Text/Text";
 import { Tooltip } from "../Tooltip/Tooltip";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
 import sidebarImg from "../../assets/sidebarImg.jpg";

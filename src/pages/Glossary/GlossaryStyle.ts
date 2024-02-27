@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const GlossaryContainer = styled.div`
   margin: 0 auto;

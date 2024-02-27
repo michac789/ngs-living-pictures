@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Spinner } from "../Spinner/Spinner";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 import { textVariantMapping } from "../Text/TextStyle";
 
 export const StickyMenuContainer = styled.div`
