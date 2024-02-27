@@ -27,7 +27,7 @@ export const SearchModal = ({
             <li>Responsive design</li>
             <li>Essay page allow image side by side or float wrap text</li>
             <li>Automate PDF in AWS S3 upload for sidebar when clicked</li>
-            <li>Consider migrating to gatsby for ssd</li>
+            <li>Consider migrating to gatsby for ssg</li>
           </ol>
         </SearchModalContainer>
       </DarkBackdrop>
