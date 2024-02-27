@@ -7,6 +7,7 @@ import { PageContent } from "./components/PageContent/PageContent";
 import { PageLayout } from "./components/PageLayout/PageLayout";
 import ColorPalette from "./pages/_Internal/ColorPalette";
 import IconSvg from "./pages/_Internal/IconSvg";
+import Special from "./pages/_Internal/Special";
 import Typography from "./pages/_Internal/Typography";
 
 const router = createBrowserRouter([
@@ -39,17 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "easter-egg",
-        element: <PageContent data={{ title: "Easter Egg 🥚" }} style={{ height: "60vh", width: "90%" }}>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            playing={true}
-            muted={false}
-            controls={false}
-            width="100%"
-            height="100%"
-          />
-          -michac789
-        </PageContent>,
+        element: <Special />,
       },
       {
         path: "*",
