@@ -45,6 +45,11 @@ export const SidebarMenuItem = styled(Text)`
     }
   }
 
+  &[data-subpage="true"] {
+    padding: 6px 8px 6px 32px;
+    font-size: 14px;
+  }
+
   &:hover {
     color: ${colors.Neutral100};
     text-decoration: underline;

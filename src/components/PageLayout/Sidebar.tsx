@@ -50,13 +50,14 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
         {sidebarConstants.subtitle}
       </SidebarSubtitleText>
       {orderedPages.map(({
-        link, name
+        link, name, isSubpage=false,
       }, index) => {
         return (
           <SidebarMenuItem
             key={index}
             variant="body1"
             data-selected={window.location.pathname === link}
+            data-subpage={isSubpage}
             onClick={() => handleLinkClick(link)}
           >
             {name}

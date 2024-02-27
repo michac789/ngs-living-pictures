@@ -9,12 +9,12 @@ export const imagePlatesData: ImagePlate[] = [
   {
     "imageUrl": "figures/fig1.jpg",
     "title": "Colonial Archive / King Washerman",
-    "pageUrl": "/TODO",
+    "pageUrl": "/image-plates/1",
   },
   {
     "imageUrl": "figures/fig3.jpg",
     "title": "New Subjectivity / Tabled",
-    "pageUrl": "/TODO",
+    "pageUrl": "/image-plates/2",
   },
   {
     "imageUrl": "figures/fig4.jpg",

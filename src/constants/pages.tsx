@@ -6,6 +6,7 @@ import Foreword from "../pages/Foreword/Foreword";
 import Glossary from "../pages/Glossary/Glossary";
 import Home from "../pages/Home/Home";
 import ImagePlates from "../pages/ImagePlates/ImagePlates";
+import ImagePlateDetail from "../pages/ImagePlates/ImagePlateDetail";
 import ImageSlider from "../pages/ImageSlider/ImageSlider";
 import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./essays/about";
@@ -18,6 +19,7 @@ interface SinglePage {
   name: string;
   author?: string;
   element: React.ReactNode;
+  isSubpage?: boolean;
 }
 
 export const orderedPages: SinglePage[] = [
@@ -59,6 +61,18 @@ export const orderedPages: SinglePage[] = [
     link: '/image-plates',
     name: 'Image Plates',
     element: <ImagePlates />,
+  },
+  {
+    link: '/image-plates/1',
+    name: 'Colonial Archive / King Washerman',
+    element: <ImagePlateDetail />,
+    isSubpage: true,
+  },
+  {
+    link: '/image-plates/2',
+    name: 'New Subjectivity / Tabled',
+    element: <ImagePlateDetail />,
+    isSubpage: true,
   },
   {
     link: '/bibliography',
