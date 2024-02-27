@@ -1,75 +1,73 @@
-import React from "react";
-import { ImagePlatesContainer, SinglePlate, StyledImage } from "./ImagePlatesStyle";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import {
+  ImagePlatesContainer,
+  ImageWrapper,
+  SinglePlateCard,
+  StyledImage,
+  TitleText,
+} from "./ImagePlatesStyle";
+import { Icon } from "../../components/Icon/Icon";
 import { MetaData } from "../../components/MetaData/MetaData";
 import { NavButton } from "../../components/NavButton/NavButton";
-import { Text } from "../../components/Text/Text";
-import { Tooltip } from "../../components/Tooltip/Tooltip";
+import { ImagePlate, imagePlatesData } from "../../constants/imageplates";
 import { metaData } from "../../constants/metadata";
 
-interface ImagePlateProps {
-  imageUrl: string;
-  title: string;
-  pageUrl: string;
-}
+type ImagePlateProps = ImagePlate & { index: number };
 
 const ImagePlates = () => {
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [prevHoverIndex, setPrevHoverIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
+
   const ImagePlate = ({
-    imageUrl, title, pageUrl,
+    imageUrl, title, pageUrl, index,
   }: ImagePlateProps) => {
+    const image = require(`../../assets/${imageUrl}`);
+
+    const hanldeClick = () => {
+      if (pageUrl[0] === '*') {
+        window.open(pageUrl.slice(1), '_blank');
+      } else {
+        navigate(pageUrl);
+      }
+    }
+
     return (
-      <SinglePlate>
-        <StyledImage src={imageUrl} alt={title} />
-        <Text variant="title3">{title}</Text>
-        {pageUrl}
-      </SinglePlate>
+      <SinglePlateCard
+        onMouseEnter={() => setHoverIndex(index)}
+        onMouseLeave={() => {
+          setPrevHoverIndex(hoverIndex);
+          setHoverIndex(null);
+        }}
+        onClick={hanldeClick}
+        className={hoverIndex === index ? 'hover-in' : index === prevHoverIndex ? 'hover-out' : ''}
+      >
+        <ImageWrapper
+          className={hoverIndex === index ? 'hover-in' : index === prevHoverIndex ? 'hover-out' : ''}
+        >
+          <StyledImage src={image} alt={title} />
+        </ImageWrapper>
+        <TitleText
+          variant="subtitle2"
+          className={hoverIndex === index ? 'hover-in' : index === prevHoverIndex ? 'hover-out' : ''}
+          style={{ fontStyle: "normal" }}
+        >
+          {title}
+          <Icon name="ri-arrow-right-line" size="18px" />
+        </TitleText>
+      </SinglePlateCard>
     )
   };
 
   return (
     <>
       <MetaData {...metaData['image-plates']} />
-      <Text variant="title2">
-        Image Plates - TODO (TEST DEPLOYMENT)
-      </Text>
       <ImagePlatesContainer>
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
-        <ImagePlate imageUrl="https://via.placeholder.com/300" title="Test" pageUrl="/test" />
+        {imagePlatesData.map((plate: ImagePlate, index: React.Key) => (
+          <ImagePlate key={index} index={index as number} {...plate} />
+        ))}
       </ImagePlatesContainer>
-      <div style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        width: "600px",
-        padding: "60px",
-      }}>
-        <div>test!</div>
-        <Tooltip contents="This is a tooltip" position="top">
-          Hover over me
-        </Tooltip>
-        <Tooltip contents="This is a tooltip" position="bottom">
-          Hover over me
-        </Tooltip>
-        <Tooltip contents="This is a tooltip" position="left">
-          Hover over me
-        </Tooltip>
-        <Tooltip contents="This is a tooltip" position="right">
-          Hover over me
-        </Tooltip>
-      </div>
       <NavButton />
     </>
   )
