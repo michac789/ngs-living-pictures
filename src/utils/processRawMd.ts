@@ -1,4 +1,4 @@
-import { colors } from "../constants/colors";
+import { colors } from "../constants/styles/colors";
 
 /**
  * Process raw markdown to add custom rules that are not supported otherwise
@@ -8,7 +8,7 @@ import { colors } from "../constants/colors";
  * 
  * 2. Bibliography citation
  * {% cite 'citation-key' %}: when clicked open a tooltip with the citation details,
- * reference to the bibliography section (TODO)
+ * reference to the bibliography section
  */
 
 const handleCitationSuperscript = (value: string) => {

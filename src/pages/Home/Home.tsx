@@ -16,7 +16,7 @@ import { Markdown } from "../../components/Markdown/Markdown";
 import { MetaData } from "../../components/MetaData/MetaData";
 import { Text } from "../../components/Text/Text";
 import { textVariantMapping } from "../../components/Text/TextStyle";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 import { homeConstants } from "../../constants/home";
 import { metaData } from "../../constants/metadata";
 

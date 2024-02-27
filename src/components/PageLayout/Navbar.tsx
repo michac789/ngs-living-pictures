@@ -12,6 +12,7 @@ import {
   StyledNavbarText,
 } from "./NavbarStyle";
 import { orderedPages } from "../../constants/pages";
+import { SearchModal } from "./SearchModal";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
@@ -32,6 +33,7 @@ export const Navbar = ({
 
   const [prevLink, setPrevLink] = useState<Link | null>(null);
   const [nextLink, setNextLink] = useState<Link | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [currPage, setCurrPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(1);
 
@@ -71,8 +73,13 @@ export const Navbar = ({
 
   return (
     <>
+      {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
       <NavbarContainer data-sidebar-open={isSidebarOpen}>
-        <StyledNavbarIcon name="ri-search-line" size="28px" />
+        <StyledNavbarIcon
+          name="ri-search-line"
+          size="28px"
+          onClick={() => setIsSearchOpen(true)}
+        />
         <LeftButtonContainer>
           {prevLink && (
             <NavbarButton onClick={handleBackClick}>

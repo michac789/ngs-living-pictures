@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 import { icons, IconName } from './Icons';
-import { colors } from '../../constants/colors';
+import { colors } from '../../constants/styles/colors';
 
 export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Text } from "../../components/Text/Text";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const ForewordBgContainer = styled.div`
   background: linear-gradient(

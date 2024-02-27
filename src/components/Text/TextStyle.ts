@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const textVariants = [
   'title1',

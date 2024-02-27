@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 
 export const SidebarContainer = styled.div`
   display: flex;
@@ -43,6 +43,11 @@ export const SidebarMenuItem = styled(Text)`
       color: ${colors.Red400};
       text-decoration: none;
     }
+  }
+
+  &[data-subpage="true"] {
+    padding: 6px 8px 6px 32px;
+    font-size: 14px;
   }
 
   &:hover {

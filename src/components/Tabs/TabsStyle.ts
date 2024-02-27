@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../constants/colors";
+import { colors } from "../../constants/styles/colors";
 import { textVariantMapping } from "../Text/TextStyle";
 
 export const TabsContainer = styled.div`
