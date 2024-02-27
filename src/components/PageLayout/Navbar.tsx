@@ -12,7 +12,6 @@ import {
   StyledNavbarText,
 } from "./NavbarStyle";
 import { orderedPages } from "../../constants/pages";
-import { Portal } from "../Portal/Portal";
 import { SearchModal } from "./SearchModal";
 
 interface NavbarProps {

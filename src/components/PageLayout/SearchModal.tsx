@@ -22,11 +22,11 @@ export const SearchModal = ({
           The search feature is still under development.
           Remaining TODOs:
           <ol>
-            <li>Export to pdf feature on side bar</li>
             <li>Modal component, refactor backdrop there, search feature</li>
             <li>Image plates detail page</li>
             <li>Responsive design</li>
             <li>Essay page allow image side by side or float wrap text</li>
+            <li>Automate PDF in AWS S3 upload for sidebar when clicked</li>
             <li>Consider migrating to gatsby for ssd</li>
           </ol>
         </SearchModalContainer>

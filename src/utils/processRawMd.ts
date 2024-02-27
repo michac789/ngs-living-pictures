@@ -8,7 +8,7 @@ import { colors } from "../constants/styles/colors";
  * 
  * 2. Bibliography citation
  * {% cite 'citation-key' %}: when clicked open a tooltip with the citation details,
- * reference to the bibliography section (TODO)
+ * reference to the bibliography section
  */
 
 const handleCitationSuperscript = (value: string) => {
