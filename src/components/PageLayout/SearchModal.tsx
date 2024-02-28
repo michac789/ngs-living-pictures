@@ -23,10 +23,8 @@ export const SearchModal = ({
           Remaining TODOs:
           <ol>
             <li>Modal component, refactor backdrop there, search feature</li>
-            <li>Image plates detail page</li>
             <li>Responsive design</li>
             <li>Essay page allow image side by side or float wrap text</li>
-            <li>Automate PDF in AWS S3 upload for sidebar when clicked</li>
             <li>Consider migrating to gatsby for ssg</li>
           </ol>
         </SearchModalContainer>

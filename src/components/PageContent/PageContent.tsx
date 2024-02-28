@@ -23,7 +23,7 @@ import { MetaData, SingleMetaData } from "../MetaData/MetaData";
 import { Text } from "../Text/Text";
 import { colors } from "../../constants/styles/colors";
 import { bibliographyList } from "../../constants/bibliography";
-import { figures } from "../../constants/essays/figures";
+import { figures } from "../../constants/figures";
 import { getBibliographyContents } from "../../utils/getBibliography";
 import { processRawMarkdown } from "../../utils/processRawMd";
 import { getFigures } from "../../utils/getFigures";

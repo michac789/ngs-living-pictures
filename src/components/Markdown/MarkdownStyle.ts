@@ -41,5 +41,9 @@ export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
     }
   }
 
+  &[data-type="small"] {
+    ${textVariantMapping['body2']}
+  }
+
   ${({ additionalStyles }) => additionalStyles}
 `;

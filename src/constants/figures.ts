@@ -19,4 +19,10 @@ export const figures: SingleFigure[] = [
     label: "Figure 2",
     caption: "Robert Lenz. *King Chulalongkorn*. Early 1890s. Albumen print on paper, 22 × 16.2 cm. Collection of Mr and Mrs Lee"
   },
+  {
+    id: "3",
+    imageUrl: "figures/fig3.jpg",
+    label: "Figure 3",
+    caption: "Yee I-Lann, Detail of *Tabled*, 2013. Collection of Singapore Art Museum. Image courtesy of the artist and Silverlens",
+  },
 ]

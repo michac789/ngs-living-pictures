@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  MobileCloseButtonContainer,
+  MobileSidebarContainer,
   SidebarActionText,
   SidebarBottomText,
   SidebarCitationFlex,
@@ -21,15 +23,18 @@ import { colors } from "../../constants/styles/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
 import sidebarImg from "../../assets/sidebarImg.jpg";
+import { Portal } from "../Portal/Portal";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
+  isLargeScreen: boolean;
   onPageChange: () => void;
+  onSidebarClose: () => void;
 };
 
 export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
   {
-    isSidebarOpen, onPageChange
+    isSidebarOpen, isLargeScreen, onPageChange, onSidebarClose
   }, ref
 ) => {
   const navigate = useNavigate();
@@ -37,6 +42,9 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
   const handleLinkClick = (link: string) => {
     navigate(link);
     onPageChange();
+    if (!isLargeScreen) {
+      onSidebarClose();
+    }
   }
 
   const handlePdfClick = () => {
@@ -44,8 +52,8 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     window.open(awsLink, "_blank");
   }
 
-  return (
-    <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
+  const sidebarContents = (
+    <>
       <SidebarTitleText variant="title3" onClick={
         () => handleLinkClick("/")
       }>
@@ -117,6 +125,26 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
       <SidebarBottomText variant="body2" color={colors.Neutral200}>
         This work is licensed under a Creative Common Attribution 4.0 International License.
       </SidebarBottomText>
+    </>
+  );
+
+  if (!isLargeScreen && !isSidebarOpen) return null;
+  if (!isLargeScreen && isSidebarOpen) {
+    return (
+      <Portal>
+        <MobileSidebarContainer>
+          <MobileCloseButtonContainer onClick={onSidebarClose}>
+            <Icon name="ri-close-fill" size="36px" />
+          </MobileCloseButtonContainer>
+          {sidebarContents}
+        </MobileSidebarContainer>
+      </Portal>
+    )
+  }
+
+  return (
+    <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
+      {sidebarContents}
     </SidebarContainer>
   );
 });
