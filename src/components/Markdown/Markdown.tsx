@@ -7,13 +7,17 @@ import { MarkdownTextWrapper } from "./MarkdownStyle";
 interface MarkdownTextProps {
   value: string;
   additionalStyles?: React.CSSProperties;
+  type?: "default" | "small";
 };
 
 export const Markdown = ({
-  value, additionalStyles={},
+  value, additionalStyles={}, type="default",
 }: MarkdownTextProps) => {
   return (
-    <MarkdownTextWrapper additionalStyles={additionalStyles as Interpolation<React.CSSProperties>}>
+    <MarkdownTextWrapper
+      data-type={type}
+      additionalStyles={additionalStyles as Interpolation<React.CSSProperties>}
+    >
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {value}
       </ReactMarkdown>

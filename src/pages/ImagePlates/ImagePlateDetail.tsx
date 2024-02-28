@@ -1,10 +1,19 @@
 import React from "react";
 import {
   DocumentContainer,
+  DocumentDescriptionWrapper,
+  DocumentHeader,
+  DocumentSingleHeader,
+  DocumentSectionTitle,
+  DocumentTitleText,
+  DocumentWrapper,
   ImagePlateDetailContainer,
   ImagePreviewContainer,
 } from "./ImagePlateDetailStyle";
 import { ImagePreview } from "../../components/ImagePreview/ImagePreview";
+import { Markdown } from "../../components/Markdown/Markdown";
+import { NavButton } from "../../components/NavButton/NavButton";
+import { Text } from "../../components/Text/Text";
 import { figures } from "../../constants/figures";
 import { imagePlatesDetailData, SingleImagePlateDetail } from "../../constants/imageplates";
 
@@ -34,7 +43,46 @@ const ImagePlateDetail = ({
         />
       </ImagePreviewContainer>
       <DocumentContainer>
-        Image Plate Detail Page - TODO (This page is still under construction)
+        <DocumentWrapper>
+          <DocumentTitleText variant="title3">
+            {imagePlateData.title}
+          </DocumentTitleText>
+          <DocumentHeader>
+            {imagePlateData.header.map((header, index) => (
+              <DocumentSingleHeader key={index}>
+                <Text variant="body2" style={{
+                  flex: 1,
+                  fontWeight: 600,
+                  marginLeft: "2px",
+                }}>
+                  {header.name}
+                </Text>
+                <Text variant="body2" style={{
+                  flex: 2,
+                }}>
+                  <Markdown
+                    value={header.content}
+                    type="small"
+                  />
+                </Text>
+              </DocumentSingleHeader>
+            ))}
+          </DocumentHeader>
+          <DocumentDescriptionWrapper>
+            <Markdown value={imagePlateData.description} type="small" />
+          </DocumentDescriptionWrapper>
+          {imagePlateData.sections.map((section, index) => (
+            <div key={index}>
+              <DocumentSectionTitle variant="body1">
+                {section.title.toUpperCase()}
+              </DocumentSectionTitle>
+              <Markdown value={section.content} type="small"
+                additionalStyles={{ padding: "0 8px" }}
+              />
+            </div>
+          ))}
+        </DocumentWrapper>
+        <NavButton />
       </DocumentContainer>
     </ImagePlateDetailContainer>
   );

@@ -41,6 +41,7 @@ export const imagePlatesData: ImagePlate[] = [
 export interface SingleImagePlateDetail {
   id: number;
   figureId: number;
+  title: string;
   header: {
     name: string;
     content: string;
@@ -56,6 +57,7 @@ export const imagePlatesDetailData: SingleImagePlateDetail[] = [
   {
     "id": 1,
     "figureId": 1,
+    "title": "Colonial Archive / King Washerman",
     "header": [
       {
         "name": "Artist",
@@ -86,13 +88,14 @@ export const imagePlatesDetailData: SingleImagePlateDetail[] = [
       },
       {
         "title": "Bibliography",
-        "content": "*Living Pictures*. (2022). In National Gallery Singapore eBooks. https://doi.org/10.1353/book.110798",
+        "content": "*Living Pictures*. (2022). In National Gallery Singapore eBooks. <a href=\"https://doi.org/10.1353/book.110798\" target=\"blank\">https://doi.org/10.1353/book.110798</a>",
       },
     ],
   },
   {
     "id": 2,
     "figureId": 3,
+    "title": "New Subjectivity / Tabled",
     "header": [
       {
         "name": "Artist",
