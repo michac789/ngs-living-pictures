@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
@@ -10,12 +10,26 @@ import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
 export const PageLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(true);
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(() => {
     setIsSidebarOpen(false);
   }, sidebarRef);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const breakpoint = 768;
+      console.log(window.innerWidth > breakpoint);
+      setIsLargeScreen(window.innerWidth > breakpoint);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -35,7 +49,9 @@ export const PageLayout = () => {
       />
       <Sidebar
         isSidebarOpen={isSidebarOpen}
+        isLargeScreen={isLargeScreen}
         onPageChange={instantScrollToTop}
+        onSidebarClose={() => setIsSidebarOpen(false)}
         ref={sidebarRef}
       />
       <MainContainer
