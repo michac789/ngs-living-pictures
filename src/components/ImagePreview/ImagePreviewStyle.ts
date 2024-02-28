@@ -3,6 +3,13 @@ import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
 import { colors } from "../../constants/styles/colors";
 
+export const ImagePreviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+`;
+
 export const StyledImagePreview = styled.img`
   width: 100%;
   cursor: pointer;

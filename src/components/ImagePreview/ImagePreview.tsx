@@ -5,6 +5,7 @@ import {
   DarkBackdrop,
   FigureNameWrapper,
   ImageCaptionWrapper,
+  ImagePreviewContainer,
   StyledFigureName,
   StyledImagePreview,
   ZoomedImage,
@@ -15,14 +16,14 @@ import { Markdown } from "../Markdown/Markdown";
 import { Text } from "../Text/Text";
 import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
-interface ImagePreviewProps {
+interface ImagePreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
   label: string;
   caption: string;
 }
 
 export const ImagePreview = ({
-  imageUrl, label, caption
+  imageUrl, label, caption, ...props
 }: ImagePreviewProps) => {
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
   const [isExiting, setIsExiting] = useState<boolean>(false);
@@ -58,7 +59,7 @@ export const ImagePreview = ({
   }
 
   return (
-    <>
+    <ImagePreviewContainer {...props}>
       <StyledImagePreview src={image} alt={label} onClick={handleZoom} />
       <CaptionContainer>
         <FigureNameWrapper onClick={handleZoom}>
@@ -88,6 +89,6 @@ export const ImagePreview = ({
           </ImageCaptionWrapper>
         </Portal>
       )}
-    </>
+    </ImagePreviewContainer>
   )
 };

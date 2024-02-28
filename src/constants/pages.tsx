@@ -65,13 +65,13 @@ export const orderedPages: SinglePage[] = [
   {
     link: '/image-plates/1',
     name: 'Colonial Archive / King Washerman',
-    element: <ImagePlateDetail />,
+    element: <ImagePlateDetail plateId={1} />,
     isSubpage: true,
   },
   {
     link: '/image-plates/2',
     name: 'New Subjectivity / Tabled',
-    element: <ImagePlateDetail />,
+    element: <ImagePlateDetail plateId={2} />,
     isSubpage: true,
   },
   {

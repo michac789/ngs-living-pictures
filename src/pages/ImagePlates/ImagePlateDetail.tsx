@@ -1,16 +1,42 @@
 import React from "react";
+import {
+  DocumentContainer,
+  ImagePlateDetailContainer,
+  ImagePreviewContainer,
+} from "./ImagePlateDetailStyle";
 import { ImagePreview } from "../../components/ImagePreview/ImagePreview";
+import { figures } from "../../constants/figures";
+import { imagePlatesDetailData, SingleImagePlateDetail } from "../../constants/imageplates";
 
-const ImagePlateDetail = () => {
+interface ImagePlateDetailProps {
+  plateId: number;
+}
+
+const ImagePlateDetail = ({
+  plateId,
+}: ImagePlateDetailProps) => {
+  const imagePlateData = imagePlatesDetailData.find(
+    (plate: SingleImagePlateDetail) => plate.id === plateId);
+
+  if (!imagePlateData) {
+    return <>Invalid Image Plate ID! Please check the given ID on the ImagePlateDetail component Props!</>;
+  };
+
+  const figure = figures.find((figure) => figure.id === imagePlateData.figureId.toString());
+  
   return (
-    <div>
-      Image Plate Detail Page - TODO (This page is still under construction)
-      <ImagePreview
-        imageUrl="*https://a.cdn-hotels.com/gdcs/production51/d727/baee808f-c8f8-43d8-8521-36221421679f.jpg?impolicy=fcrop&w=800&h=533&q=medium"
-        label="Google"
-        caption="NGS"
-      />
-    </div>
+    <ImagePlateDetailContainer>
+      <ImagePreviewContainer>
+        <ImagePreview
+          imageUrl={figure?.imageUrl || ""}
+          label={figure?.label || ""}
+          caption={figure?.caption || ""}
+        />
+      </ImagePreviewContainer>
+      <DocumentContainer>
+        Image Plate Detail Page - TODO (This page is still under construction)
+      </DocumentContainer>
+    </ImagePlateDetailContainer>
   );
 }
 export default ImagePlateDetail;
