@@ -40,7 +40,7 @@ const Home = () => {
       <CoverImageContainer>
         <CoverImage src={coverImg} alt={homeConstants.coverImageAlt} />
         <DownArrowWrapper onClick={handleEnterClick}>
-          <StyledIcon name="ri-arrow-down-s-line" size="40px" />
+          <StyledIcon name="ri-arrow-down-s-line" />
         </DownArrowWrapper>
         <TitleOverlayWrapper>
           <Text variant="title1" color={colors.Neutral200}>

@@ -11,6 +11,7 @@ import { useOnClickOutside } from "../../utils/useOnClickOutside";
 export const PageLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isLargeScreen, setIsLargeScreen] = useState<boolean>(true);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -21,7 +22,9 @@ export const PageLayout = () => {
   useEffect(() => {
     const handleResize = () => {
       const breakpoint = 768;
+      const smallBreakpoint = 576;
       setIsLargeScreen(window.innerWidth > breakpoint);
+      setIsSmallScreen(window.innerWidth <= smallBreakpoint);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -61,7 +64,7 @@ export const PageLayout = () => {
         <OutletContainer>
           <Outlet />
         </OutletContainer>
-        <Footer />
+        <Footer isSmallScreen={isSmallScreen} />
       </MainContainer>
     </ErrorBoundary>
   );

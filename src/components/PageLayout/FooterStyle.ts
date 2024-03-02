@@ -31,6 +31,10 @@ export const FooterImage = styled.img`
     width: 40px;
     margin-right: 4px;
   }
+  @media (max-width: ${breakpoints.small}) {
+    width: 36px;
+    margin-right: 8px;
+  }
 `;
 
 export const StyledLinkText = styled(Text)`
@@ -42,4 +46,19 @@ export const StyledLinkText = styled(Text)`
     color: ${colors.Blue300};
     text-decoration: underline;
   }
+`;
+
+export const MobileColumnFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const MobileRowFlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 `;
