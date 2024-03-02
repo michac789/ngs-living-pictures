@@ -3,7 +3,7 @@ import { textVariantMapping } from "../Text/TextStyle";
 import { colors } from "../../constants/styles/colors";
 
 interface MarkdownTextWrapperProps {
-  additionalStyles?: Interpolation<React.CSSProperties>;
+  additionalstyles?: Interpolation<React.CSSProperties>;
 }
 
 export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
@@ -46,5 +46,5 @@ export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
     ${textVariantMapping['body2']}
   }
 
-  ${({ additionalStyles }) => additionalStyles}
+  ${({ additionalstyles }) => additionalstyles}
 `;

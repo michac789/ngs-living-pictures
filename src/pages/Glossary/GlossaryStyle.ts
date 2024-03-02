@@ -8,7 +8,7 @@ export const GlossaryContainer = styled.div`
   max-width: 800px;
 
   @media (max-width: ${breakpoints.medium}) {
-    padding: 16px 8px;
+    padding: 16px 8px 0;
   }
 `;
 

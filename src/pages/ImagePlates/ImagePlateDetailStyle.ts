@@ -8,6 +8,9 @@ export const ImagePlateDetailContainer = styled.div`
   flex-direction: row;
   height: calc(100vh - 110px);
 
+  @media (max-width: ${breakpoints.medium}) {
+    height: calc(100vh - 81.5px);
+  }
   @media (max-width: ${breakpoints.small}) {
     flex-direction: column;
     height: auto;
@@ -47,6 +50,9 @@ export const DocumentContainer = styled.div`
   @media (max-width: ${breakpoints.medium}) {
     padding: 12px;
   }
+  @media (max-width: ${breakpoints.small}) {
+    padding: 8px;
+  }
 `;
 
 export const DocumentWrapper = styled.div`
@@ -57,6 +63,9 @@ export const DocumentWrapper = styled.div`
 
   @media (max-width: ${breakpoints.medium}) {
     padding: 8px;
+  }
+  @media (max-width: ${breakpoints.small}) {
+    padding: 6px;
   }
 `;
 
@@ -95,6 +104,18 @@ export const DocumentSingleHeader = styled.div`
   }
 `;
 
+export const DocumentHeaderLeftText = styled(Text)`
+  flex: 1;
+  font-weight: 600;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+`;
+
+export const DocumentHeaderRightText = styled(Text)`
+  flex: 2;
+`;
+
 export const DocumentDescriptionWrapper = styled.div`
   padding: 12px 8px 0;
   & > div > p {
@@ -103,6 +124,10 @@ export const DocumentDescriptionWrapper = styled.div`
 
   @media (max-width: ${breakpoints.medium}) {
     padding: 8px 4px 0;
+
+    & > div > p {
+      font-size: 12px;
+    }
   }
 `;
 

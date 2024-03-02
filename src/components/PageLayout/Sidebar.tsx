@@ -113,12 +113,10 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
       <SidebarIconWrapper>
         <Icon
           name="ri-creative-commons-line"
-          size="28px"
           onClick={() => {window.open("https://creativecommons.org/licenses/by/4.0/")}}
         />
         <Icon
           name="ri-github-fill"
-          size="28px"
           onClick={() => {window.open("https://github.com/michac789/ngs-living-pictures")}}
         />
       </SidebarIconWrapper>
@@ -134,7 +132,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
       <Portal>
         <MobileSidebarContainer>
           <MobileCloseButtonContainer onClick={onSidebarClose}>
-            <Icon name="ri-close-fill" size="36px" />
+            <Icon name="ri-close-fill" />
           </MobileCloseButtonContainer>
           {sidebarContents}
         </MobileSidebarContainer>

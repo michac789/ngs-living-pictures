@@ -3,6 +3,8 @@ import {
   DocumentContainer,
   DocumentDescriptionWrapper,
   DocumentHeader,
+  DocumentHeaderLeftText,
+  DocumentHeaderRightText,
   DocumentSingleHeader,
   DocumentSection,
   DocumentSectionTitle,
@@ -14,7 +16,6 @@ import {
 import { ImagePreview } from "../../components/ImagePreview/ImagePreview";
 import { Markdown } from "../../components/Markdown/Markdown";
 import { NavButton } from "../../components/NavButton/NavButton";
-import { Text } from "../../components/Text/Text";
 import { figures } from "../../constants/figures";
 import { imagePlatesDetailData, SingleImagePlateDetail } from "../../constants/imageplates";
 
@@ -51,21 +52,15 @@ const ImagePlateDetail = ({
           <DocumentHeader>
             {imagePlateData.header.map((header, index) => (
               <DocumentSingleHeader key={index}>
-                <Text variant="body2" style={{
-                  flex: 1,
-                  fontWeight: 600,
-                  marginLeft: "2px",
-                }}>
+                <DocumentHeaderLeftText variant="body2">
                   {header.name}
-                </Text>
-                <Text variant="body2" style={{
-                  flex: 2,
-                }}>
+                </DocumentHeaderLeftText>
+                <DocumentHeaderRightText variant="body2">
                   <Markdown
                     value={header.content}
                     type="small"
                   />
-                </Text>
+                </DocumentHeaderRightText>
               </DocumentSingleHeader>
             ))}
           </DocumentHeader>
@@ -77,9 +72,7 @@ const ImagePlateDetail = ({
               <DocumentSectionTitle variant="body1">
                 {section.title.toUpperCase()}
               </DocumentSectionTitle>
-              <Markdown value={section.content} type="small"
-                // additionalStyles={{ padding: "0 8px" }}
-              />
+              <Markdown value={section.content} type="small" />
             </DocumentSection>
           ))}
         </DocumentWrapper>

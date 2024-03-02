@@ -59,6 +59,10 @@ export const EndnotesOl = styled.ol`
   gap: -8px;
   padding: 0 0 0 16px;
   margin: 0;
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 0 0 0 12px;
+  }
 `;
 
 export const EndnotesLi = styled.li`
@@ -70,6 +74,11 @@ export const EndnotesLi = styled.li`
 
   & p {
     margin: 0;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-bottom: 4px;
+    font-size: 10px;
   }
 `;
 
@@ -95,6 +104,13 @@ export const EndnotesLinkIconWrapper = styled.div`
       stroke: ${colors.Red500};
     }
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
 `;
 
 export const BibliographySingleEntry = styled.div`
@@ -105,6 +121,10 @@ export const BibliographySingleEntry = styled.div`
   & div {
     ${textVariantMapping.body2};
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    gap: 2px;
+  }
 `;
 
 export const StyledHorizontalLine = styled.hr`
@@ -113,6 +133,14 @@ export const StyledHorizontalLine = styled.hr`
 
   &[data-bottom-space="true"] {
     margin-bottom: 16px;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 4px 0;
+
+    &[data-bottom-space="true"] {
+      margin-bottom: 8px;
+    }
   }
 `;
 

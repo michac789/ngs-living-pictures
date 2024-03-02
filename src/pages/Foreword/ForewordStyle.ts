@@ -30,12 +30,12 @@ export const TitleText = styled(Text)`
 `;
 
 export const SubtitleText = styled(Text)`
-  padding-bottom: 120px;
+  padding: 0 32px 120px;
   text-align: center;
   color: ${colors.Neutral100};
 
   @media (max-width: ${breakpoints.medium}) {
-    padding-bottom: 64px;
+    padding: 0 8px 64px;
   }
 `;
 
@@ -56,7 +56,7 @@ export const ForewordTextContainer = styled.div`
     padding: 0 16px 8px;
 
     p:first-of-type::first-letter {
-      font-size: 132px;
+      font-size: 106px;
       float: left;
       margin-right: 6px;
       line-height: 1;

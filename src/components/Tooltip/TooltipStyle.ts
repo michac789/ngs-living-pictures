@@ -1,21 +1,22 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 import { textVariantMapping } from "../Text/TextStyle";
 
 interface TooltipContainerProps {
-  extraStyles?: string;
+  extrastyles?: string;
 }
 export const TooltipContainer = styled.div<TooltipContainerProps>`
   cursor: pointer;
   pointer-events: all;
   z-index: 99;
 
-  ${({ extraStyles }: TooltipContainerProps) => extraStyles};
+  ${({ extrastyles }: TooltipContainerProps) => extrastyles};
 `;
 
 interface TooltipContentWrapperProps {
-  topPosition: number;
-  leftPosition: number;
+  topposition: number;
+  leftposition: number;
   hidden: boolean;
 }
 export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
@@ -28,8 +29,8 @@ export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
   width: fit-content;
   height: fit-content;
 
-  top: ${({ topPosition }) => `${topPosition}px`};
-  left: ${({ leftPosition }) => `${leftPosition}px`};
+  top: ${({ topposition }) => `${topposition}px`};
+  left: ${({ leftposition }) => `${leftposition}px`};
   visibility: ${({ hidden }) => hidden ? "hidden" : "visible"};
   ${textVariantMapping['body2']};
 
@@ -52,5 +53,9 @@ export const TooltipContentWrapper = styled.div<TooltipContentWrapperProps>`
   animation: fade-in-tooltip 0.3s ease-in forwards;
   &.closed-animation {
     animation: fade-out-tooltip 0.3s ease-out forwards;
-  }  
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px 6px;
+  }
 `;

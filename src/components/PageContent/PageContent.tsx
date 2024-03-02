@@ -53,6 +53,7 @@ export const PageContent = ({
   data, children, style, metaData={}, hasStickyMenu=false,
 }: PageContentProps) => {
   const [isDownloadLoading, setIsDownloadLoading] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
   const pageContentRef = useRef<HTMLDivElement>(null);
   const contributorRef = useRef<HTMLDivElement>(null);
 
@@ -82,14 +83,15 @@ export const PageContent = ({
         const rect = spanElement.getBoundingClientRect();
         const { top, left } = rect;
         tooltipDiv.style.position = "absolute";
-        tooltipDiv.style.top = `${top - 85}px`;
-        tooltipDiv.style.left = `${left - 100}px`;
+        tooltipDiv.style.top = Math.max(top - 85, 0) + "px";
+        tooltipDiv.style.left = Math.max(left - 50, 0) + "px";
         tooltipDiv.style.backgroundColor = colors.Blue900;
         tooltipDiv.style.color = colors.Neutral100;
         tooltipDiv.style.padding = "8px";
         tooltipDiv.style.borderRadius = "4px";
         tooltipDiv.style.zIndex = "100";
         tooltipDiv.style.maxWidth = "400px";
+        tooltipDiv.style.fontSize = isLargeScreen ? "14px" : "12px";
         const bibliographyEntry = bibliographyList.find((entry) => entry.id === span.textContent);
         tooltipDiv.innerHTML = bibliographyEntry?.markdown || "No details found for this citation."
         const portal = document.getElementById("special-portal");
@@ -110,7 +112,19 @@ export const PageContent = ({
         span.removeEventListener("click", () => {});
       });
     }
-  }, [data]);
+  }, [data, isLargeScreen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const breakpoint = 768;
+      setIsLargeScreen(window.innerWidth > breakpoint);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const generatePdf = () => {
     setIsDownloadLoading(true);
@@ -141,18 +155,19 @@ export const PageContent = ({
     <>
       {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
         if (mdStr.startsWith('hr')) {
-          return <StyledHorizontalLine key={index} data-bottom-space={true} />
+          return (<div key={index}>
+            <StyledHorizontalLine key={index} data-bottom-space={true} />
+          </div>)
         } else if (mdStr.startsWith('fig')) {
           const id = mdStr.split("-")[1];
           const figure = figures.find((fig) => fig.id === id);
-          return <>
+          return (<div key={index}>
             <ImagePreview
-              key={index}
               imageUrl={figure?.imageUrl || ""}
               label={figure?.label || ""}
               caption={figure?.caption || ""}
             />
-          </>
+          </div>)
         } else if (mdStr.startsWith('vid')) {
           const videoUrl = mdStr.split("-")[1];
           return <ReactPlayer

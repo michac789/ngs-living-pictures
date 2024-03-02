@@ -16,10 +16,15 @@ export const MainContainer = styled.div`
 
   @media (max-width: ${breakpoints.medium}) {
     transition: none;
+    height: calc(100vh - 44px);
   }
 `;
 
 export const OutletContainer = styled.div`
   min-height: calc(100vh - 110px);
   background-color: ${colors.Neutral300};
+
+  @media (max-width: ${breakpoints.medium}) {
+    min-height: calc(100vh - 81.5px);
+  }
 `;
