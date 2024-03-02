@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { textVariantMapping } from "../Text/TextStyle";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const ButtonContainer = styled.div`
@@ -46,10 +47,18 @@ export const ButtonContainer = styled.div`
     }
   
     svg {
-      height: 24px;
-      width: 24px;
       stroke: ${colors.Blue500};
       fill: ${colors.Blue500};
+    }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px;
+    gap: 8px;
+
+    svg {
+      height: 20px;
+      width: 20px;
     }
   }
 `;
