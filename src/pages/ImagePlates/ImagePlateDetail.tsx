@@ -4,6 +4,7 @@ import {
   DocumentDescriptionWrapper,
   DocumentHeader,
   DocumentSingleHeader,
+  DocumentSection,
   DocumentSectionTitle,
   DocumentTitleText,
   DocumentWrapper,
@@ -72,14 +73,14 @@ const ImagePlateDetail = ({
             <Markdown value={imagePlateData.description} type="small" />
           </DocumentDescriptionWrapper>
           {imagePlateData.sections.map((section, index) => (
-            <div key={index}>
+            <DocumentSection key={index}>
               <DocumentSectionTitle variant="body1">
                 {section.title.toUpperCase()}
               </DocumentSectionTitle>
               <Markdown value={section.content} type="small"
-                additionalStyles={{ padding: "0 8px" }}
+                // additionalStyles={{ padding: "0 8px" }}
               />
-            </div>
+            </DocumentSection>
           ))}
         </DocumentWrapper>
         <NavButton />

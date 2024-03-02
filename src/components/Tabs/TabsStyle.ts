@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 import { textVariantMapping } from "../Text/TextStyle";
 
@@ -15,6 +16,10 @@ export const TabsHeaderContainer = styled.div`
   &[data-fullwidth="true"] {
     width: 100%;
     justify-content: center;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    gap: 8px;
   }
 `;
 
@@ -35,5 +40,9 @@ export const SingleTab = styled.div`
     border-bottom: 2px solid ${colors.Blue600};
     color: ${colors.Blue600};
     cursor: default;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px 12px;
   }
 `;

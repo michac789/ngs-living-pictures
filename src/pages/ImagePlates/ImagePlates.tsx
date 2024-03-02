@@ -54,7 +54,7 @@ const ImagePlates = () => {
           style={{ fontStyle: "normal" }}
         >
           {title}
-          <Icon name="ri-arrow-right-line" size="18px" />
+          <Icon name="ri-arrow-right-line" />
         </TitleText>
       </SinglePlateCard>
     )

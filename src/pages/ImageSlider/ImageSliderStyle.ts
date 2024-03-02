@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "../../components/Icon/Icon";
 import { Text } from "../../components/Text/Text";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const PageContainer = styled.div`
@@ -19,6 +20,13 @@ export const ImageSliderContainer = styled.div`
   border: 1px solid ${colors.Green500};
   box-shadow: 0px 0px 5px 0px ${colors.Green700};
   background-color: ${colors.Green200};
+
+  @media (max-width: ${breakpoints.medium}) {
+    aspect-ratio: 13/9;
+  }
+  @media (max-width: ${breakpoints.small}) {
+    aspect-ratio: 1/1;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -44,6 +52,10 @@ export const ImageCountTextWrapper = styled(Text)`
   border: 1px solid ${colors.Neutral700};
   opacity: 0.8;
   user-select: none;
+
+  @media (max-width: ${breakpoints.small}) {
+    padding: 2px 12px;
+  }
 `;
 
 export const LeftButtonContainer = styled.div`
@@ -90,6 +102,11 @@ export const StyledIcon = styled(Icon)`
     fill: ${colors.Neutral600};
     opacity: 0.2;
   }
+
+  @media (max-width: ${breakpoints.small}) {
+    width: 48px;
+    height: 48px;
+  }
 `;
 
 export const CaptionTextWrapper = styled(Text)`
@@ -105,4 +122,9 @@ export const CaptionTextWrapper = styled(Text)`
   color: ${colors.Neutral200};
   opacity: 0.8;
   user-select: none;
+
+  @media (max-width: ${breakpoints.small}) {
+    padding: 4px 8px;
+    width: calc(100% - 16px);
+  }
 `;
