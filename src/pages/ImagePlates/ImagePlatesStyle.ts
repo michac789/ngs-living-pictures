@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Text } from "../../components/Text/Text"; 
+import { Text } from "../../components/Text/Text";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const ImagePlatesContainer = styled.div`
@@ -8,6 +9,11 @@ export const ImagePlatesContainer = styled.div`
   justify-content: center;
   padding: 32px;
   gap: 16px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 16px;
+    gap: 12px;
+  }
 `;
 
 export const SinglePlateCard = styled.div`
@@ -35,6 +41,11 @@ export const SinglePlateCard = styled.div`
     to {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 16px;
+    height: 366px;
   }
 `;
 
@@ -90,6 +101,8 @@ export const TitleText = styled(Text)`
     transition: all 0.3s ease;
     stroke: ${colors.Red500};
     fill: ${colors.Red500};
+    height: 18px;
+    width: 18px;
   }
   
   &.hover-out {
@@ -120,6 +133,15 @@ export const TitleText = styled(Text)`
     }
     to {
       transform: translate(0, 3px);
+    }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-top: 8px;
+    height: 56px;
+    svg {
+      height: 14px;
+      width: 14px;
     }
   }
 `;

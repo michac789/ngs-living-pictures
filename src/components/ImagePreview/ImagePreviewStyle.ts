@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const ImagePreviewContainer = styled.div`
@@ -11,20 +12,35 @@ export const ImagePreviewContainer = styled.div`
 `;
 
 export const StyledImagePreview = styled.img`
-  width: 100%;
+  max-width: 100%;
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
 
   &:hover {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.75);
   }
+
+  @media (max-width: ${breakpoints.small}) {
+    max-width: 100%;
+    max-height: calc(100% - 64px);
+  }
 `;
 
 export const CaptionContainer = styled.div`
-  padding: 4px 0 0;
+  padding: 4px 4px 0;
 
   & div {
     ${textVariantMapping.body2};
+  }
+
+  & p {
+    margin: 0 0 12px;
+  }
+
+  @media (max-width: ${breakpoints.small}) {
+    & p {
+      margin: 0 0 4px;
+    }
   }
 `;
 
@@ -38,10 +54,19 @@ export const FigureNameWrapper = styled.div`
   svg {
     fill: ${colors.Red500};
     stroke: ${colors.Red500};
+    height: 16px;
+    width: 16px;
   }
   &:hover svg {
     fill: ${colors.Red600};
     stroke: ${colors.Red600};
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    svg {
+      height: 14px;
+      width: 14px;
+    }
   }
 `;
 
@@ -106,6 +131,13 @@ export const CloseIconContainer = styled.div`
       box-shadow: 0 0 0 2px ${colors.Neutral300};
     }
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    svg {
+      height: 28px;
+      width: 28px;
+    }
+  }
 `;
 
 export const ImageCaptionWrapper = styled.div`
@@ -132,5 +164,10 @@ export const ImageCaptionWrapper = styled.div`
   animation: fadeIn 0.3s ease;
   &.exiting {
     animation: fadeOut 0.3s ease;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 8px;
+    width: calc(100% - 16px);
   }
 `;

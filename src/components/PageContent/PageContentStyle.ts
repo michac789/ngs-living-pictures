@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const PageContentContainer = styled.div`
@@ -14,24 +15,42 @@ export const LabelText = styled(Text)`
   margin: 64px 0 0;
   border-top: 2px solid ${colors.Red500};
   border-bottom: 2px solid ${colors.Red500};
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 24px 0 0;
+  }
 `;
 
 export const TitleText = styled(Text)`
-  margin: 32px 60px 48px;
+  padding: 32px 60px 48px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 16px 32px;
+  }
 `;
 
 export const SubtitleText = styled(Text)`
-  margin: 0 72px 48px;
+  padding: 0 72px 48px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 0 32px 24px;
+  }
 `;
 
 export const ContentContainer = styled.div`
   max-width: 700px;
   padding: 40px;
+  margin: 0 16px;
   
   background-color: ${colors.Neutral100};
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 16px;
+    margin: 0 8px;
+  }
 `;
 
 export const EndnotesOl = styled.ol`

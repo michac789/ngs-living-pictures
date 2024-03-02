@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import { Text } from "../../components/Text/Text";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const ImagePlateDetailContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: calc(100vh - 110px);
+
+  @media (max-width: ${breakpoints.small}) {
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
 export const ImagePreviewContainer = styled.div`
   display: flex;
-  flex: 0.55;
+  flex: 0.45;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -22,15 +28,25 @@ export const ImagePreviewContainer = styled.div`
   border-right: 2px solid ${colors.Green700};
   box-shadow: 0 0 6px 0 rgba(0, 100, 0, 0.75);
   overflow-y: auto;
+
+  @media (max-width: ${breakpoints.small}) {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: 400px;
+  }
 `;
 
 export const DocumentContainer = styled.div`
   display: flex;
-  flex: 0.45;
+  flex: 0.55;
   flex-direction: column;
   padding: 16px;
   box-sizing: border-box;
   overflow-y: auto;
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 12px;
+  }
 `;
 
 export const DocumentWrapper = styled.div`
@@ -38,11 +54,19 @@ export const DocumentWrapper = styled.div`
   flex-direction: column;
   padding: 12px;
   background-color: ${colors.Neutral100};
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 8px;
+  }
 `;
 
 export const DocumentTitleText = styled(Text)`
   margin-bottom: 16px;
   font-weight: 500;
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-bottom: 12px;
+  }
 `;
 
 export const DocumentHeader = styled.div`
@@ -65,6 +89,10 @@ export const DocumentSingleHeader = styled.div`
   & > div > div > p {
     margin: 0;
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px;
+  }
 `;
 
 export const DocumentDescriptionWrapper = styled.div`
@@ -72,9 +100,30 @@ export const DocumentDescriptionWrapper = styled.div`
   & > div > p {
     font-size: 16px;
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 8px 4px 0;
+  }
+`;
+
+export const DocumentSection = styled.div`
+  & > div > p {
+    padding: 0 8px;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    & > div > p {
+      padding: 0 4px;
+      margin: 0 0 8px;
+    }
+  }
 `;
 
 export const DocumentSectionTitle = styled(Text)`
   border-bottom: 1px solid ${colors.Neutral600};
   margin: 0 8px 4px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 0 4px 4px;
+  }
 `;

@@ -63,7 +63,7 @@ export const ImagePreview = ({
       <StyledImagePreview src={image} alt={label} onClick={handleZoom} />
       <CaptionContainer>
         <FigureNameWrapper onClick={handleZoom}>
-          <Icon name="ri-fullscreen-fill" size="16px" />
+          <Icon name="ri-fullscreen-fill" />
           <StyledFigureName variant="body2" as="span">
             {label}
           </StyledFigureName>
