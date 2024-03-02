@@ -63,6 +63,7 @@ export const StyledImage = styled.img`
 export const StyledContributionLi = styled.li`
   list-style-type: square;
   transform: translateX(16px);
+  padding: 0 8px;
 
   &::marker {
     color: ${colors.Red500};
@@ -71,6 +72,11 @@ export const StyledContributionLi = styled.li`
     &::marker {
       color: ${colors.Red700};
     }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    transform: translateX(12px);
+    padding: 0 4px;
   }
 `;
 

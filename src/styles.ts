@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { breakpoints } from './constants/styles/breakpoints';
 import { colors } from './constants/styles/colors';
 
 export const GlobalStyles = createGlobalStyle`
@@ -9,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   *::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
   *::-webkit-scrollbar-thumb {
     background-color: ${colors.Neutral500};
@@ -35,6 +37,26 @@ export const GlobalStyles = createGlobalStyle`
     }
     to {
       opacity: 0;
+    }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    }
+    *::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.small}) {
+    *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    }
+    *::-webkit-scrollbar-thumb {
+      border-radius: 2px;
     }
   }
 `;

@@ -30,12 +30,12 @@ export const TitleText = styled(Text)`
 `;
 
 export const SubtitleText = styled(Text)`
-  padding-bottom: 120px;
+  padding: 0 32px 120px;
   text-align: center;
   color: ${colors.Neutral100};
 
   @media (max-width: ${breakpoints.medium}) {
-    padding-bottom: 64px;
+    padding: 0 8px 64px;
   }
 `;
 

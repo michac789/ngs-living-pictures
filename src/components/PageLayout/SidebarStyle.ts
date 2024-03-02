@@ -55,6 +55,13 @@ export const SidebarMenuItem = styled(Text)`
     color: ${colors.Neutral100};
     text-decoration: underline;
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    &[data-subpage="true"] {
+      padding: 6px 8px 6px 28px;
+      font-size: 12px;
+    }
+  }
 `;
 
 export const SidebarTitleText = styled(Text)`
