@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const textVariants = [
@@ -21,6 +22,10 @@ const title1 = css`
   line-height: 1.4;
   letter-spacing: 0px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 40px;
+  }
 `;
 
 const title2 = css`
@@ -30,6 +35,10 @@ const title2 = css`
   line-height: 1.15;
   letter-spacing: 0px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 28px;
+  }
 `;
 
 const title3 = css`
@@ -39,6 +48,10 @@ const title3 = css`
   line-height: 1.5;
   letter-spacing: 0.25px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 18px;
+  }
 `;
 
 const subtitle1 = css`
@@ -49,6 +62,10 @@ const subtitle1 = css`
   letter-spacing: 0px;
   font-style: italic;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 20px;
+  }
 `;
 
 const subtitle2 = css`
@@ -59,6 +76,10 @@ const subtitle2 = css`
   letter-spacing: 0.5px;
   font-style: italic;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 14px;
+  }
 `;
 
 const subtitle3 = css`
@@ -68,6 +89,10 @@ const subtitle3 = css`
   line-height: 1.5;
   letter-spacing: 0.3px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 12px;
+  }
 `;
 
 const body1 = css`
@@ -77,6 +102,10 @@ const body1 = css`
   line-height: 2;
   letter-spacing: 0.15px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 14px;
+  }
 `;
 
 const body2 = css`
@@ -86,6 +115,10 @@ const body2 = css`
   line-height: 1.3;
   letter-spacing: 0px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 10px;
+  }
 `;
 
 const button = css`
@@ -95,6 +128,10 @@ const button = css`
   line-height: 1.5;
   letter-spacing: 0.75px;
   color: ${colors.Neutral800};
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 16px;
+  }
 `;
 
 export const textVariantMapping: {

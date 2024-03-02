@@ -21,7 +21,6 @@ export const PageLayout = () => {
   useEffect(() => {
     const handleResize = () => {
       const breakpoint = 768;
-      console.log(window.innerWidth > breakpoint);
       setIsLargeScreen(window.innerWidth > breakpoint);
     };
     handleResize();

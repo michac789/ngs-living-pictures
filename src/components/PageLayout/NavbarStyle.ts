@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
@@ -11,13 +12,16 @@ export const NavbarContainer = styled.div`
   
   width: 100vw;
   background-color: ${colors.Neutral100};
-  /* border-bottom: 2px solid ${colors.Neutral500}; */
 
   &[data-sidebar-open="true"] {
     width: calc(100vw - 300px);
   }
 
   transition: width 0.3s ease;
+
+  @media (max-width: ${breakpoints.medium}) {
+    transition: none;
+  }
 `;
 
 export const StyledNavbarIcon = styled(Icon)`
@@ -81,6 +85,10 @@ export const ProgressionContainer = styled.div`
     width: calc(100vw - 300px);
   }
   transition: width 0.3s ease;
+
+  @media (max-width: ${breakpoints.medium}) {
+    transition: none;
+  }
 `;
 
 interface ProgressionBarProps {
@@ -99,5 +107,9 @@ export const ProgressionBarDiv = styled.div<ProgressionBarProps>`
   width: ${({ currPage, totalPages }) => (currPage / totalPages) * 100}%;
   &[data-sidebar-open="true"] {
     width: calc((100vw - 300px) * ${({ currPage, totalPages }) => (currPage / totalPages)});
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    transition: none;
   }
 `;
