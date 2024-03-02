@@ -27,6 +27,7 @@ export const MarkdownTextWrapper = styled.div<MarkdownTextWrapperProps>`
 
   figure {
     text-align: center;
+    margin: 0;
   }
 
   .citation {

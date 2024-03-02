@@ -14,7 +14,7 @@ export const ForewordBgContainer = styled.div`
   background-repeat: no-repeat;
 
   @media (max-width: ${breakpoints.medium}) {
-    background-size: 100% 160px;
+    background-size: 100% 168px;
   }
 `;
 

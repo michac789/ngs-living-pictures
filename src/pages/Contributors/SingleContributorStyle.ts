@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import { Icon } from "../../components/Icon/Icon";
 import { Text } from "../../components/Text/Text";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const SingleContributorContainer = styled.div`
   margin-bottom: 32px;
   min-height: 144px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-bottom: 16px;
+    ul {
+      padding-left: 16px;
+    }
+  }
 `;
 
 export const NameHeaderContainer = styled.div`
@@ -14,6 +22,13 @@ export const NameHeaderContainer = styled.div`
   align-items: center;
   padding: 8px 8px 8px 0;
   gap: 8px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
 `;
 
 export const StyledNameText = styled(Text)`
@@ -37,6 +52,12 @@ export const StyledImage = styled.img`
   border-radius: 50%;
   float: left;
   margin: 0 16px 8px 0;
+
+  @media (max-width: ${breakpoints.medium}) {
+    width: 80px;
+    height: 80px;
+    margin: 0 12px 4px 0;
+  }
 `;
 
 export const StyledContributionLi = styled.li`

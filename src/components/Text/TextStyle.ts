@@ -25,6 +25,7 @@ const title1 = css`
 
   @media (max-width: ${breakpoints.medium}) {
     font-size: 40px;
+    line-height: 1.2;
   }
 `;
 
@@ -105,6 +106,7 @@ const body1 = css`
 
   @media (max-width: ${breakpoints.medium}) {
     font-size: 14px;
+    line-height: 1.5;
   }
 `;
 

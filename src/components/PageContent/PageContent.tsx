@@ -158,7 +158,7 @@ export const PageContent = ({
           return <ReactPlayer
             key={index}
             url={videoUrl}
-            controls
+            controls={true}
             width="100%"
             style={{ paddingBottom: "8px" }}
           />
