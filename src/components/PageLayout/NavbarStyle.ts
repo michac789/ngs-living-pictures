@@ -116,8 +116,8 @@ export const ProgressionContainer = styled.div`
 `;
 
 interface ProgressionBarProps {
-  currPage: number;
-  totalPages: number;
+  currpage: number;
+  totalpages: number;
 }
 export const ProgressionBarDiv = styled.div<ProgressionBarProps>`
   height: 2px;
@@ -128,9 +128,9 @@ export const ProgressionBarDiv = styled.div<ProgressionBarProps>`
 
   z-index: 3;
   transition: width 0.3s ease;
-  width: ${({ currPage, totalPages }) => (currPage / totalPages) * 100}%;
+  width: ${({ currpage, totalpages }) => (currpage / totalpages) * 100}%;
   &[data-sidebar-open="true"] {
-    width: calc((100vw - 300px) * ${({ currPage, totalPages }) => (currPage / totalPages)});
+    width: calc((100vw - 300px) * ${({ currpage, totalpages }) => (currpage / totalpages)});
   }
 
   @media (max-width: ${breakpoints.medium}) {

@@ -105,7 +105,7 @@ export const Tooltip = ({
       <TooltipContainer
         onClick={handleClick}
         ref={containerRef}
-        extraStyles={extraStyles}
+        extrastyles={extraStyles}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -118,8 +118,8 @@ export const Tooltip = ({
       <Portal>
         <TooltipContentWrapper
           className={animate ? "closed-animation" : ""}
-          topPosition={toolTipY}
-          leftPosition={toolTipX}
+          topposition={toolTipY}
+          leftposition={toolTipX}
           hidden={!show}
           ref={tooltipRef}
           {...props}

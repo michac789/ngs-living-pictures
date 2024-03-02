@@ -155,18 +155,19 @@ export const PageContent = ({
     <>
       {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
         if (mdStr.startsWith('hr')) {
-          return <StyledHorizontalLine key={index} data-bottom-space={true} />
+          return (<div key={index}>
+            <StyledHorizontalLine key={index} data-bottom-space={true} />
+          </div>)
         } else if (mdStr.startsWith('fig')) {
           const id = mdStr.split("-")[1];
           const figure = figures.find((fig) => fig.id === id);
-          return <>
+          return (<div key={index}>
             <ImagePreview
-              key={index}
               imageUrl={figure?.imageUrl || ""}
               label={figure?.label || ""}
               caption={figure?.caption || ""}
             />
-          </>
+          </div>)
         } else if (mdStr.startsWith('vid')) {
           const videoUrl = mdStr.split("-")[1];
           return <ReactPlayer

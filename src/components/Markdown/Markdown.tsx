@@ -16,7 +16,7 @@ export const Markdown = ({
   return (
     <MarkdownTextWrapper
       data-type={type}
-      additionalStyles={additionalStyles as Interpolation<React.CSSProperties>}
+      additionalstyles={additionalStyles as Interpolation<React.CSSProperties>}
     >
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {value}

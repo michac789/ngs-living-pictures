@@ -116,8 +116,8 @@ export const Navbar = ({
       <ProgressionContainer data-sidebar-open={isSidebarOpen}>
         <ProgressionBarDiv
           data-sidebar-open={isSidebarOpen}
-          currPage={currPage}
-          totalPages={totalPages}
+          currpage={currPage}
+          totalpages={totalPages}
         />
       </ProgressionContainer>
     </>
