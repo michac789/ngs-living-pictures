@@ -16,7 +16,6 @@ import {
 import { ImagePreview } from "../../components/ImagePreview/ImagePreview";
 import { Markdown } from "../../components/Markdown/Markdown";
 import { NavButton } from "../../components/NavButton/NavButton";
-import { Text } from "../../components/Text/Text";
 import { figures } from "../../constants/figures";
 import { imagePlatesDetailData, SingleImagePlateDetail } from "../../constants/imageplates";
 

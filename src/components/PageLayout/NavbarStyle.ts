@@ -12,15 +12,23 @@ export const NavbarContainer = styled.div`
   
   width: 100vw;
   background-color: ${colors.Neutral100};
+  transition: width 0.3s ease;
 
   &[data-sidebar-open="true"] {
     width: calc(100vw - 300px);
   }
-
-  transition: width 0.3s ease;
+  
+  svg {
+    height: 28px;
+    width: 28px;
+  }
 
   @media (max-width: ${breakpoints.medium}) {
     transition: none;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
   }
 `;
 
@@ -32,6 +40,10 @@ export const StyledNavbarIcon = styled(Icon)`
   &:hover {
     background-color: ${colors.Blue100};
     transition: all 0.3s ease;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 10.5px 12px;
   }
 `;
 
@@ -48,6 +60,18 @@ export const NavbarButton = styled.div`
   &:hover {
     background-color: ${colors.Blue100};
     transition: all 0.3s ease;
+  }
+
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    svg {
+      height: 18px;
+      width: 18px;
+    }
   }
 `;
 
@@ -110,6 +134,6 @@ export const ProgressionBarDiv = styled.div<ProgressionBarProps>`
   }
 
   @media (max-width: ${breakpoints.medium}) {
-    transition: none;
+    top: 41px;
   }
 `;

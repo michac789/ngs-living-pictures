@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 import { Text } from "../Text/Text";
 
@@ -15,11 +16,21 @@ export const FooterContainer = styled.div`
   background-color: ${colors.Neutral800};
   border-top: 2px solid ${colors.Neutral500};
   transition: width 0.3s ease-in-out;
+
+  @media (max-width: ${breakpoints.medium}) {
+    height: 36px;
+    gap: 4px;
+  }
 `;
 
 export const FooterImage = styled.img`
   width: 50px;
   margin-right: 8px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    width: 40px;
+    margin-right: 4px;
+  }
 `;
 
 export const StyledLinkText = styled(Text)`

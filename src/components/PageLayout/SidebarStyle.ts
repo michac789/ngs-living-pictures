@@ -85,12 +85,20 @@ export const SidebarSubtitleText = styled(Text)`
   margin: 0 0 24px 20px;
   color: ${colors.Neutral200};
   font-style: italic;
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 0 0 16px 20px;
+  }
 `;
 
 export const SidebarSectionText = styled(Text)`
   margin: 16px 0 4px 20px;
   color: ${colors.Neutral500};
   border-bottom: 1px solid ${colors.Neutral500};
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 12px 0 4px 20px;
+  }
 `;
 
 export const SidebarActionText = styled(Text)`
@@ -102,6 +110,10 @@ export const SidebarActionText = styled(Text)`
   &:hover {
     color: ${colors.Neutral100};
     text-decoration: underline;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px 8px 4px 20px;
   }
 `;
 
@@ -116,6 +128,10 @@ export const SidebarCitationText = styled(Text)`
 
   p {
     margin: 0;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 0 0 4px 20px;
   }
 `;
 
@@ -136,17 +152,33 @@ export const SidebarCitationFlex = styled.div`
       fill: ${colors.Green500};
     }
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    gap: 6px;
+    svg {
+      height: 14px;
+      width: 14px;
+    }
+  }
 `;
 
 export const SidebarImage = styled.img`
-  margin-top: 16px;
-  padding: 4px 4px 4px 20px;
+  margin: 20px 4px 4px 20px;
   width: 120px;
+  box-shadow: 0 0 4px 0 ${colors.Yellow500};
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-top: 12px;
+  }
 `;
 
 export const SidebarBottomText = styled(Text)`
   margin: 4px 4px 4px 20px;
   color: ${colors.Neutral200};
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin: 4px 4px 4px 20px;
+  }
 `;
 
 export const SidebarIconWrapper = styled.div`
@@ -158,10 +190,21 @@ export const SidebarIconWrapper = styled.div`
     cursor: pointer;
     fill: ${colors.Neutral300};
     stroke: ${colors.Neutral300};
+    height: 28px;
+    width: 28px;
 
     &:hover {
       fill: ${colors.Neutral100};
       stroke: ${colors.Neutral100};
+    }
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    padding: 4px 4px 4px 20px;
+
+    svg {
+      height: 24px;
+      width: 24px;
     }
   }
 `;
@@ -182,19 +225,21 @@ export const MobileSidebarContainer = styled.div`
   border-right: 2px solid ${colors.Neutral500};
   padding: 16px 16px 16px 0;
   overflow: auto;
-  z-index: 200;
+  z-index: 3;
 `;
 
 export const MobileCloseButtonContainer = styled.div`
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
 
   svg {
     fill: ${colors.Neutral200};
     stroke: ${colors.Neutral200};
     transition: transform 0.3s ease;
+    height: 28px;
+    width: 28px;
 
     &:hover {
       fill: ${colors.Yellow500};

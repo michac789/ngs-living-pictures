@@ -8,6 +8,9 @@ export const ImagePlateDetailContainer = styled.div`
   flex-direction: row;
   height: calc(100vh - 110px);
 
+  @media (max-width: ${breakpoints.medium}) {
+    height: calc(100vh - 81.5px);
+  }
   @media (max-width: ${breakpoints.small}) {
     flex-direction: column;
     height: auto;

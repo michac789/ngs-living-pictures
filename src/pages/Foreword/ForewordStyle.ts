@@ -56,7 +56,7 @@ export const ForewordTextContainer = styled.div`
     padding: 0 16px 8px;
 
     p:first-of-type::first-letter {
-      font-size: 132px;
+      font-size: 106px;
       float: left;
       margin-right: 6px;
       line-height: 1;

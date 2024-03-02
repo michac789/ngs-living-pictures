@@ -112,7 +112,7 @@ export const PageContent = ({
         span.removeEventListener("click", () => {});
       });
     }
-  }, [data]);
+  }, [data, isLargeScreen]);
 
   useEffect(() => {
     const handleResize = () => {
