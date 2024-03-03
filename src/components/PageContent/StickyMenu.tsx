@@ -10,11 +10,12 @@ interface StickyMenuProps {
   contributorRef: React.RefObject<HTMLDivElement>;
   onDownloadClick: () => void;
   isDownloadLoading: boolean;
+  isLargeScreen: boolean;
   citation?: string;
 };
 
 export const StickyMenu = ({
-  contributorRef, onDownloadClick, isDownloadLoading, citation,
+  contributorRef, onDownloadClick, isDownloadLoading, isLargeScreen, citation,
 }: StickyMenuProps) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isShareOptionOpen, setIsShareOptionOpen] = useState(false);
@@ -61,7 +62,7 @@ export const StickyMenu = ({
       resizeObserver.disconnect();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.location.pathname]);
+  }, [window.location.pathname, window.innerWidth]);
 
   const handleShareClick = () => {
     setIsShareOptionOpen(true);
@@ -85,8 +86,12 @@ export const StickyMenu = ({
     <>
       <Portal id="main-container">
         <StickyMenuContainer ref={stickyMenuRef} style={{
-          left: horizontalDistance,
-          top: isSticky ? 58 : verticalDistance,
+          left: isLargeScreen ? horizontalDistance : horizontalDistance - 136 - 12,
+          top: isSticky ? (
+            isLargeScreen ? 58 : 58 - 8
+          ) : (
+            isLargeScreen ? verticalDistance : verticalDistance - 16
+          ),
           position: isSticky ? "fixed" : "absolute"
         }}>
           <Tooltip contents="Share" position="left" timeout={0} hoverable>

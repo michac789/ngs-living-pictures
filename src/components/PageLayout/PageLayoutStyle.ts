@@ -16,7 +16,7 @@ export const MainContainer = styled.div`
 
   @media (max-width: ${breakpoints.medium}) {
     transition: none;
-    height: calc(100vh - 44px);
+    height: calc(100vh - 43px);
   }
 `;
 
@@ -25,6 +25,6 @@ export const OutletContainer = styled.div`
   background-color: ${colors.Neutral300};
 
   @media (max-width: ${breakpoints.medium}) {
-    min-height: calc(100vh - 81.5px);
+    min-height: calc(100vh - 80.5px);
   }
 `;

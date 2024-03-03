@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { CloseIconContainer, DarkBackdrop } from "../ImagePreview/ImagePreviewStyle";
 import { HeaderText, OptionsFlexContainer, SingleOptionWrapper } from "./ShareOptionStyle";
+import { Backdrop } from "../Backdrop/Backdrop";
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
 import { Tooltip } from "../Tooltip/Tooltip";
@@ -85,7 +85,7 @@ export const ShareOption = ({
 
   return (
     <Portal>
-      <DarkBackdrop className={isExiting ? "exiting" : ""}>
+      <Backdrop isExiting={isExiting} onExit={handleClose}>
         <HeaderText variant="title2" ref={singleOptionRefs.header}>
           Share via
         </HeaderText>
@@ -159,10 +159,7 @@ export const ShareOption = ({
             </SingleOptionWrapper>
           </Tooltip>
         </OptionsFlexContainer>
-      </DarkBackdrop>
-      <CloseIconContainer>
-        <Icon name="ri-close-fill" onClick={handleClose} />
-      </CloseIconContainer>
+      </Backdrop>
     </Portal>
   )
 };

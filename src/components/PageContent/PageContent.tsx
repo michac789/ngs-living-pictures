@@ -124,7 +124,8 @@ export const PageContent = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.innerWidth]);
 
   const generatePdf = () => {
     setIsDownloadLoading(true);
@@ -273,6 +274,7 @@ export const PageContent = ({
           contributorRef={contributorRef}
           onDownloadClick={generatePdf}
           isDownloadLoading={isDownloadLoading}
+          isLargeScreen={isLargeScreen}
           citation={data.citation}
         />
       )}

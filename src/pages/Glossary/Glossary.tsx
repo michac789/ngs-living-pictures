@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   AlphabetListContainer,
   GlossaryContainer,
@@ -18,7 +18,8 @@ const sortedArtistGlossary = [...artistGlossary].sort((a, b) => a.name.localeCom
 
 const Glossary = () => {
   const [selected, setSelected] = useState<number>(0);
-  const contentContainerRef = React.useRef<HTMLDivElement>(null);
+  const alphabetContainerRef = useRef<HTMLDivElement>(null);
+  const contentContainerRef = useRef<HTMLDivElement>(null);
   const tabs = [
     "BY ARTIST",
     "BY ARTWORK",
@@ -39,7 +40,7 @@ const Glossary = () => {
   const tabContents = [
     (
       <TabContentContainer>
-        <AlphabetListContainer>
+        <AlphabetListContainer ref={alphabetContainerRef}>
           {alphabet.map((letter, index) => (
             <SingleAlphabetWrapper
               key={index}
@@ -78,7 +79,7 @@ const Glossary = () => {
     ),
     (
       <TabContentContainer>
-        <AlphabetListContainer>
+        <AlphabetListContainer ref={alphabetContainerRef}>
           {alphabet.map((letter, index) => (
             <SingleAlphabetWrapper
               key={index}
@@ -101,7 +102,7 @@ const Glossary = () => {
                 {letter}
               </Text>
               {sortedArtworkGlossary.filter((item) => item.name.charAt(0).toUpperCase() === letter).map((item, index) => (
-                <div key={index} style={{ paddingBottom: "4px" }}>
+                <div key={index}>
                   <Text variant="body1">
                     {item.name}
                   </Text>
@@ -118,6 +119,10 @@ const Glossary = () => {
   ];
   const handleTabClick = (index: number) => {
     setSelected(index);
+    if (alphabetContainerRef.current && contentContainerRef.current) {
+      alphabetContainerRef.current.scrollTop = 0;
+      contentContainerRef.current.scrollTop = 0;
+    }
   }
 
   return (

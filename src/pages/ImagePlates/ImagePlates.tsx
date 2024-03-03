@@ -23,7 +23,12 @@ const ImagePlates = () => {
   const ImagePlate = ({
     imageUrl, title, pageUrl, index,
   }: ImagePlateProps) => {
-    const image = require(`../../assets/${imageUrl}`);
+    let image;
+    try {
+      image = require(`../../assets/${imageUrl}`);
+    } catch (e) {
+      console.warn(`Image ${imageUrl} not found, please check that you entered the correct path`);
+    }
 
     const hanldeClick = () => {
       if (pageUrl[0] === '*') {

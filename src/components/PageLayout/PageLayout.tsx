@@ -31,7 +31,8 @@ export const PageLayout = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.innerWidth]);
   
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

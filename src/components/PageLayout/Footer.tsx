@@ -8,7 +8,7 @@ import {
   MobileRowFlexContainer,
   StyledLinkText,
 } from "./FooterStyle";
-import footerImg from "../../assets/footerImg.png";
+import footerImg from "../../assets/footerImg.webp";
 
 interface FooterProps {
   isSmallScreen: boolean;

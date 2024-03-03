@@ -37,6 +37,13 @@ export const StyledImage = styled.img`
   max-width: 100%;
   max-height: 100%;
   user-select: none;
+
+  transition: all 0.3s ease;
+  &:hover {
+    cursor: zoom-in;
+    box-shadow: 0px 0px 10px 0px ${colors.Yellow500};
+    filter: brightness(105%);
+  }
 `;
 
 export const ImageCountTextWrapper = styled(Text)`

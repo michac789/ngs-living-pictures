@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
+import { Backdrop } from "../Backdrop/Backdrop";
 import { Portal } from "../Portal/Portal";
-import { DarkBackdrop } from "../ImagePreview/ImagePreviewStyle";
 import { SearchModalContainer } from "./SearchModalStyle";
 import { useOnClickOutside } from "../../utils/useOnClickOutside";
 
@@ -17,18 +17,17 @@ export const SearchModal = ({
 
   return (
     <Portal>
-      <DarkBackdrop>
+      <Backdrop>
         <SearchModalContainer ref={modalRef}>
           The search feature is still under development.
           Remaining TODOs:
           <ol>
             <li>Modal component, refactor backdrop there, search feature</li>
-            <li>Responsive design</li>
-            <li>Essay page allow image side by side or float wrap text</li>
+            <li>Essay page allow image side by side or float wrap text (requested from NGS)</li>
             <li>Consider migrating to gatsby for ssg</li>
           </ol>
         </SearchModalContainer>
-      </DarkBackdrop>
+      </Backdrop>
     </Portal>
   )
 };

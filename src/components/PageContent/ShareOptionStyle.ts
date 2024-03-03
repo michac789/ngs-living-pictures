@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { Text } from "../Text/Text";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 
 export const HeaderText = styled(Text)`
   color: ${colors.Neutral300};
   margin-bottom: 48px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    margin-bottom: 36px;
+  }
 `;
 
 export const OptionsFlexContainer = styled.div`
@@ -55,4 +60,14 @@ export const SingleOptionWrapper = styled.div`
     transform: scale(1.2);
   }
   transition: transform 0.2s ease-in-out;
+
+  @media (max-width: ${breakpoints.medium}) {
+    width: 64px;
+    height: 64px;
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+  }
 `;

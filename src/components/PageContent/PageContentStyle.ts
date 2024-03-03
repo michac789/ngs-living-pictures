@@ -35,7 +35,7 @@ export const SubtitleText = styled(Text)`
   text-align: center;
 
   @media (max-width: ${breakpoints.medium}) {
-    padding: 0 32px 24px;
+    padding: 0 32px 42px;
   }
 `;
 
