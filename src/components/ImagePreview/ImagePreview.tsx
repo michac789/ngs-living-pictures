@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   CaptionContainer,
-  CloseIconContainer,
-  DarkBackdrop,
   FigureNameWrapper,
   ImageCaptionWrapper,
   ImagePreviewContainer,
@@ -10,6 +8,7 @@ import {
   StyledImagePreview,
   ZoomedImage,
 } from "./ImagePreviewStyle";
+import { Backdrop } from "../Backdrop/Backdrop";
 import { Icon } from "../Icon/Icon";
 import { Portal } from "../Portal/Portal";
 import { Markdown } from "../Markdown/Markdown";
@@ -72,12 +71,9 @@ export const ImagePreview = ({
       </CaptionContainer>
       {isZoomed && (
         <Portal>
-          <DarkBackdrop className={isExiting ? "exiting" : ""}>
+          <Backdrop isExiting={isExiting} onExit={handleExitZoom}>
             <ZoomedImage src={image} alt={label} ref={zoomedImageRef} />
-          </DarkBackdrop>
-          <CloseIconContainer>
-            <Icon name="ri-close-fill" onClick={handleExitZoom} />
-          </CloseIconContainer>
+          </Backdrop>
           <ImageCaptionWrapper
             ref={zoomedCaptionRef}
             className={isExiting ? "exiting" : ""}
