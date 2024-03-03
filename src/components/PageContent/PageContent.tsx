@@ -274,6 +274,7 @@ export const PageContent = ({
           contributorRef={contributorRef}
           onDownloadClick={generatePdf}
           isDownloadLoading={isDownloadLoading}
+          isLargeScreen={isLargeScreen}
           citation={data.citation}
         />
       )}

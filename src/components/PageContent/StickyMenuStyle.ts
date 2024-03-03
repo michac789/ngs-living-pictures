@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Spinner } from "../Spinner/Spinner";
+import { breakpoints } from "../../constants/styles/breakpoints";
 import { colors } from "../../constants/styles/colors";
 import { textVariantMapping } from "../Text/TextStyle";
 
@@ -23,6 +24,19 @@ export const StickyMenuContainer = styled.div`
       fill: ${colors.Green700};
     }
   }
+
+  @media (max-width: ${breakpoints.medium}) {
+    flex-direction: row;
+    height: 20px;
+    width: auto;
+    gap: 8px;
+    padding: 8px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 export const StyledSpinner = styled(Spinner)`
@@ -41,5 +55,9 @@ export const CitationTooltipWrapper = styled.div`
   & > div {
     ${textVariantMapping.body2};
     font-size: 12px;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    width: 200px;
   }
 `;
