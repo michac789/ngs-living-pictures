@@ -76,6 +76,7 @@ export const Navbar = ({
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
+        onPageChange={onPageChange}
       />
       <NavbarContainer data-sidebar-open={isSidebarOpen}>
         <StyledNavbarIcon
