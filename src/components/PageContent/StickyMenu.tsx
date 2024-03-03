@@ -61,7 +61,7 @@ export const StickyMenu = ({
       resizeObserver.disconnect();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.location.pathname]);
+  }, [window.location.pathname, window.innerWidth]);
 
   const handleShareClick = () => {
     setIsShareOptionOpen(true);

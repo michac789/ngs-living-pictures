@@ -43,7 +43,7 @@ export const StyledNavbarIcon = styled(Icon)`
   }
 
   @media (max-width: ${breakpoints.medium}) {
-    padding: 10.5px 12px;
+    padding: 10.5px;
   }
 `;
 
@@ -68,10 +68,14 @@ export const NavbarButton = styled.div`
   }
 
   @media (max-width: ${breakpoints.medium}) {
+    padding: 10px 12px;
     svg {
       height: 18px;
       width: 18px;
     }
+  }
+  @media (max-width: ${breakpoints.small}) {
+    padding: 10px 8px;
   }
 `;
 

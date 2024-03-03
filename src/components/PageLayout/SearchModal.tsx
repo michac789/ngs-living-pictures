@@ -23,8 +23,7 @@ export const SearchModal = ({
           Remaining TODOs:
           <ol>
             <li>Modal component, refactor backdrop there, search feature</li>
-            <li>Responsive design</li>
-            <li>Essay page allow image side by side or float wrap text</li>
+            <li>Essay page allow image side by side or float wrap text (requested from NGS)</li>
             <li>Consider migrating to gatsby for ssg</li>
           </ol>
         </SearchModalContainer>
