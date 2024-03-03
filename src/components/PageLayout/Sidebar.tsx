@@ -17,13 +17,13 @@ import {
 } from "./SidebarStyle";
 import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
+import { Portal } from "../Portal/Portal";
 import { Text } from "../Text/Text";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { colors } from "../../constants/styles/colors";
 import { orderedPages } from "../../constants/pages";
 import { sidebarConstants } from "../../constants/sidebar";
-import sidebarImg from "../../assets/sidebarImg.jpg";
-import { Portal } from "../Portal/Portal";
+import sidebarImg from "../../assets/sidebarImg.webp";
 
 interface SidebarProps {
   isSidebarOpen: boolean;

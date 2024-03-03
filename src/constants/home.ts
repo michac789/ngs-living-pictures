@@ -1,6 +1,6 @@
 
 export const homeConstants = {
-  coverImagePath: 'coverImg.jpg',
+  coverImagePath: 'coverImg.webp',
   coverImageAlt: 'Cover Image',
   coverTitle: 'Living Pictures',
   coverSubtitle: 'Photography in Southeast Asia',

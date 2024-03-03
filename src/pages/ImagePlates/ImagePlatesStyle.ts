@@ -55,6 +55,7 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid ${colors.Neutral400};
+  box-sizing: border-box;
 
   &.hover-out {
     animation: image-plate-wrapper-out 0.3s ease-in-out;

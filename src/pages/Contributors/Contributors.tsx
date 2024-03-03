@@ -8,8 +8,12 @@ import { metaData } from "../../constants/metadata";
 const Contributors = () => {
   const imagesDict: {[key: string]: string} = {};
   contributorList.forEach((contributor) => {
-    imagesDict[contributor.imageUrl] = require(
-      `../../assets/${contributor.imageUrl}`);
+    try {
+      imagesDict[contributor.imageUrl] = require(
+        `../../assets/${contributor.imageUrl}`);
+    } catch (e) {
+      console.warn(`Image ${contributor.imageUrl} not found, please check that you entered the correct path`);
+    }
   });
 
   return (

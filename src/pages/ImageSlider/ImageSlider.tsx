@@ -31,8 +31,14 @@ const ImageSlider = () => {
   }, zoomedImageRef, zoomedCaptionRef);
 
   const imagesData = images.map((image) => {
+    let imageData;
+    try {
+      imageData = require(`../../assets/${image.imageUrl}`);
+    } catch (e) {
+      console.warn(`Image ${image} not found, please check that you entered the correct path`);
+    }
     return {
-      image: require(`../../assets/${image.imageUrl}`),
+      image: imageData,
       caption: image.caption,
       altName: image.altName || '',
     };

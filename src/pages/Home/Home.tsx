@@ -20,11 +20,16 @@ import { colors } from "../../constants/styles/colors";
 import { homeConstants } from "../../constants/home";
 import { metaData } from "../../constants/metadata";
 
-const coverImg = require(`../../assets/${homeConstants.coverImagePath}`);
-
 const Home = () => {
   const navigate = useNavigate();
   const nextButtonRef = useRef<HTMLDivElement>(null);
+
+  let coverImg;
+  try {
+    coverImg = require(`../../assets/${homeConstants.coverImagePath}`);
+  } catch (e) {
+    console.warn(`Image ${homeConstants.coverImagePath} not found, please check that you entered the correct path`);
+  }
 
   const handleNext = () => {
     navigate('/content');

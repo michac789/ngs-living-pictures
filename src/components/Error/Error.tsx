@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ErrorContainer, NotFoundErrorContainer, NotFoundImage, StyledErrorText } from "./ErrorStyle";
 import { Button } from "../Button/Button"; 
-import Error404Img from "../../assets/error404.png";
+import Error404Img from "../../assets/error404.webp";
 
 const generalErrorMessage = `
 Oops! An error has occured. We apologize for the inconvenience.

@@ -28,9 +28,14 @@ export const ImagePreview = ({
   const [isExiting, setIsExiting] = useState<boolean>(false);
   const zoomedImageRef = useRef<HTMLImageElement>(null);
   const zoomedCaptionRef = useRef<HTMLDivElement>(null);
-  
-  const image = imageUrl.startsWith("*") ? imageUrl.slice(1) :
-    require(`../../assets/${imageUrl}`);
+
+  let image;
+  try {
+    image = imageUrl.startsWith("*") ? imageUrl.slice(1) :
+      require(`../../assets/${imageUrl}`);
+  } catch (e) {
+    console.warn(`Image ${imageUrl} not found, please check that you entered the correct path`);
+  }
   
   const timeout = useRef<NodeJS.Timeout | null>(null);
   useEffect(() => {
