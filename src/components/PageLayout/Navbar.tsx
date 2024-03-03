@@ -73,7 +73,10 @@ export const Navbar = ({
 
   return (
     <>
-      {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
       <NavbarContainer data-sidebar-open={isSidebarOpen}>
         <StyledNavbarIcon
           name="ri-search-line"

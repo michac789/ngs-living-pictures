@@ -6,8 +6,8 @@ export const SearchModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   z-index: 1100;
 
   background-color: ${colors.Neutral200};

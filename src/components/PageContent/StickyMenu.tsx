@@ -90,9 +90,9 @@ export const StickyMenu = ({
           top: isSticky ? (
             isLargeScreen ? 58 : 58 - 8
           ) : (
-            isLargeScreen ? verticalDistance : verticalDistance - 16
+            isLargeScreen ? verticalDistance : 58 - 8
           ),
-          position: isSticky ? "fixed" : "absolute"
+          position: isLargeScreen ? (isSticky ? "fixed" : "absolute") : "fixed",
         }}>
           <Tooltip contents="Share" position="left" timeout={0} hoverable>
             <Icon name="ri-share-line" onClick={handleShareClick} />
