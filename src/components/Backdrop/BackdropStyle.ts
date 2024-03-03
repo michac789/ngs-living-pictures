@@ -41,6 +41,12 @@ export const CloseIconContainer = styled.div`
     box-shadow: 0 0 0 2px ${colors.Neutral400};
   }
 
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease;
+  &.exiting {
+    animation: fadeOut 0.3s ease;
+  }
+  
   &:hover {
     transform: scale(1.2);
     svg {

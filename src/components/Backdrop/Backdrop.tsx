@@ -20,7 +20,7 @@ export const Backdrop = ({
       >
         {children}
       </DarkBackdrop>
-      <CloseIconContainer>
+      <CloseIconContainer className={isExiting ? "exiting" : ""}>
         <Icon name="ri-close-fill" onClick={onExit} />
       </CloseIconContainer>
     </>
