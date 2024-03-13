@@ -13,6 +13,7 @@ import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./essays/about";
 import { essayCT } from "./essays/essayCT";
 import { essayRoy } from "./essays/essayRoy";
+import { essaySample } from "./essays/essaySample";
 import { essaySze } from "./essays/essaySze";
 
 interface SinglePage {
@@ -63,6 +64,11 @@ export const orderedPages: SinglePage[] = [
     element: <PageContent data={essayRoy} metaData={metaData.essay_Roy} hasStickyMenu />,
     author: 'Roy Ng',
     searchContent: searchContents.essayRoy,
+  },
+  {
+    link: '/sample',
+    name: 'IV. Sample Page',
+    element: <PageContent data={essaySample} hasStickyMenu />,
   },
   {
     link: '/image-plates',
