@@ -1,15 +1,9 @@
 import styled from "styled-components";
+import { Modal } from "../Modal/Modal";
 import { colors } from "../../constants/styles/colors";
 
-export const SearchModalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  height: 550px;
-  z-index: 1100;
-  background-color: ${colors.Neutral200};
+export const StyledSearchModal = styled(Modal)`
+  /* background-color: brown; */
 `;
 
 export const SearchResultsContainer = styled.div`
