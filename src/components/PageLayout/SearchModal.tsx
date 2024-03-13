@@ -36,7 +36,6 @@ export const SearchModal = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Search Page">
       <Input
-        label="Search Input:"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder="Type your search query here..."

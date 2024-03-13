@@ -22,14 +22,16 @@ export const Input = ({
 
   return (
     <InputContainer data-full-width={fullWidth}>
-      <Text as="span" variant="body1"
-        onClick={handleLabelClick}
-        style={{
-          whiteSpace: "nowrap",
-        }}
-      >
-        {label}
-      </Text>
+      {label && (
+        <Text variant="body1"
+          onClick={handleLabelClick}
+          style={{
+            whiteSpace: "nowrap",
+          }}
+        >
+          {label}
+        </Text>
+      )}
       <StyledInput
         type="text"
         value={value}
