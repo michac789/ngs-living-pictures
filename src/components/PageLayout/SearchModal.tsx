@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  NotFoundContainer,
+  NotFoundImage,
   SearchResultsContainer,
   SingleResultContainer,
-  StyledSearchModal,
 } from "./SearchModalStyle";
 import { Input } from "../Input/Input";
 import { Modal } from "../Modal/Modal";
 import { Text } from "../Text/Text";
 import { searchPage } from "../../utils/searchPage";
 import { useDebounce } from "../../utils/useDebounce";
+import NotFoundImg from "../../assets/notfound.webp";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -32,16 +34,7 @@ export const SearchModal = ({
   }
 
   return (
-    <StyledSearchModal isOpen={isOpen} onClose={onClose} title="Search Page">
-      <div>
-        This search feature is still under progress.
-        Remaining TODOs:
-        <ol>
-          <li>Improve search feature functionality and UI</li>
-          <li>Essay page allow image side by side or float wrap text (requested from NGS)</li>
-          <li>Consider migrating to gatsby for ssg</li>
-        </ol>
-      </div>
+    <Modal isOpen={isOpen} onClose={onClose} title="Search Page">
       <Input
         label="Search Input:"
         value={searchValue}
@@ -50,16 +43,10 @@ export const SearchModal = ({
         autoFocus
         fullWidth
       />
-      <div>
-        Search query:
-        <div>
-          Debounced value: {debouncedSearchValue}
-        </div>
-      </div>
+      <Text variant="subtitle3" style={{ margin: "8px 8px 4px" }}>
+        Search results:
+      </Text>
       <SearchResultsContainer>
-        <Text variant="subtitle3">
-          Search results:
-        </Text>
         {searchResults.map((page) => (
           <SingleResultContainer
             key={page.link}
@@ -74,9 +61,14 @@ export const SearchModal = ({
           </SingleResultContainer>
         ))}
         {searchResults.length === 0 && (
-          <div>Empty search results</div>
+          <NotFoundContainer>
+            <NotFoundImage src={NotFoundImg} alt="Not Found Error" />
+            <Text variant="button">
+              No results found!
+            </Text>
+          </NotFoundContainer>
         )}
       </SearchResultsContainer>
-    </StyledSearchModal>
+    </Modal>
   )
 };

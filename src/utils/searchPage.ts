@@ -8,7 +8,10 @@ interface SearchResult {
   next: string;
 }
 
-export const searchPage = (query: string) => {
+export const searchPage = (
+  query: string,
+  charBufferLength: number = 50
+) => {
   if (!query) return [];
   const searchResults: SearchResult[] = [];
   orderedPages.forEach((page) => {
@@ -17,8 +20,8 @@ export const searchPage = (query: string) => {
     const matches = content.match(regex);
     if (matches) {
       const midIndex = content.indexOf(matches[0]);
-      const start = Math.max(0, midIndex - 30);
-      const end = Math.min(content.length, midIndex + matches[0].length + 30);
+      const start = Math.max(0, midIndex - charBufferLength);
+      const end = Math.min(content.length, midIndex + matches[0].length + charBufferLength);
       searchResults.push({
         link: page.link,
         name: page.name,
