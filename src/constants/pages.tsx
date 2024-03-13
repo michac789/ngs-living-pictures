@@ -87,11 +87,13 @@ export const orderedPages: SinglePage[] = [
     link: '/bibliography',
     name: 'Bibliography',
     element: <Bibliography />,
+    searchContent: searchContents.bibliography,
   },
   {
     link: '/contributors',
     name: 'Contributors',
     element: <Contributors />,
+    searchContent: searchContents.contributor,
   },
   {
     link: '/about',
@@ -103,10 +105,12 @@ export const orderedPages: SinglePage[] = [
     link: '/image-slider',
     name: 'Image Slider',
     element: <ImageSlider />,
+    searchContent: searchContents.imageSlider,
   },
   {
     link: '/glossary',
     name: 'Glossary',
     element: <Glossary />,
+    searchContent: searchContents.glossary,
   },
 ]
