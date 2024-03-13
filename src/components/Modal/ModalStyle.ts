@@ -47,9 +47,9 @@ export const ModalContentWrapper = styled.div`
   justify-content: center;
 
   overflow: auto;
-  padding: 12px;
+  padding: 20px;
 
   @media (max-width: ${breakpoints.medium}) {
-    padding: 8px;
+    padding: 12px;
   }
 `;

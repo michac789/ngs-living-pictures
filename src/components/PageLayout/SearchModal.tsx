@@ -5,6 +5,7 @@ import {
   SingleResultContainer,
   StyledSearchModal,
 } from "./SearchModalStyle";
+import { Input } from "../Input/Input";
 import { Modal } from "../Modal/Modal";
 import { Text } from "../Text/Text";
 import { searchPage } from "../../utils/searchPage";
@@ -41,14 +42,16 @@ export const SearchModal = ({
           <li>Consider migrating to gatsby for ssg</li>
         </ol>
       </div>
+      <Input
+        label="Search Input:"
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        placeholder="Type your search query here..."
+        autoFocus
+        fullWidth
+      />
       <div>
         Search query:
-        <input
-          type="text"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          autoFocus
-        />
         <div>
           Debounced value: {debouncedSearchValue}
         </div>
