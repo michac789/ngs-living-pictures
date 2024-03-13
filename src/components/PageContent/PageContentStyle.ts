@@ -148,6 +148,11 @@ export const ContributorContainer = styled.div`
   div {
     ${textVariantMapping.body2};
 
+    svg {
+      height: 14px;
+      width: 14px;
+    }
+
     .contributor-name {
       font-weight: 600;
     }
