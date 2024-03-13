@@ -13,10 +13,11 @@ export const searchPage = (
   charBufferLength: number = 50
 ) => {
   if (!query) return [];
+  const sanitizedQuery = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "");
   const searchResults: SearchResult[] = [];
   orderedPages.forEach((page) => {
     const content = page.searchContent || "";
-    const regex = new RegExp(query, "gi");
+    const regex = new RegExp(sanitizedQuery, "gi");
     const matches = content.match(regex);
     if (matches) {
       const midIndex = content.indexOf(matches[0]);
