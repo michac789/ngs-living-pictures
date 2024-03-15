@@ -85,6 +85,13 @@ before using the image.
 Use \`{%_figure_'fig-<ENTERFIGUREIDHERE'_%}\` to create an image preview component,
 make sure that the id is valid and exists in the figures list.
 
+If you want 2 image to appear side by side, you can use
+\`{%_figure_'fig2-<ENTERFIGUREIDHERE1>-<ENTERFIGUREIDHERE2>'_%}\`
+
+If you want the image to appear on the left covering half the screen,
+and the text to wrap on the right, you can use
+\`{%_figure_'figfloat-<ENTERFIGUREIDHERE>'_%}\`
+
 {% figure 'hr' %}
 
 ## Example
@@ -95,13 +102,19 @@ Just some example on how everything can be put together.
 
 {% figure 'fig-sampleId' %}
 
+{% figure 'fig2-sampleId-1' %}
+
 In the tapestry of life, woven with threads of perseverance and resilience, the concept of hard work emerges as a fundamental pillar, shaping destinies and carving paths to success ({% cite 'pl. 37' %}). Life, often akin to a challenging journey, demands dedication and tenacity to surmount obstacles and reach the summit of one's aspirations. [^1]
 
 Hard work is the compass that guides individuals through the labyrinth of challenges, pushing them to explore the depths of their potential. It is the persistent force that propels dreams into reality, transforming mere visions into tangible achievements. The sweat-soaked brow, the calloused hands – these are the insignias of individuals who have embraced the arduous yet rewarding journey of hard work. [^2]
 
+{% figure 'figfloat-sampleId-right' %}
+
 In the crucible of hard work, character is forged, and resilience is tested. The pursuit of excellence demands unwavering commitment and an unyielding spirit. It is a journey marked by sleepless nights, early mornings, and a relentless pursuit of improvement. Hard work becomes a beacon, illuminating the path to self-discovery and accomplishment. [^3]
 
 Life often unfolds its lessons through challenges that require more than just talent; they necessitate diligence and an indomitable work ethic. The stories of those who have overcome adversities resonate with the echoes of hard work – tales of triumph over adversity, of persistence in the face of setbacks. [^4]
+
+{% figure 'figfloat-sampleId-left' %}
 
 The fruits of hard work extend beyond individual achievements; they contribute to the collective progress of societies. It is the foundation upon which civilizations are built, innovations are conceived, and societal transformations are ushered in. Hard work fosters a culture of diligence, creating a ripple effect that inspires and uplifts those who witness its transformative power. [^5]
 

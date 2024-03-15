@@ -8,6 +8,9 @@ import {
   EndnotesLiContentWrapper,
   EndnotesLinkIconWrapper,
   EndnotesOl,
+  FigureFloatContainer,
+  FigureFlexChild,
+  FigureFlexContainer,
   LabelText,
   PageContentContainer,
   SubtitleText,
@@ -156,9 +159,46 @@ export const PageContent = ({
     <>
       {data.markdown && getFigures(data.markdown).map((mdStr, index) => {
         if (mdStr.startsWith('hr')) {
-          return (<div key={index}>
-            <StyledHorizontalLine key={index} data-bottom-space={true} />
-          </div>)
+          return (
+            <div key={index}>
+              <StyledHorizontalLine key={index} data-bottom-space={true} />
+            </div>
+          )
+        } else if (mdStr.startsWith('fig2')) {
+          const [figureId1, figureId2] = mdStr.split("-").splice(1);
+          const figure1 = figures.find((fig) => fig.id === figureId1);
+          const figure2 = figures.find((fig) => fig.id === figureId2);
+          return (
+            <FigureFlexContainer key={index}>
+              <FigureFlexChild>
+                <ImagePreview
+                  imageUrl={figure1?.imageUrl || ""}
+                  label={figure1?.label || ""}
+                  caption={figure1?.caption || ""}
+                />
+              </FigureFlexChild>
+              <FigureFlexChild>
+                <ImagePreview
+                  imageUrl={figure2?.imageUrl || ""}
+                  label={figure2?.label || ""}
+                  caption={figure2?.caption || ""}
+                />
+              </FigureFlexChild>
+            </FigureFlexContainer>
+          )
+        } else if (mdStr.startsWith('figfloat')) {
+          const [figureId, floatPos] = mdStr.split("-").splice(1);
+          const figure = figures.find((fig) => fig.id === figureId);
+          const floatPosition = floatPos === "left" ? "left" : "right";
+          return (
+            <FigureFloatContainer key={index} data-float={floatPosition}>
+              <ImagePreview
+                imageUrl={figure?.imageUrl || ""}
+                label={figure?.label || ""}
+                caption={figure?.caption || ""}
+              />
+            </FigureFloatContainer>
+          )
         } else if (mdStr.startsWith('fig')) {
           const id = mdStr.split("-")[1];
           const figure = figures.find((fig) => fig.id === id);
