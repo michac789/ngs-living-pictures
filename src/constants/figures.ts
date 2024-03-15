@@ -25,4 +25,10 @@ export const figures: SingleFigure[] = [
     label: "Figure 3",
     caption: "Yee I-Lann, Detail of *Tabled*, 2013. Collection of Singapore Art Museum. Image courtesy of the artist and Silverlens",
   },
+  {
+    id: "sampleId",
+    imageUrl: "figures/fig5.webp",
+    label: 'Sample Image Label',
+    caption: 'Sample Image Caption, you can edit this in `figures.ts`',
+  },
 ]

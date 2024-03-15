@@ -8,17 +8,21 @@ interface SearchResult {
   next: string;
 }
 
-export const searchPage = (query: string) => {
+export const searchPage = (
+  query: string,
+  charBufferLength: number = 50
+) => {
   if (!query) return [];
+  const sanitizedQuery = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "");
   const searchResults: SearchResult[] = [];
   orderedPages.forEach((page) => {
     const content = page.searchContent || "";
-    const regex = new RegExp(query, "gi");
+    const regex = new RegExp(sanitizedQuery, "gi");
     const matches = content.match(regex);
     if (matches) {
       const midIndex = content.indexOf(matches[0]);
-      const start = Math.max(0, midIndex - 30);
-      const end = Math.min(content.length, midIndex + matches[0].length + 30);
+      const start = Math.max(0, midIndex - charBufferLength);
+      const end = Math.min(content.length, midIndex + matches[0].length + charBufferLength);
       searchResults.push({
         link: page.link,
         name: page.name,
