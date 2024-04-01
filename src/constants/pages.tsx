@@ -13,6 +13,7 @@ import { PageContent } from "../components/PageContent/PageContent";
 import { about } from "./essays/about";
 import { essayCT } from "./essays/essayCT";
 import { essayRoy } from "./essays/essayRoy";
+import { essaySample } from "./essays/essaySample";
 import { essaySze } from "./essays/essaySze";
 
 interface SinglePage {
@@ -65,6 +66,11 @@ export const orderedPages: SinglePage[] = [
     searchContent: searchContents.essayRoy,
   },
   {
+    link: '/sample',
+    name: 'IV. Sample Page',
+    element: <PageContent data={essaySample} hasStickyMenu />,
+  },
+  {
     link: '/image-plates',
     name: 'Image Plates',
     element: <ImagePlates />,
@@ -87,11 +93,13 @@ export const orderedPages: SinglePage[] = [
     link: '/bibliography',
     name: 'Bibliography',
     element: <Bibliography />,
+    searchContent: searchContents.bibliography,
   },
   {
     link: '/contributors',
     name: 'Contributors',
     element: <Contributors />,
+    searchContent: searchContents.contributor,
   },
   {
     link: '/about',
@@ -103,10 +111,12 @@ export const orderedPages: SinglePage[] = [
     link: '/image-slider',
     name: 'Image Slider',
     element: <ImageSlider />,
+    searchContent: searchContents.imageSlider,
   },
   {
     link: '/glossary',
     name: 'Glossary',
     element: <Glossary />,
+    searchContent: searchContents.glossary,
   },
 ]

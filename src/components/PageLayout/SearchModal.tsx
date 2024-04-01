@@ -1,16 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  SearchModalContainer,
+  NotFoundContainer,
+  NotFoundImage,
   SearchResultsContainer,
   SingleResultContainer,
 } from "./SearchModalStyle";
-import { Backdrop } from "../Backdrop/Backdrop";
-import { Portal } from "../Portal/Portal";
+import { Input } from "../Input/Input";
+import { Modal } from "../Modal/Modal";
 import { Text } from "../Text/Text";
 import { searchPage } from "../../utils/searchPage";
 import { useDebounce } from "../../utils/useDebounce";
-import { useOnClickOutside } from "../../utils/useOnClickOutside";
+import NotFoundImg from "../../assets/notfound.webp";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -22,22 +23,9 @@ export const SearchModal = ({
   isOpen, onClose, onPageChange,
 }: SearchModalProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [isExiting, setIsExiting] = useState<boolean>(false);
-  const modalRef = useRef<HTMLDivElement>(null);
-  const timeout = useRef<NodeJS.Timeout | null>(null);
-
   const debouncedSearchValue = useDebounce(searchValue);
   const searchResults = searchPage(debouncedSearchValue);
   const navigate = useNavigate();
-
-  const handleClose = () => {
-    setIsExiting(true);
-    timeout.current = setTimeout(() => {
-      onClose();
-      setIsExiting(false);
-    }, 270);
-  }
-  useOnClickOutside(handleClose, modalRef);
 
   const handleNavigate = (link: string) => {
     onClose();
@@ -45,57 +33,41 @@ export const SearchModal = ({
     onPageChange();
   }
 
-  return isOpen ? (
-    <Portal>
-      <Backdrop
-        isExiting={isExiting}
-        onExit={handleClose}
-      >
-        <SearchModalContainer ref={modalRef}>
-          <div>
-            This search feature is still under progress.
-            Remaining TODOs:
-            <ol>
-              <li>Improve search feature functionality and UI</li>
-              <li>Essay page allow image side by side or float wrap text (requested from NGS)</li>
-              <li>Consider migrating to gatsby for ssg</li>
-            </ol>
-          </div>
-          <div>
-            Search query:
-            <input
-              type="text"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              autoFocus
-            />
-            <div>
-              Debounced value: {debouncedSearchValue}
-            </div>
-          </div>
-          <SearchResultsContainer>
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} title="Search Page">
+      <Input
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        placeholder="Type your search query here..."
+        autoFocus
+        fullWidth
+      />
+      <Text variant="subtitle3" style={{ margin: "8px 8px 4px" }}>
+        Search results:
+      </Text>
+      <SearchResultsContainer>
+        {searchResults.map((page) => (
+          <SingleResultContainer
+            key={page.link}
+            onClick={() => handleNavigate(page.link)}
+          >
             <Text variant="subtitle3">
-              Search results:
+              <u>{page.name}</u>
             </Text>
-            {searchResults.map((page) => (
-              <SingleResultContainer
-                key={page.link}
-                onClick={() => handleNavigate(page.link)}
-              >
-                <Text variant="subtitle3">
-                  <u>{page.name}</u>
-                </Text>
-                <Text variant="body2">
-                  ...{page.prev}<b>{page.match}</b>{page.next}...
-                </Text>
-              </SingleResultContainer>
-            ))}
-            {searchResults.length === 0 && (
-              <div>Empty search results</div>
-            )}
-          </SearchResultsContainer>
-        </SearchModalContainer>
-      </Backdrop>
-    </Portal>
-  ) : null;
+            <Text variant="body2">
+              ...{page.prev}<b>{page.match}</b>{page.next}...
+            </Text>
+          </SingleResultContainer>
+        ))}
+        {searchResults.length === 0 && (
+          <NotFoundContainer>
+            <NotFoundImage src={NotFoundImg} alt="Not Found Error" />
+            <Text variant="button">
+              No results found!
+            </Text>
+          </NotFoundContainer>
+        )}
+      </SearchResultsContainer>
+    </Modal>
+  )
 };

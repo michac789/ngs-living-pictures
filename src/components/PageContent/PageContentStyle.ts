@@ -148,6 +148,11 @@ export const ContributorContainer = styled.div`
   div {
     ${textVariantMapping.body2};
 
+    svg {
+      height: 14px;
+      width: 14px;
+    }
+
     .contributor-name {
       font-weight: 600;
     }
@@ -155,5 +160,52 @@ export const ContributorContainer = styled.div`
 
   .contributor-container {
     margin: 0;
+  }
+`;
+
+export const FigureFlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  @media (max-width: ${breakpoints.medium}) {
+    gap: 4px;
+  }
+`;
+
+export const FigureFlexChild = styled.div`
+  flex: 1;
+`;
+
+export const FigureFloatContainer = styled.div`
+  width: 50%;
+
+  &[data-float="left"] {
+    float: left;
+    padding-right: 16px;
+  }
+
+  &[data-float="right"] {
+    float: right;
+    padding-left: 16px;
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    &[data-float="left"] {
+      padding-right: 12px;
+    }
+    &[data-float="right"] {
+      padding-left: 12px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.small}) {
+    &[data-float="left"] {
+      padding-right: 8px;
+    }
+    &[data-float="right"] {
+      padding-left: 8px;
+    }
   }
 `;
