@@ -95,10 +95,6 @@ Using GitHub Actions, the project is automatically built and deployed to the pro
 
 Alternatively, you can also use a serverless platform like Vercel, Netlify, or AWS Amplify to deploy the project to production.
 
-## Getting Started on the Template
-
-TODO: Add instructions on how to use the template
-
 ### Future Improvements
 
 The use of Gatsby.js for static site generation is considered for future improvements. This will improve the performance of the website, and optimize search engine optimization (SEO) for the website.

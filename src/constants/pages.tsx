@@ -1,5 +1,6 @@
 import { metaData } from "./metadata";
 import { searchContents } from "./search";
+import AudioGuide from "../pages/AudioGuide/AudioGuide";
 import Bibliography from "../pages/Bibliography/Bibliography";
 import Content from "../pages/Content/Content";
 import Contributors from "../pages/Contributors/Contributors";
@@ -112,6 +113,12 @@ export const orderedPages: SinglePage[] = [
     name: 'Image Slider',
     element: <ImageSlider />,
     searchContent: searchContents.imageSlider,
+  },
+  {
+    link: '/audio-guide',
+    name: 'Audio Guide',
+    element: <AudioGuide />,
+    searchContent: searchContents.audioGuide,
   },
   {
     link: '/glossary',

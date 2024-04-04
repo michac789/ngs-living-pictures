@@ -66,6 +66,9 @@ export const searchContents: {
   imageSlider: `
     ${images.map((item) => `${item.caption} ${item.altName}`).join(" ")}
   `,
+  audioGuide: `
+  
+  `,
   glossary: `
     ${artistGlossary.map((item) => `${item.name} ${item.description}`).join(" ")}
     ${artworkGlossary.map((item) => `${item.name} ${item.description}`).join(" ")}
