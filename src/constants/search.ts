@@ -75,7 +75,7 @@ export const searchContents: {
   `,
   audioGuide: `
     Audio Guide
-    ${audioList.map((item) => `${item.title} ${item.author} ${item.descriptionMd}`).join(" ")}
+    ${audioList.map((item) => `${item.title} ${item.author || ''} ${item.descriptionMd || ''}`).join(" ")}
   `,
   glossary: `
     Glossary

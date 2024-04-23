@@ -2,8 +2,8 @@
 export interface Audio {
   audioPath: string;
   title: string;
-  author: string;
-  descriptionMd: string;
+  author?: string;
+  descriptionMd?: string;
 }
 
 export const audioList: Audio[] = [
@@ -24,5 +24,10 @@ export const audioList: Audio[] = [
     title: "Valley of the Damned, 2009",
     author: "Sam Totman",
     descriptionMd: "Sample *markdown* description 3, **bold** text, and [link]().",
+  },
+  {
+    audioPath: "sampleinvalidaudio.mp3",
+    title: "Sample Invalid Audio File",
+    author: "The Invisible Man",
   },
 ]

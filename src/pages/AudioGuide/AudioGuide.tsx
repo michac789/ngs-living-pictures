@@ -16,12 +16,16 @@ const AudioGuide = () => {
           <Text variant="subtitle2" style={{ fontStyle: "normal" }}>
             {audio.title}
           </Text>
-          <Text variant="body2">{audio.author}</Text>
+          {audio.author && (
+            <Text variant="body2">{audio.author}</Text>
+          )}
           <AudioPlayer audioPath={audio.audioPath} />
-          <Markdown
-            value={audio.descriptionMd}
-            type="small"
-          />
+          {audio.descriptionMd && (
+            <Markdown
+              value={audio.descriptionMd}
+              type="small"
+            />
+          )}
         </AudioItemCard>
       ))}
     </AudioGuideContainer>

@@ -8,6 +8,8 @@ import {
   StyledAudioText,
 } from "./AudioPlayerStyle";
 import { Icon } from "../Icon/Icon";
+import { Text } from "../Text/Text";
+import { colors } from "../../constants/styles/colors";
 
 interface AudioPlayerProps {
   audioPath: string;
@@ -21,7 +23,12 @@ export const AudioPlayer = ({
   const [currentTime, setCurrentTime] = useState<number>(0);
   
   const audioRef = useRef<HTMLAudioElement>(null);
-  const audioSource = require(`../../assets/audio/${audioPath}`)
+  let audioSource;
+  try {
+    audioSource = require(`../../assets/audio/${audioPath}`);
+  } catch (e) {
+    console.warn(`Audio file ${audioPath} not found, please check that you entered the correct path`);
+  }
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -72,6 +79,14 @@ export const AudioPlayer = ({
     const remainingSeconds: number = Math.floor(seconds % 60);
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
+
+  if (!audioSource) {
+    return (
+      <Text variant="body2" style={{ color: colors.Red700 }}>
+        Audio Error! Please check that you entered the correct audio path!
+      </Text>
+    )
+  }
 
   return (
     <AudioPlayerWrapper>
