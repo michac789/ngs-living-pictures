@@ -264,7 +264,7 @@ export const PageContent = ({
   );
 
   const currContributor = contributorList.find((contributor) => contributor.essays.some((essay) => essay.url === window.location.pathname));
-  const contributorComponent = (
+  const contributorComponent = hasStickyMenu && (
     <>
       <Text
         variant="body1"

@@ -75,6 +75,7 @@ export const orderedPages: SinglePage[] = [
     link: '/image-plates',
     name: 'Image Plates',
     element: <ImagePlates />,
+    searchContent: searchContents.ImagePlatesHome,
   },
   {
     link: '/image-plates/1',

@@ -19,6 +19,7 @@ export const AudioPlayer = ({
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [totalDuration, setTotalDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
+  
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioSource = require(`../../assets/audio/${audioPath}`)
 
