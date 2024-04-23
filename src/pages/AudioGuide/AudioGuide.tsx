@@ -12,7 +12,7 @@ const AudioGuide = () => {
       <Text variant="subtitle3">
         TODO - Add audio guide content
       </Text>
-      <AudioPlayer />
+      <AudioPlayer audioPath="sampleaudio3.mp3" />
     </AudioGuideContainer>
   );
 }
