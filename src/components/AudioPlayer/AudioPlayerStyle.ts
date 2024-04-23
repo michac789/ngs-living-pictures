@@ -76,11 +76,13 @@ export const SliderInput = styled.input`
     opacity: 0.85;
   }
 
-  @media (max-width: ${breakpoints.large}) {
-    width: 500px;
-  }
   @media (max-width: ${breakpoints.medium}) {
     width: 400px;
+    
+    &::-webkit-slider-thumb {
+      width: 8px;
+      height: 8px;
+    }
   }
   @media (max-width: ${breakpoints.small}) {
     width: 300px;
