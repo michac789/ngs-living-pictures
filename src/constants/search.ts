@@ -1,3 +1,4 @@
+import { audioList } from "./audio"
 import { bibliographyList } from "./bibliography"
 import { contributorList } from "./contributors"
 import { about } from "./essays/about"
@@ -45,6 +46,9 @@ export const searchContents: {
     ${essaySze.abstract}
     ${essaySze.markdown}
   `,
+  ImagePlatesHome: `
+    Image Plates Homepage
+  `,
   imagePlate1: `
     ${imagePlatesDetailData[0].title}
     ${imagePlatesDetailData[0].description}
@@ -54,9 +58,11 @@ export const searchContents: {
     ${imagePlatesDetailData[1].description}
   `,
   bibliography: `
+    Bibliography
     ${bibliographyList.map((item) => `${item.id} ${item.markdown}`).join(" ")}
   `,
   contributor: `
+    Contributors
     ${contributorList.map((item) => `${item.name} ${item.descriptionMd}`).join(" ")}
   `,
   about: `
@@ -64,9 +70,15 @@ export const searchContents: {
     ${about.markdown}
   `,
   imageSlider: `
+    Image Slider
     ${images.map((item) => `${item.caption} ${item.altName}`).join(" ")}
   `,
+  audioGuide: `
+    Audio Guide
+    ${audioList.map((item) => `${item.title} ${item.author || ''} ${item.descriptionMd || ''}`).join(" ")}
+  `,
   glossary: `
+    Glossary
     ${artistGlossary.map((item) => `${item.name} ${item.description}`).join(" ")}
     ${artworkGlossary.map((item) => `${item.name} ${item.description}`).join(" ")}
   `,

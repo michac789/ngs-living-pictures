@@ -13,7 +13,7 @@ export const searchPage = (
   charBufferLength: number = 50
 ) => {
   if (!query) return [];
-  const sanitizedQuery = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "");
+  const sanitizedQuery = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, "");
   const searchResults: SearchResult[] = [];
   orderedPages.forEach((page) => {
     const content = page.searchContent || "";

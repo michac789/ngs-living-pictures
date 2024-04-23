@@ -264,7 +264,7 @@ export const PageContent = ({
   );
 
   const currContributor = contributorList.find((contributor) => contributor.essays.some((essay) => essay.url === window.location.pathname));
-  const contributorComponent = currContributor && (
+  const contributorComponent = hasStickyMenu && (
     <>
       <Text
         variant="body1"
@@ -273,13 +273,22 @@ export const PageContent = ({
         CONTRIBUTOR
       </Text>
       <ContributorContainer ref={contributorRef}>
-        <SingleContributor
-          name={currContributor.name}
-          descriptionMd={currContributor.descriptionMd}
-          image={require(`../../assets/${currContributor.imageUrl}`)}
-          portfolioUrl={currContributor.portfolioUrl}
-          essays={currContributor.essays}
-        />
+        {currContributor ? (
+          <SingleContributor
+            name={currContributor.name}
+            descriptionMd={currContributor.descriptionMd}
+            image={require(`../../assets/${currContributor.imageUrl}`)}
+            portfolioUrl={currContributor.portfolioUrl}
+            essays={currContributor.essays}
+          />
+        ) : (
+          <Text variant="body2" style={{
+            color: colors.Neutral600,
+            padding: "4px 0 0",
+          }}>
+            Unknown Contributor
+          </Text>
+        )}
       </ContributorContainer>
     </>
   )
