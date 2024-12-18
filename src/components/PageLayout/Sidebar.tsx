@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   MobileCloseButtonContainer,
@@ -14,7 +14,9 @@ import {
   SidebarSectionText,
   SidebarSubtitleText,
   SidebarTitleText,
+  SidebarReadMeText,
 } from "./SidebarStyle";
+import { ReadMeModal } from "./ReadMeModal";
 import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
 import { Portal } from "../Portal/Portal";
@@ -37,6 +39,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     isSidebarOpen, isLargeScreen, onPageChange, onSidebarClose
   }, ref
 ) => {
+  const [isReadMeModalOpen, setIsReadMeModalOpen] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const handleLinkClick = (link: string) => {
@@ -45,6 +48,11 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     if (!isLargeScreen) {
       onSidebarClose();
     }
+  }
+
+  const handleReadMeClick = () => {
+    setIsReadMeModalOpen(true);
+    onSidebarClose();
   }
 
   const handlePdfClick = () => {
@@ -62,6 +70,9 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
       <SidebarSubtitleText variant="body1">
         {sidebarConstants.subtitle}
       </SidebarSubtitleText>
+      <SidebarReadMeText onClick={handleReadMeClick}>
+        About This Site
+      </SidebarReadMeText>
       {orderedPages.map(({
         link, name, isSubpage=false,
       }, index) => {
@@ -126,7 +137,12 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     </>
   );
 
-  if (!isLargeScreen && !isSidebarOpen) return null;
+  if (!isLargeScreen && !isSidebarOpen) return (
+    <ReadMeModal
+      isOpen={isReadMeModalOpen}
+      onClose={() => setIsReadMeModalOpen(false)}
+    />
+  )
   if (!isLargeScreen && isSidebarOpen) {
     return (
       <Portal>
@@ -141,8 +157,14 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
   }
 
   return (
-    <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
-      {sidebarContents}
-    </SidebarContainer>
+    <>
+      <ReadMeModal
+        isOpen={isReadMeModalOpen}
+        onClose={() => setIsReadMeModalOpen(false)}
+      />
+      <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
+        {sidebarContents}
+      </SidebarContainer>
+    </>
   );
 });

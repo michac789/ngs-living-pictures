@@ -7,7 +7,7 @@ export const ModalContainer = styled.div`
   flex-direction: column;
 
   width: fit-content;
-  min-width: 400px;
+  min-width: 300px;
   max-width: calc(100% - 72px);
   height: fit-content;
   min-height: 300px;
