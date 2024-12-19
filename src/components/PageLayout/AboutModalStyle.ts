@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../constants/styles/breakpoints";
+import { colors } from "../../constants/styles/colors";
 
 export const AboutContentContainer = styled.div`
   display: flex;
@@ -16,5 +17,14 @@ export const AboutContentContainer = styled.div`
   }
   @media (max-width: ${breakpoints.medium}) {
     width: 100%;
+  }
+`;
+
+export const StyledSpan = styled.span`
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  :hover {
+    color: ${colors.Blue700};
   }
 `;

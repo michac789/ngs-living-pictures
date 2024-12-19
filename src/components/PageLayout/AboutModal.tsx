@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "../Modal/Modal";
 import { Text } from "../Text/Text";
-import { AboutContentContainer } from "./AboutModalStyle";
+import { AboutContentContainer, StyledSpan } from "./AboutModalStyle";
 
 interface AboutModalProps {
   isOpen: boolean;
@@ -12,10 +12,21 @@ export const AboutModal = ({
   isOpen,
   onClose,
 }: AboutModalProps) => {
+  const CopyableSpan = ({ text }: { text: string }) => (
+    <StyledSpan onClick={() => {
+      navigator.clipboard.writeText(text)
+      alert('Copied to clipboard!')
+    }}>
+      <strong>
+        {text}
+      </strong>
+    </StyledSpan>
+  );
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="About This Site">
       <AboutContentContainer>
-        <Text variant="title3">
+        <Text variant="subtitle2" style={{ fontStyle: 'initial' }}>
           Welcome to My Portfolio!
         </Text>
         <Text variant="body2" style={{ textAlign: 'justify' }}>
@@ -35,7 +46,8 @@ export const AboutModal = ({
         </Text>
         <Text variant="body2" style={{ textAlign: 'justify' }}>
           If you'd like to collaborate or discuss potential projects, feel free to reach out to me at{' '}
-          <strong>(+65) 94289104</strong> or via email at <strong>michaelac978@gmail.com</strong>.
+          <CopyableSpan text="(+65)94289104" /> or via email at{' '}
+          <CopyableSpan text="michaelac978@gmail.com" />.
         </Text>
       </AboutContentContainer>
     </Modal>
