@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   MobileCloseButtonContainer,
@@ -16,7 +16,7 @@ import {
   SidebarTitleText,
   SidebarReadMeText,
 } from "./SidebarStyle";
-import { ReadMeModal } from "./ReadMeModal";
+import { AboutModal } from "./AboutModal";
 import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
 import { Portal } from "../Portal/Portal";
@@ -39,8 +39,16 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     isSidebarOpen, isLargeScreen, onPageChange, onSidebarClose
   }, ref
 ) => {
-  const [isReadMeModalOpen, setIsReadMeModalOpen] = useState<boolean>(true);
+  const [isReadMeModalOpen, setIsReadMeModalOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      setIsReadMeModalOpen(true);
+      localStorage.setItem("hasVisited", "true");
+    }
+  }, []);
 
   const handleLinkClick = (link: string) => {
     navigate(link);
@@ -138,7 +146,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
   );
 
   if (!isLargeScreen && !isSidebarOpen) return (
-    <ReadMeModal
+    <AboutModal
       isOpen={isReadMeModalOpen}
       onClose={() => setIsReadMeModalOpen(false)}
     />
@@ -158,7 +166,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
 
   return (
     <>
-      <ReadMeModal
+      <AboutModal
         isOpen={isReadMeModalOpen}
         onClose={() => setIsReadMeModalOpen(false)}
       />
