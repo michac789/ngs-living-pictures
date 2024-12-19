@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Text } from "../Text/Text";
 import { textVariantMapping } from "../Text/TextStyle";
 import { breakpoints } from "../../constants/styles/breakpoints";
@@ -88,6 +88,54 @@ export const SidebarSubtitleText = styled(Text)`
 
   @media (max-width: ${breakpoints.medium}) {
     margin: 0 0 16px 20px;
+  }
+`;
+
+const glowingEffect = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+`;
+
+export const SidebarReadMeText = styled(Text)`
+  margin: 0 8px 8px 20px;
+  font-family: 'Noto Sans', 'sans-serif';
+  font-size: 20px;
+  font-weight: 700;
+
+  padding: 8px 8px 8px 16px;
+  cursor: pointer;
+  color: ${colors.Blue100};
+  line-height: 1.3;
+  border: 2px solid ${colors.Blue300};
+  transition: all 0.3s ease;
+
+  background: linear-gradient(
+    45deg,
+    rgba(100, 50, 255, 1),
+    rgba(50, 255, 200, 1),
+    rgba(200, 75, 255, 1)
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: ${glowingEffect} 1.5s linear infinite alternate;
+
+  &:hover {
+    color: ${colors.Blue200};
+    border: 2px solid ${colors.Blue400};
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+  }
+
+  @media (max-width: ${breakpoints.medium}) {
+    font-size: 18px;
+    margin: 0 4px 4px 20px;
+    padding: 6px 6px 6px 12px;
   }
 `;
 

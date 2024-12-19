@@ -13,7 +13,7 @@ export const ImagePreviewContainer = styled.div`
 
 export const StyledImagePreview = styled.img`
   max-width: 100%;
-  cursor: pointer;
+  cursor: zoom-in;
   transition: box-shadow 0.3s ease-in-out;
 
   &:hover {

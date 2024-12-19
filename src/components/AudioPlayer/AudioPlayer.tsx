@@ -13,16 +13,15 @@ import { colors } from "../../constants/styles/colors";
 
 interface AudioPlayerProps {
   audioPath: string;
+  isPlaying: boolean;
+  onPlay: (audioPath: string | null) => void;
 }
 
-export const AudioPlayer = ({
-  audioPath
-}: AudioPlayerProps) => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+export const AudioPlayer = ({ audioPath, isPlaying, onPlay }: AudioPlayerProps) => {
   const [totalDuration, setTotalDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  
   const audioRef = useRef<HTMLAudioElement>(null);
+
   let audioSource;
   try {
     audioSource = require(`../../assets/audio/${audioPath}`);
@@ -33,23 +32,22 @@ export const AudioPlayer = ({
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
-      audio.addEventListener('loadedmetadata', () => {
+      audio.addEventListener("loadedmetadata", () => {
         setTotalDuration(audio.duration);
       });
     }
   }, [audioPath]);
 
-  const togglePlay = (): void => {
+  useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
       if (isPlaying) {
-        audio.pause();
-      } else {
         audio.play();
+      } else {
+        audio.pause();
       }
-      setIsPlaying(!isPlaying);
     }
-  };
+  }, [isPlaying]);
 
   const handleTimeUpdate = (): void => {
     const audio = audioRef.current;
@@ -77,7 +75,12 @@ export const AudioPlayer = ({
   const formatTime = (seconds: number): string => {
     const minutes: number = Math.floor(seconds / 60);
     const remainingSeconds: number = Math.floor(seconds % 60);
-    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+  };
+
+  const handleAudioEnded = () => {
+    setCurrentTime(0);
+    onPlay(null);
   };
 
   if (!audioSource) {
@@ -85,23 +88,16 @@ export const AudioPlayer = ({
       <Text variant="body2" style={{ color: colors.Red700 }}>
         Audio Error! Please check that you entered the correct audio path!
       </Text>
-    )
+    );
   }
 
   return (
     <AudioPlayerWrapper>
-      <audio
-        ref={audioRef}
-        id="audio"
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={() => setIsPlaying(false)}
-      >
+      <audio ref={audioRef} id="audio" onTimeUpdate={handleTimeUpdate} onEnded={() => handleAudioEnded()}>
         <source src={audioSource} type="audio/mpeg" />
       </audio>
-      <PlayPauseContainer
-        onClick={togglePlay}
-      >
-        <Icon name={isPlaying ? 'ri-pause-fill' : 'ri-play-fill'} />
+      <PlayPauseContainer onClick={() => onPlay(isPlaying ? null : audioPath)}>
+        <Icon name={isPlaying ? "ri-pause-fill" : "ri-play-fill"} />
       </PlayPauseContainer>
       <SliderContainer>
         <SliderInput
@@ -113,14 +109,10 @@ export const AudioPlayer = ({
         <AudioInfoContainer>
           <StyledAudioText variant="body2">
             <span>{formatTime(currentTime)}</span>
-            <Icon name="ri-replay-10-fill"
-              onClick={() => handleTimeMove(-10)}
-            />
+            <Icon name="ri-replay-10-fill" onClick={() => handleTimeMove(-10)} />
           </StyledAudioText>
           <StyledAudioText variant="body2">
-            <Icon name="ri-forward-10-fill"
-              onClick={() => handleTimeMove(10)}
-            />
+            <Icon name="ri-forward-10-fill" onClick={() => handleTimeMove(10)} />
             <span>{formatTime(totalDuration - currentTime)}</span>
           </StyledAudioText>
         </AudioInfoContainer>

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   MobileCloseButtonContainer,
@@ -14,7 +14,9 @@ import {
   SidebarSectionText,
   SidebarSubtitleText,
   SidebarTitleText,
+  SidebarReadMeText,
 } from "./SidebarStyle";
+import { AboutModal } from "./AboutModal";
 import { Icon } from "../Icon/Icon";
 import { Markdown } from "../Markdown/Markdown";
 import { Portal } from "../Portal/Portal";
@@ -37,7 +39,16 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     isSidebarOpen, isLargeScreen, onPageChange, onSidebarClose
   }, ref
 ) => {
+  const [isReadMeModalOpen, setIsReadMeModalOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      setIsReadMeModalOpen(true);
+      localStorage.setItem("hasVisited", "true");
+    }
+  }, []);
 
   const handleLinkClick = (link: string) => {
     navigate(link);
@@ -47,9 +58,13 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     }
   }
 
+  const handleReadMeClick = () => {
+    setIsReadMeModalOpen(true);
+    onSidebarClose();
+  }
+
   const handlePdfClick = () => {
-    const awsLink = "https://ntusu-api-static-prod.s3.ap-southeast-1.amazonaws.com/temp/test.pdf?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgPUJ%2FLHLaX4FpcUf%2B%2BMh6KE4cSYWDO1KSdLS8ZgZiEO4CIG3ck2noz%2B3JsP1H3NmKSIYI305RpTC68SbfT6YjrWhKKu0CCNP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBBoMMTQzOTQxNjUxNjQwIgx0tRkcYm6HilBlujkqwQI%2BLhJ%2BzLbe%2FoLHd9%2BV2i7NLgtIIX1C%2BioX84zJlGly7w1qiM4r%2BKjI7%2FrNQb3uwr%2B5jkhRgRLky0KAKULaZF7NQXKeA2WCFiI3%2BQ%2BM9S5p7Z3v%2FZezd8bRqe3qqGdKxEk2Qn5GH2FMr7wKkqDggpqeRqqkjyExCaO0mC%2FdKKZyS6BCsN5GWwcu1GVW2qCF7lTguicOOISqQGhMy602Lv%2Bz0CxwrWDXcf65OCP79sRamcpO61aDjPFIimfJMkN5FsBj1BxsSjGKFs00vva5EF6ZnlqrQf1yjSwCjNIYcZYkDlOi2oL0jP18sMSJuwscbbL8wvMIsirC8jlyFURNOFN8xl9OLyQcPv7804UulGLOR6mZbvTV7KDdwb71WZYxcm7jUFvy4rvLhVhlJM2Zlq85CnpLICH%2FSfZe2WpmJIkBPTMw2Nv2rgY6tAK%2BitK362NahipNR%2FtDwK%2F4Yq1jZNR6Z8SnQfSwBfe68NQGK8SSCdOLzu55iagZTdexHnawJzH4r34SZ3QQarBfgUZnCDZwEKbYK6Qm9ugy%2FJheGFSLvdDvg1xn8d5Sz88qNwom6KkeDJm%2BwsrzPtwA5AZq3AIE0CUg5mHYxhvmUOgOg4DfSNF%2BgRXfLfDqWsObtNhuxiwdQoSnY7Tt0ztGEnsDckksp%2BvMn7bv7f12HutPVrJUHSkbnhaYiqDiftQTJhWU6%2FdRmkEBen%2BLGrQj9Hz3hbPFKvzdQYll8w6JWGVoSXSl%2FFN1nZ7AjWzWaeeO%2B20Op5G221hl952hSkfgLwPFiosAPKicizBYm1qW8lSRv%2BX3qcy%2FVbqO4TAEjO8tkkCJ%2BQJso5QCA0aDJqP0A%2FpcHw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240227T094011Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIASDA4XJS4FSMJQTFU%2F20240227%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1599c73f6b42abf9fda57dc93c6186d667150f6b4e8ee638b796fcc9afa05002";
-    window.open(awsLink, "_blank");
+    window.open(sidebarConstants.pdfFormatLink, "_blank");
   }
 
   const sidebarContents = (
@@ -62,6 +77,9 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
       <SidebarSubtitleText variant="body1">
         {sidebarConstants.subtitle}
       </SidebarSubtitleText>
+      <SidebarReadMeText onClick={handleReadMeClick}>
+        About This Site
+      </SidebarReadMeText>
       {orderedPages.map(({
         link, name, isSubpage=false,
       }, index) => {
@@ -126,7 +144,12 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
     </>
   );
 
-  if (!isLargeScreen && !isSidebarOpen) return null;
+  if (!isLargeScreen && !isSidebarOpen) return (
+    <AboutModal
+      isOpen={isReadMeModalOpen}
+      onClose={() => setIsReadMeModalOpen(false)}
+    />
+  )
   if (!isLargeScreen && isSidebarOpen) {
     return (
       <Portal>
@@ -141,8 +164,14 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((
   }
 
   return (
-    <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
-      {sidebarContents}
-    </SidebarContainer>
+    <>
+      <AboutModal
+        isOpen={isReadMeModalOpen}
+        onClose={() => setIsReadMeModalOpen(false)}
+      />
+      <SidebarContainer data-sidebar-closed={!isSidebarOpen} ref={ref}>
+        {sidebarContents}
+      </SidebarContainer>
+    </>
   );
 });
