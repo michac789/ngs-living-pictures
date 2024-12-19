@@ -78,6 +78,11 @@ export const AudioPlayer = ({ audioPath, isPlaying, onPlay }: AudioPlayerProps) 
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   };
 
+  const handleAudioEnded = () => {
+    setCurrentTime(0);
+    onPlay(null);
+  };
+
   if (!audioSource) {
     return (
       <Text variant="body2" style={{ color: colors.Red700 }}>
@@ -88,7 +93,7 @@ export const AudioPlayer = ({ audioPath, isPlaying, onPlay }: AudioPlayerProps) 
 
   return (
     <AudioPlayerWrapper>
-      <audio ref={audioRef} id="audio" onTimeUpdate={handleTimeUpdate} onEnded={() => onPlay(audioPath)}>
+      <audio ref={audioRef} id="audio" onTimeUpdate={handleTimeUpdate} onEnded={() => handleAudioEnded()}>
         <source src={audioSource} type="audio/mpeg" />
       </audio>
       <PlayPauseContainer onClick={() => onPlay(isPlaying ? null : audioPath)}>
